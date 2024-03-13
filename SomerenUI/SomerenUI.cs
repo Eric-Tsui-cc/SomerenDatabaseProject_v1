@@ -81,7 +81,7 @@ namespace SomerenUI
 
             foreach (Student student in students)
             {
-                ListViewItem li = new ListViewItem(student.Name);
+                ListViewItem li = new ListViewItem(student.FullName);
                 li.Tag = student;   // link student object to listview item
                 listViewStudents.Items.Add(li);
             }
@@ -92,7 +92,7 @@ namespace SomerenUI
             listViewLecturers.Clear();
             foreach (Teacher teacher in teachers)
             {
-                ListViewItem li = new ListViewItem(teacher.Name);
+                ListViewItem li = new ListViewItem(teacher.FullName);
                 li.Tag = teacher;   // link student object to listview item
                 listViewLecturers.Items.Add(li);
             }
