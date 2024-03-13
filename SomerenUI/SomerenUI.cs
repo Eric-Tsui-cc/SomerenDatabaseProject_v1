@@ -1,4 +1,4 @@
-using SomerenService;
+﻿using SomerenService;
 using SomerenModel;
 using System.Windows.Forms;
 using System.Collections.Generic;
@@ -48,6 +48,12 @@ namespace SomerenUI
             List<Student> students = studentService.GetStudents();
             return students;
         }
+        private List<Teacher> GetTeachers()
+        {
+            TeacherService teacherService = new TeacherService();
+            List<Teacher> teachers = teacherService.GetTeachers();
+            return teachers;
+        }
 
         private void DisplayStudents(List<Student> students)
         {
@@ -60,6 +66,11 @@ namespace SomerenUI
                 li.Tag = student;   // link student object to listview item
                 listViewStudents.Items.Add(li);
             }
+        }
+        private void DisplayTeachers(List<Teacher> teacher)
+        {
+            // clear the listview before filling it
+            listViewTeacher.Clear();
         }
 
         private void dashboardToolStripMenuItem1_Click(object sender, System.EventArgs e)
@@ -75,6 +86,11 @@ namespace SomerenUI
         private void studentsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ShowStudentsPanel();
+        }
+
+        private void lecturersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // ShowLecturersPanel（）；
         }
     }
 }
