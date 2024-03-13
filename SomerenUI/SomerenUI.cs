@@ -78,19 +78,31 @@ namespace SomerenUI
         private void DisplayStudents(List<Student> students)
         {
             // clear the listview before filling it
-            listViewStudents.Clear();
+            listViewStudents.Items.Clear();
 
+
+            listViewStudents.View = View.Details; // 设置 ListView 显示方式为详细视图
+            listViewStudents.Columns.Add("Name", 120); // 添加姓名列，宽度为 120
+            listViewStudents.Columns.Add("Student Number", 200); // 添加学号列，宽度为 100
+            listViewStudents.Columns.Add("Telephone Number", 200); // 添加电话号码列，宽度为 150
+            listViewStudents.Columns.Add("Room Number", 200); // 添加房间号列，宽度为 80
+
+            // 在显示学生数据时，为每个学生创建 ListViewItem，并将其添加到 ListView 中
             foreach (Student student in students)
             {
                 ListViewItem li = new ListViewItem(student.FullName);
-                li.Tag = student;   // link student object to listview item
+                li.SubItems.Add(student.Number.ToString()); // 添加学号子项
+                li.SubItems.Add(student.TelePhoneNumber); // 添加电话号码子项
+                li.SubItems.Add(student.RoomNumber.ToString()); // 添加房间号子项
+                li.Tag = student; // 将学生对象关联到 ListViewItem 的 Tag 属性
                 listViewStudents.Items.Add(li);
             }
+
         }
         private void DisplayTeachers(List<Teacher> teachers)
         {
             // clear the listview before filling it
-            listViewLecturers.Clear();
+            listViewLecturers.Items.Clear();
             foreach (Teacher teacher in teachers)
             {
                 ListViewItem li = new ListViewItem(teacher.FullName);
@@ -118,5 +130,6 @@ namespace SomerenUI
         {
             ShowLecturersPanel();
         }
+
     }
 }

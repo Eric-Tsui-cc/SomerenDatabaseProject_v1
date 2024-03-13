@@ -38,21 +38,21 @@
             activitiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             roomsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             pnlDashboard = new System.Windows.Forms.Panel();
-            pnlStudents = new System.Windows.Forms.Panel();
-            pictureBox1 = new System.Windows.Forms.PictureBox();
-            listViewStudents = new System.Windows.Forms.ListView();
-            label1 = new System.Windows.Forms.Label();
             lblDashboard = new System.Windows.Forms.Label();
             pnlTeachers = new System.Windows.Forms.Panel();
             pictureBox2 = new System.Windows.Forms.PictureBox();
             listViewLecturers = new System.Windows.Forms.ListView();
             label2 = new System.Windows.Forms.Label();
+            pnlStudents = new System.Windows.Forms.Panel();
+            pictureBox1 = new System.Windows.Forms.PictureBox();
+            listViewStudents = new System.Windows.Forms.ListView();
+            label1 = new System.Windows.Forms.Label();
             menuStrip1.SuspendLayout();
             pnlDashboard.SuspendLayout();
-            pnlStudents.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             pnlTeachers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            pnlStudents.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // menuStrip1
@@ -115,59 +115,18 @@
             // 
             // pnlDashboard
             // 
-            pnlDashboard.Controls.Add(pnlStudents);
             pnlDashboard.Controls.Add(lblDashboard);
+            pnlDashboard.Controls.Add(pnlTeachers);
             pnlDashboard.Location = new System.Drawing.Point(0, 0);
             pnlDashboard.Margin = new System.Windows.Forms.Padding(5);
             pnlDashboard.Name = "pnlDashboard";
             pnlDashboard.Size = new System.Drawing.Size(1474, 746);
             pnlDashboard.TabIndex = 1;
             // 
-            // pnlStudents
-            // 
-            pnlStudents.Controls.Add(pictureBox1);
-            pnlStudents.Controls.Add(listViewStudents);
-            pnlStudents.Controls.Add(label1);
-            pnlStudents.Location = new System.Drawing.Point(0, 0);
-            pnlStudents.Margin = new System.Windows.Forms.Padding(5);
-            pnlStudents.Name = "pnlStudents";
-            pnlStudents.Size = new System.Drawing.Size(1474, 746);
-            pnlStudents.TabIndex = 2;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = (System.Drawing.Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new System.Drawing.Point(1265, 0);
-            pictureBox1.Margin = new System.Windows.Forms.Padding(5);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new System.Drawing.Size(204, 197);
-            pictureBox1.TabIndex = 2;
-            pictureBox1.TabStop = false;
-            // 
-            // listViewStudents
-            // 
-            listViewStudents.Location = new System.Drawing.Point(20, 67);
-            listViewStudents.Margin = new System.Windows.Forms.Padding(5);
-            listViewStudents.Name = "listViewStudents";
-            listViewStudents.Size = new System.Drawing.Size(1201, 489);
-            listViewStudents.TabIndex = 1;
-            listViewStudents.UseCompatibleStateImageBehavior = false;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label1.Location = new System.Drawing.Point(45, 14);
-            label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(157, 48);
-            label1.TabIndex = 0;
-            label1.Text = "Students";
-            // 
             // lblDashboard
             // 
             lblDashboard.AutoSize = true;
-            lblDashboard.Location = new System.Drawing.Point(14, 15);
+            lblDashboard.Location = new System.Drawing.Point(6, 23);
             lblDashboard.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             lblDashboard.Name = "lblDashboard";
             lblDashboard.Size = new System.Drawing.Size(338, 24);
@@ -177,10 +136,9 @@
             // pnlTeachers
             // 
             pnlTeachers.Controls.Add(pictureBox2);
-            pnlTeachers.Controls.Add(pnlDashboard);
             pnlTeachers.Controls.Add(listViewLecturers);
             pnlTeachers.Controls.Add(label2);
-            pnlTeachers.Location = new System.Drawing.Point(14, 39);
+            pnlTeachers.Location = new System.Drawing.Point(0, 0);
             pnlTeachers.Margin = new System.Windows.Forms.Padding(5);
             pnlTeachers.Name = "pnlTeachers";
             pnlTeachers.Size = new System.Drawing.Size(1474, 746);
@@ -216,13 +174,55 @@
             label2.TabIndex = 0;
             label2.Text = "Lecturers";
             // 
+            // pnlStudents
+            // 
+            pnlStudents.Controls.Add(pictureBox1);
+            pnlStudents.Controls.Add(listViewStudents);
+            pnlStudents.Controls.Add(label1);
+            pnlStudents.Controls.Add(pnlDashboard);
+            pnlStudents.Location = new System.Drawing.Point(0, 39);
+            pnlStudents.Margin = new System.Windows.Forms.Padding(5);
+            pnlStudents.Name = "pnlStudents";
+            pnlStudents.Size = new System.Drawing.Size(1474, 746);
+            pnlStudents.TabIndex = 2;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (System.Drawing.Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new System.Drawing.Point(1265, 0);
+            pictureBox1.Margin = new System.Windows.Forms.Padding(5);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new System.Drawing.Size(204, 197);
+            pictureBox1.TabIndex = 2;
+            pictureBox1.TabStop = false;
+            // 
+            // listViewStudents
+            // 
+            listViewStudents.Location = new System.Drawing.Point(20, 67);
+            listViewStudents.Margin = new System.Windows.Forms.Padding(5);
+            listViewStudents.Name = "listViewStudents";
+            listViewStudents.Size = new System.Drawing.Size(1201, 489);
+            listViewStudents.TabIndex = 1;
+            listViewStudents.UseCompatibleStateImageBehavior = false;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label1.Location = new System.Drawing.Point(45, 14);
+            label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(157, 48);
+            label1.TabIndex = 0;
+            label1.Text = "Students";
+            // 
             // SomerenUI
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(1512, 808);
             Controls.Add(menuStrip1);
-            Controls.Add(pnlTeachers);
+            Controls.Add(pnlStudents);
             MainMenuStrip = menuStrip1;
             Margin = new System.Windows.Forms.Padding(5);
             Name = "SomerenUI";
@@ -231,12 +231,12 @@
             menuStrip1.PerformLayout();
             pnlDashboard.ResumeLayout(false);
             pnlDashboard.PerformLayout();
-            pnlStudents.ResumeLayout(false);
-            pnlStudents.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             pnlTeachers.ResumeLayout(false);
             pnlTeachers.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            pnlStudents.ResumeLayout(false);
+            pnlStudents.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
