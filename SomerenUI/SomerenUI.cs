@@ -41,6 +41,25 @@ namespace SomerenUI
                 MessageBox.Show("Something went wrong while loading the students: " + e.Message);
             }
         }
+        private void ShowLecturersPanel()
+        {
+            // hide all other panels
+            pnlDashboard.Hide();
+
+            // show students
+            pnlTeachers.Show();
+
+            try
+            {
+                // get and display all students
+                List<Teacher> teachers = GetTeachers();
+                DisplayTeachers(teachers);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Something went wrong while loading the students: " + e.Message);
+            }
+        }
 
         private List<Student> GetStudents()
         {
@@ -67,10 +86,16 @@ namespace SomerenUI
                 listViewStudents.Items.Add(li);
             }
         }
-        private void DisplayTeachers(List<Teacher> teacher)
+        private void DisplayTeachers(List<Teacher> teachers)
         {
             // clear the listview before filling it
-            listViewTeacher.Clear();
+            listViewLecturers.Clear();
+            foreach (Teacher teacher in teachers)
+            {
+                ListViewItem li = new ListViewItem(teacher.Name);
+                li.Tag = teacher;   // link student object to listview item
+                listViewLecturers.Items.Add(li);
+            }
         }
 
         private void dashboardToolStripMenuItem1_Click(object sender, System.EventArgs e)
@@ -90,7 +115,7 @@ namespace SomerenUI
 
         private void lecturersToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // ShowLecturersPanel（）；
+            ShowLecturersPanel();
         }
     }
 }
