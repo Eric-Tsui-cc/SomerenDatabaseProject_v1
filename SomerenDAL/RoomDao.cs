@@ -24,13 +24,14 @@ namespace SomerenDAL
 
             foreach (DataRow dr in dataTable.Rows)
             {
-                Room room = new Room()
-                {
-                    RoomNumber = (int)dr["roomnumber"],
-                    BuildingNumber = (int)dr["buildingnumber"],
-                    RoomType = dr["roomtype"].ToString(),
-                    FloorNumber = (int)dr["floornumber"]
-                };
+                Room room = new Room();
+
+                // Check if the value is DBNull before casting
+                room.RoomNumber = dr["roomnumber"] != DBNull.Value ? Convert.ToInt32(dr["roomnumber"]) : 0;
+                room.BuildingNumber = dr["buildingnumber"] != DBNull.Value ? Convert.ToInt32(dr["buildingnumber"]) : 0;
+                room.RoomType = dr["roomtype"] != DBNull.Value ? dr["roomtype"].ToString() : string.Empty;
+                room.FloorNumber = dr["floornumber"] != DBNull.Value ? Convert.ToInt32(dr["floornumber"]) : 0;
+
                 rooms.Add(room);
             }
             return rooms;
