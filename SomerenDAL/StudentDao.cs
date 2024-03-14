@@ -10,7 +10,7 @@ namespace SomerenDAL
         public List<Student> GetAllStudents()
         {
 
-            string query = "SELECT Studentnumber, FirstName, LastName,Telephonenumber,RoomNumber FROM STUDENT";
+            string query = "SELECT Studentnumber, FirstName, LastName,Telephonenumber,RoomNumber,Class FROM STUDENT";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
@@ -28,6 +28,7 @@ namespace SomerenDAL
                     LastName = dr["LastName"].ToString(),
                     TelePhoneNumber = dr["TelePhoneNumber"].ToString(),
                     RoomNumber = dr["RoomNumber"].ToString(),
+                    Class = dr["Class"].ToString(),
                 };
                 students.Add(student);
             }

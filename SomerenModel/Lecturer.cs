@@ -1,12 +1,13 @@
 ﻿namespace SomerenModel
 {
-    public class Teacher
+    public class Lecturer
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public int Number { get; set; } // StudentNumber, e.g. 474791
+        public int Number { get; set; } 
         public int Age { get; set; }
-        public int PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; }
+        public int RoomNmber { get; set; }
         public string FullName
         {
             get
