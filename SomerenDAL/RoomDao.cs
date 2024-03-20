@@ -26,12 +26,10 @@ namespace SomerenDAL
             {
                 Room room = new Room();
 
-                // Check if the value is DBNull before casting
-                room.RoomNumber = dr["roomnumber"] != DBNull.Value ? Convert.ToInt32(dr["roomnumber"]) : 0;
-                room.BuildingNumber = dr["buildingnumber"] != DBNull.Value ? Convert.ToInt32(dr["buildingnumber"]) : 0;
-                room.RoomType = dr["roomtype"] != DBNull.Value ? dr["roomtype"].ToString() : string.Empty;
-                room.FloorNumber = dr["floornumber"] != DBNull.Value ? Convert.ToInt32(dr["floornumber"]) : 0;
-
+                room.RoomNumber = (int)dr["roomnumber"];
+                room.BuildingNumber = (int)dr["buildingnumber"];
+                room.RoomType = dr["roomtype"].ToString();
+                room.FloorNumber = (int)dr["floornumber"];
                 rooms.Add(room);
             }
             return rooms;

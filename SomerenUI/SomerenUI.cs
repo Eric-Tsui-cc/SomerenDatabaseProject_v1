@@ -4,6 +4,7 @@ using SomerenModel;
 using System.Windows.Forms;
 using System.Collections.Generic;
 using System;
+using System.Drawing;
 
 namespace SomerenUI
 {
@@ -22,6 +23,7 @@ namespace SomerenUI
             pnlActivity.Hide();
             pnlRoom.Hide();
             pnlLecturer.Hide();
+            pnlDrinks.Hide();
 
             // Show dashboard
             pnlDashboard.Show();
@@ -38,6 +40,7 @@ namespace SomerenUI
             pnlLecturer.Visible = false;
             pnlActivity.Visible = false;
             pnlRoom.Visible = false;
+            pnlDrinks.Visible = false;
 
             try
             {
@@ -66,6 +69,7 @@ namespace SomerenUI
             pnlStudents.Visible = false;
             pnlActivity.Visible = false;
             pnlRoom.Visible = false;
+            pnlDrinks.Visible = false;
 
             try
             {
@@ -94,6 +98,7 @@ namespace SomerenUI
             pnlStudents.Visible = false;
             pnlActivity.Visible = false;
             pnlLecturer.Visible = false;
+            pnlDrinks.Visible = false;
 
             try
             {
@@ -124,6 +129,7 @@ namespace SomerenUI
             // Hide other panels
             pnlStudents.Visible = false;
             pnlLecturer.Visible = false;
+            pnlDrinks.Visible = false;
 
             try
             {
@@ -141,6 +147,34 @@ namespace SomerenUI
                 MessageBox.Show("Something went wrong while loading the activities: " + e.Message);
             }
         }
+        private void ShowDrinkPanel()
+        {
+            // Hide the dashboard label
+            lblDashboard.Hide();
+
+            // Hide other panels
+            pnlStudents.Visible = false;
+            pnlActivity.Visible = false;
+            pnlLecturer.Visible = false;
+            pnlRoom.Visible = false;
+
+            try
+            {
+                // Show the drinks panel
+                pnlDrinks.Visible = true;
+
+                // Get drinks from the service
+                List<Drink> drinks = GetDrinks();
+
+                // Display drinks in the ListView or any other control you're using
+                DisplayDrinks(drinks);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Something went wrong while loading the drinks: " + e.Message);
+            }
+        }
+
 
         // Get students from the service
         private List<Student> GetStudents()
@@ -173,6 +207,13 @@ namespace SomerenUI
             List<Activity> activities = activityService.GetActivities();
             return activities;
         }
+        // Get drinks from the service
+        private List<Drink> GetDrinks()
+        {
+            DrinkService drinkService = new DrinkService();
+            List<Drink> drinks = drinkService.GetDrinks();
+            return drinks;
+        }
 
         // Display students in the ListView
         private void DisplayStudents(List<Student> students)
@@ -182,7 +223,7 @@ namespace SomerenUI
             listViewStudents.Columns.Clear(); // Clear columns as well
 
             listViewStudents.View = View.Details;
-            listViewStudents.Columns.Add("Name", 120);
+            listViewStudents.Columns.Add("Name", 200);
             listViewStudents.Columns.Add("Student Number", 200);
             listViewStudents.Columns.Add("Telephone Number", 200);
             listViewStudents.Columns.Add("Room Number", 200);
@@ -274,7 +315,81 @@ namespace SomerenUI
             }
         }
 
-// Event handler for dashboard menu item click
+        private void DisplayDrinks(List<Drink> drinks)
+        {
+            // Clear existing items and columns in the ListView
+            listViewDrinks.Items.Clear();
+            listViewDrinks.Columns.Clear();
+
+            // Set the view to Details
+            listViewDrinks.View = View.Details;
+
+            // Add columns to the ListView
+            listViewDrinks.Columns.Add("Name", 200);
+            listViewDrinks.Columns.Add("Price", 100);
+            listViewDrinks.Columns.Add("Type", 150);
+            listViewDrinks.Columns.Add("Stock Status", 150);
+
+            // Create an ImageList to store custom icons
+            ImageList imageList = new ImageList();
+            imageList.ImageSize = new Size(32, 32);
+
+            // Load your custom icons and add them to the ImageList
+            imageList.Images.Add("Icon1", new Bitmap("icons/icon1.ico"));
+            imageList.Images.Add("Icon2", new Bitmap("icons/icon2.ico"));
+
+            // Iterate through each drink and add them to the ListView
+            foreach (Drink drink in drinks)
+            {
+                // Create a new ListViewItem with the drink's name
+                ListViewItem item = new ListViewItem(drink.name);
+
+                // Add sub-items for other properties of the drink
+                item.SubItems.Add(drink.price.ToString());
+                item.SubItems.Add(drink.type);
+                string status = "";
+                if (drink.stockOfamount == 0)
+                {
+                    status = "stock empty";
+                }
+                else if (drink.stockOfamount > 0 && drink.stockOfamount < 10)
+                {
+                    status = "stock nearly depleted";
+                }
+                else if (drink.stockOfamount > 10)
+                {
+                    status = "stock sufficient";
+                }
+
+                item.SubItems.Add(status);
+
+                // Set the appropriate image index based on the status
+                int imageIndex = 0; // Default to Icon1
+                if (status == "stock empty")
+                {
+                    imageIndex = 0;
+                }
+                else if (status == "stock nearly depleted")
+                {
+                    imageIndex = 1;
+                }
+
+                // Assign the image index to the ListViewItem
+                item.ImageIndex = imageIndex;
+
+                // Set the Tag property of the ListViewItem to the drink object itself
+                item.Tag = drink;
+
+                // Add the ListViewItem to the ListView
+                listViewDrinks.Items.Add(item);
+            }
+
+            // Assign the ImageList to the ListView after adding all items
+            listViewDrinks.SmallImageList = imageList;
+        }
+
+
+        // Event handler for dashboard menu item click
         private void dashboardToolStripMenuItem1_Click(object sender, System.EventArgs e)
         {
             // Show the dashboard panel
@@ -323,5 +438,10 @@ namespace SomerenUI
             ShowActivityPanel();
         }
 
+        private void drinksToolStripMenuItem_Click(object sender, EventArgs e)
+        {   
+            //show drink panel
+            ShowDrinkPanel();
+        }
     }
 }
