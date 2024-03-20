@@ -335,8 +335,8 @@ namespace SomerenUI
             imageList.ImageSize = new Size(32, 32);
 
             // Load your custom icons and add them to the ImageList
-            imageList.Images.Add("Icon1", new Bitmap("icons/icon1.ico"));
-            imageList.Images.Add("Icon2", new Bitmap("icons/icon2.ico"));
+            imageList.Images.Add("Icon1", new Bitmap("..//..//..//icons/icon1.ico"));
+            imageList.Images.Add("Icon2", new Bitmap("..//..//..//icons/icon2.ico"));
 
             // Iterate through each drink and add them to the ListView
             foreach (Drink drink in drinks)
@@ -356,7 +356,7 @@ namespace SomerenUI
                 {
                     status = "stock nearly depleted";
                 }
-                else if (drink.stockOfamount > 10)
+                else if (drink.stockOfamount >= 10)
                 {
                     status = "stock sufficient";
                 }
@@ -364,14 +364,14 @@ namespace SomerenUI
                 item.SubItems.Add(status);
 
                 // Set the appropriate image index based on the status
-                int imageIndex = 0; // Default to Icon1
+                int imageIndex = -1; // Default to Icon1
                 if (status == "stock empty")
                 {
-                    imageIndex = 0;
+                    imageIndex = 1;
                 }
                 else if (status == "stock nearly depleted")
                 {
-                    imageIndex = 1;
+                    imageIndex = 0;
                 }
 
                 // Assign the image index to the ListViewItem

@@ -13,9 +13,24 @@ namespace SomerenDAL
     {
         public List<Room> GetAllRooms()
         {
-            string query = "SELECT roomnumber, buildingnumber, roomtype, floornumber FROM ROOM";
-            SqlParameter[] sqlParameters = new SqlParameter[0];
-            return ReadRooms(ExecuteSelectQuery(query, sqlParameters));
+            //string query = "select roomnumber, buildingnumber, roomtype, floornumber from room";
+            //sqlparameter[] sqlparameters = new sqlparameter[0];
+            //return readrooms(executeselectquery(query, sqlparameters));
+
+            // Create a mock DataTable object
+            DataTable mockDataTable = new DataTable();
+            mockDataTable.Columns.Add("roomnumber", typeof(int));
+            mockDataTable.Columns.Add("buildingnumber", typeof(int));
+            mockDataTable.Columns.Add("roomtype", typeof(string));
+            mockDataTable.Columns.Add("floornumber", typeof(int));
+
+            // Add some mock data rows
+            mockDataTable.Rows.Add(101, 1, "Single", 1);
+            mockDataTable.Rows.Add(102, 1, "Double", 2);
+            // Add more data rows to simulate real data
+
+            // Call the ReadRooms method and return the result
+            return ReadRooms(mockDataTable);
         }
 
         private List<Room> ReadRooms(DataTable dataTable)
