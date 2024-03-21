@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SomerenDAL;
 using SomerenModel;
 
 namespace SomerenService
@@ -22,6 +23,15 @@ namespace SomerenService
             // Retrieve all drinks from the database via the DAO
             List<Drink> drinks = drinkDao.GetAllDrinks();
             return drinks;
+        }
+        public void Delete(Drink drink)
+        {
+            drinkDao.DeleteDrink(drink);
+        }
+        public void Update(Drink drink)
+        {
+
+            drinkDao.UpdateDrink(drink);
         }
     }
 }

@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using System.Collections.Generic;
 using System;
 using System.Drawing;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace SomerenUI
 {
@@ -23,7 +24,7 @@ namespace SomerenUI
             pnlActivity.Hide();
             pnlRoom.Hide();
             pnlLecturer.Hide();
-            pnlDrinks.Hide();
+            pnlDrink.Hide();
 
             // Show dashboard
             pnlDashboard.Show();
@@ -40,7 +41,7 @@ namespace SomerenUI
             pnlLecturer.Visible = false;
             pnlActivity.Visible = false;
             pnlRoom.Visible = false;
-            pnlDrinks.Visible = false;
+            pnlDrink.Visible = false;
 
             try
             {
@@ -69,7 +70,7 @@ namespace SomerenUI
             pnlStudents.Visible = false;
             pnlActivity.Visible = false;
             pnlRoom.Visible = false;
-            pnlDrinks.Visible = false;
+            pnlDrink.Visible = false;
 
             try
             {
@@ -98,7 +99,7 @@ namespace SomerenUI
             pnlStudents.Visible = false;
             pnlActivity.Visible = false;
             pnlLecturer.Visible = false;
-            pnlDrinks.Visible = false;
+            pnlDrink.Visible = false;
 
             try
             {
@@ -129,7 +130,7 @@ namespace SomerenUI
             // Hide other panels
             pnlStudents.Visible = false;
             pnlLecturer.Visible = false;
-            pnlDrinks.Visible = false;
+            pnlDrink.Visible = false;
 
             try
             {
@@ -161,7 +162,7 @@ namespace SomerenUI
             try
             {
                 // Show the drinks panel
-                pnlDrinks.Visible = true;
+                pnlDrink.Visible = true;
 
                 // Get drinks from the service
                 List<Drink> drinks = GetDrinks();
@@ -175,7 +176,10 @@ namespace SomerenUI
             }
         }
 
-
+        /// <summary>
+        /// //////////////////////////////////////////////////////////////////////////////////////
+        /// </summary>
+        /// <returns></returns>
         // Get students from the service
         private List<Student> GetStudents()
         {
@@ -214,20 +218,16 @@ namespace SomerenUI
             List<Drink> drinks = drinkService.GetDrinks();
             return drinks;
         }
-
+        /// <summary>
+        /// ///////////////////////////////////////////////////////////////////////
+        /// </summary>
         // Display students in the ListView
         private void DisplayStudents(List<Student> students)
         {
-            // Clear the listview before filling it
-            listViewStudents.Items.Clear();
-            listViewStudents.Columns.Clear(); // Clear columns as well
+            ClearListViewStudent();
 
             listViewStudents.View = View.Details;
-            listViewStudents.Columns.Add("Name", 200);
-            listViewStudents.Columns.Add("Student Number", 200);
-            listViewStudents.Columns.Add("Telephone Number", 200);
-            listViewStudents.Columns.Add("Room Number", 200);
-            listViewStudents.Columns.Add("Class", 150);
+            AddListViewColumnsStudent();
 
             foreach (Student student in students)
             {
@@ -244,16 +244,11 @@ namespace SomerenUI
         // Display lecturers in the ListView
         private void DisplayLecturers(List<Lecturer> lecturers)
         {
-            listViewLecturers.Items.Clear();
-            listViewLecturers.Columns.Clear();
+            ClearListViewLectuer();
 
             listViewLecturers.View = View.Details;
 
-            listViewLecturers.Columns.Add("Full Name", 200);
-            listViewLecturers.Columns.Add("ID", 120);
-            listViewLecturers.Columns.Add("Telephone Number", 200);
-            listViewLecturers.Columns.Add("Age", 200);
-            listViewLecturers.Columns.Add("Room Number", 150);
+            AddListViewColumnsLectuer();
 
             foreach (Lecturer lecturer in lecturers)
             {
@@ -269,20 +264,15 @@ namespace SomerenUI
         // Display rooms in the ListView
         private void DisplayRooms(List<Room> rooms)
         {
-            // Clear the listview before filling it
-            listViewRooms.Items.Clear();
-            listViewRooms.Columns.Clear(); // Clear columns as well
+            ClearListViewRoom();
 
             listViewRooms.View = View.Details;
-            listViewRooms.Columns.Add("Room Number", 120);
-            listViewRooms.Columns.Add("Building Number", 200);
-            listViewRooms.Columns.Add("Room Type", 200);
-            listViewRooms.Columns.Add("Floor Number", 200);
+            AddListViewColumnsRoom();
 
             foreach (Room room in rooms)
             {
                 ListViewItem li = new ListViewItem(room.RoomNumber.ToString());
-                li.SubItems.Add(room.BuildingNumber.ToString());
+                li.SubItems.Add(room.Building.ToString());
                 li.SubItems.Add(room.RoomType);
                 li.SubItems.Add(room.FloorNumber.ToString());
                 li.Tag = room;
@@ -293,14 +283,11 @@ namespace SomerenUI
         // Display activities in the ListView
         private void DisplayActivity(List<Activity> activities)
         {
-            listViewActivities.Items.Clear();
-            listViewActivities.Columns.Clear();
+            ClearListViewActivity();
 
             listViewActivities.View = View.Details;
 
-            listViewActivities.Columns.Add("Name", 200);
-            listViewActivities.Columns.Add("Date", 150);
-            listViewActivities.Columns.Add("Time", 100);
+            AddListViewColumnsActivity();
 
             foreach (Activity activity in activities)
             {
@@ -317,26 +304,14 @@ namespace SomerenUI
 
         private void DisplayDrinks(List<Drink> drinks)
         {
-            // Clear existing items and columns in the ListView
-            listViewDrinks.Items.Clear();
-            listViewDrinks.Columns.Clear();
-
-            // Set the view to Details
+            ClearListViewDrink();
             listViewDrinks.View = View.Details;
 
-            // Add columns to the ListView
-            listViewDrinks.Columns.Add("Name", 200);
-            listViewDrinks.Columns.Add("Price", 100);
-            listViewDrinks.Columns.Add("Type", 150);
-            listViewDrinks.Columns.Add("Stock Status", 150);
+            AddListViewColumnsDrink();
 
-            // Create an ImageList to store custom icons
-            ImageList imageList = new ImageList();
-            imageList.ImageSize = new Size(32, 32);
+            // Set the view to Details
 
-            // Load your custom icons and add them to the ImageList
-            imageList.Images.Add("Icon1", new Bitmap("..//..//..//icons/icon1.ico"));
-            imageList.Images.Add("Icon2", new Bitmap("..//..//..//icons/icon2.ico"));
+            ImageList imageList = CreateImageList();
 
             // Iterate through each drink and add them to the ListView
             foreach (Drink drink in drinks)
@@ -345,37 +320,14 @@ namespace SomerenUI
                 ListViewItem item = new ListViewItem(drink.name);
 
                 // Add sub-items for other properties of the drink
-                item.SubItems.Add(drink.price.ToString());
                 item.SubItems.Add(drink.type);
-                string status = "";
-                if (drink.stockOfamount == 0)
-                {
-                    status = "stock empty";
-                }
-                else if (drink.stockOfamount > 0 && drink.stockOfamount < 10)
-                {
-                    status = "stock nearly depleted";
-                }
-                else if (drink.stockOfamount >= 10)
-                {
-                    status = "stock sufficient";
-                }
+                item.SubItems.Add(drink.stock.ToString());
+                //get stock status
+                string status = GetStockStatus(drink);
 
                 item.SubItems.Add(status);
-
-                // Set the appropriate image index based on the status
-                int imageIndex = -1; // Default to Icon1
-                if (status == "stock empty")
-                {
-                    imageIndex = 1;
-                }
-                else if (status == "stock nearly depleted")
-                {
-                    imageIndex = 0;
-                }
-
-                // Assign the image index to the ListViewItem
-                item.ImageIndex = imageIndex;
+                item.SubItems.Add(drink.id.ToString());
+                SetImageIndex(item, drink);
 
                 // Set the Tag property of the ListViewItem to the drink object itself
                 item.Tag = drink;
@@ -388,6 +340,9 @@ namespace SomerenUI
             listViewDrinks.SmallImageList = imageList;
         }
 
+        /// <summary>
+        /// ///////////////////////////////////////////////////////////////////////////////////////
+        /// </summary>
 
         // Event handler for dashboard menu item click
         private void dashboardToolStripMenuItem1_Click(object sender, System.EventArgs e)
@@ -439,9 +394,132 @@ namespace SomerenUI
         }
 
         private void drinksToolStripMenuItem_Click(object sender, EventArgs e)
-        {   
+        {
             //show drink panel
             ShowDrinkPanel();
         }
+        private void DeleteDrinkButton_Click_1(object sender, EventArgs e)
+        {
+            DeleteDrinkForm deleteDrinkForm = new DeleteDrinkForm();
+            deleteDrinkForm.ShowDialog();
+        }
+        private void EditDrinkButton_Click(object sender, EventArgs e)
+        {
+            UpdateDrinkForm updateDrinkForm = new UpdateDrinkForm();
+            updateDrinkForm.ShowDialog();
+        }
+
+
+        /// /////////////////////////////////////////////////////////////////
+
+        private void ClearListViewDrink()
+        {
+            listViewDrinks.Items.Clear();
+            listViewDrinks.Columns.Clear();
+        }
+        private void ClearListViewActivity()
+        {
+            listViewActivities.Items.Clear();
+            listViewActivities.Columns.Clear();
+        }
+
+        private void ClearListViewLectuer()
+        {
+            listViewLecturers.Items.Clear();
+            listViewLecturers.Columns.Clear();
+        }
+
+        private void ClearListViewRoom()
+        {
+            listViewRooms.Items.Clear();
+            listViewRooms.Columns.Clear();
+        }
+
+        private void ClearListViewStudent()
+        {
+            listViewStudents.Items.Clear();
+            listViewStudents.Columns.Clear();
+        }
+
+        private void AddListViewColumnsDrink()
+        {
+            listViewDrinks.Columns.Add("Name", 200);
+            listViewDrinks.Columns.Add("Type", 150);
+            listViewDrinks.Columns.Add("Stock", 200);
+            listViewDrinks.Columns.Add("Stock Status", 200);
+            listViewDrinks.Columns.Add("Drink Id", 200);
+
+        }
+        private void AddListViewColumnsActivity()
+        {
+            listViewActivities.Columns.Add("Name", 200);
+            listViewActivities.Columns.Add("Date", 150);
+            listViewActivities.Columns.Add("Time", 100);
+        }
+        private void AddListViewColumnsRoom()
+        {
+            listViewRooms.Columns.Add("Room Number", 120);
+            listViewRooms.Columns.Add("Building", 200);
+            listViewRooms.Columns.Add("Room Type", 200);
+            listViewRooms.Columns.Add("Floor Number", 200);
+        }
+        private void AddListViewColumnsStudent()
+        {
+            listViewStudents.Columns.Add("Name", 200);
+            listViewStudents.Columns.Add("Student Number", 200);
+            listViewStudents.Columns.Add("Telephone Number", 200);
+            listViewStudents.Columns.Add("Room Number", 200);
+            listViewStudents.Columns.Add("Class", 150);
+        }
+        private void AddListViewColumnsLectuer()
+        {
+            listViewLecturers.Columns.Add("Full Name", 200);
+            listViewLecturers.Columns.Add("Telephone Number", 200);
+            listViewLecturers.Columns.Add("Age", 200);
+            listViewLecturers.Columns.Add("Room Number", 150);
+        }
+        /// <summary>
+        /// ///////////////////////////////////////////////////////////////////////
+        /// method for drink panel
+        private ImageList CreateImageList()
+        {
+            ImageList imageList = new ImageList();
+            imageList.ImageSize = new Size(32, 32);
+            imageList.Images.Add("Icon1", new Bitmap("..//..//..//icons/icon1.ico"));
+            imageList.Images.Add("Icon2", new Bitmap("..//..//..//icons/icon2.ico"));
+            return imageList;
+        }
+        private string GetStockStatus(Drink drink)
+        {
+            if (drink.stock == 0)
+            {
+                return "stock empty";
+            }
+            else if (drink.stock > 0 && drink.stock < 10)
+            {
+                return "stock nearly depleted";
+            }
+            else
+            {
+                return "stock sufficient";
+            }
+        }
+        private void SetImageIndex(ListViewItem item, Drink drink)
+        {
+            int imageIndex = -1; // Default to Icon1
+            if (drink.stock == 0)
+            {
+                imageIndex = 1;
+            }
+            else if (drink.stock > 0 && drink.stock < 10)
+            {
+                imageIndex = 0;
+            }
+
+            // Assign the image index to the ListViewItem
+
+            item.ImageIndex = imageIndex;
+        }
+
     }
 }
