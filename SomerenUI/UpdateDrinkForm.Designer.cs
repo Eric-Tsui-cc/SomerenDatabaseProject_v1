@@ -33,10 +33,10 @@
             label3 = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
             UpdateButton = new System.Windows.Forms.Button();
-            comBoxDrinkID = new System.Windows.Forms.ComboBox();
+            comBoxDrinkName = new System.Windows.Forms.ComboBox();
             textBoxNewName = new System.Windows.Forms.TextBox();
-            textBoxType = new System.Windows.Forms.TextBox();
             textBoxStock = new System.Windows.Forms.TextBox();
+            comboBoxType = new System.Windows.Forms.ComboBox();
             SuspendLayout();
             // 
             // label1
@@ -44,18 +44,18 @@
             label1.AutoSize = true;
             label1.Location = new System.Drawing.Point(53, 52);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(81, 24);
+            label1.Size = new System.Drawing.Size(29, 24);
             label1.TabIndex = 0;
-            label1.Text = "Drink ID";
+            label1.Text = "ID";
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Location = new System.Drawing.Point(53, 112);
             label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(62, 24);
+            label2.Size = new System.Drawing.Size(106, 24);
             label2.TabIndex = 1;
-            label2.Text = "Name";
+            label2.Text = "New Name";
             // 
             // label3
             // 
@@ -85,14 +85,14 @@
             UpdateButton.UseVisualStyleBackColor = true;
             UpdateButton.Click += UpdateButton_Click;
             // 
-            // comBoxDrinkID
+            // comBoxDrinkName
             // 
-            comBoxDrinkID.FormattingEnabled = true;
-            comBoxDrinkID.Location = new System.Drawing.Point(210, 52);
-            comBoxDrinkID.Name = "comBoxDrinkID";
-            comBoxDrinkID.Size = new System.Drawing.Size(135, 32);
-            comBoxDrinkID.TabIndex = 5;
-            //comBoxDrinkID.SelectedIndexChanged += comBoxDrinkID_SelectedIndexChanged;
+            comBoxDrinkName.FormattingEnabled = true;
+            comBoxDrinkName.Location = new System.Drawing.Point(210, 52);
+            comBoxDrinkName.Name = "comBoxDrinkName";
+            comBoxDrinkName.Size = new System.Drawing.Size(135, 32);
+            comBoxDrinkName.TabIndex = 5;
+            comBoxDrinkName.SelectedIndexChanged += comBoxDrinkID_SelectedIndexChanged;
             // 
             // textBoxNewName
             // 
@@ -101,13 +101,6 @@
             textBoxNewName.Size = new System.Drawing.Size(135, 30);
             textBoxNewName.TabIndex = 6;
             // 
-            // textBoxType
-            // 
-            textBoxType.Location = new System.Drawing.Point(210, 167);
-            textBoxType.Name = "textBoxType";
-            textBoxType.Size = new System.Drawing.Size(135, 30);
-            textBoxType.TabIndex = 7;
-            // 
             // textBoxStock
             // 
             textBoxStock.Location = new System.Drawing.Point(210, 224);
@@ -115,15 +108,23 @@
             textBoxStock.Size = new System.Drawing.Size(135, 30);
             textBoxStock.TabIndex = 8;
             // 
+            // comboBoxType
+            // 
+            comboBoxType.FormattingEnabled = true;
+            comboBoxType.Location = new System.Drawing.Point(210, 167);
+            comboBoxType.Name = "comboBoxType";
+            comboBoxType.Size = new System.Drawing.Size(135, 32);
+            comboBoxType.TabIndex = 9;
+            // 
             // UpdateDrinkForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(379, 366);
+            Controls.Add(comboBoxType);
             Controls.Add(textBoxStock);
-            Controls.Add(textBoxType);
             Controls.Add(textBoxNewName);
-            Controls.Add(comBoxDrinkID);
+            Controls.Add(comBoxDrinkName);
             Controls.Add(UpdateButton);
             Controls.Add(label4);
             Controls.Add(label3);
@@ -142,9 +143,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button UpdateButton;
-        private System.Windows.Forms.ComboBox comBoxDrinkID;
+        private System.Windows.Forms.ComboBox comBoxDrinkName;
         private System.Windows.Forms.TextBox textBoxNewName;
         private System.Windows.Forms.TextBox textBoxType;
         private System.Windows.Forms.TextBox textBoxStock;
+        private System.Windows.Forms.ComboBox comboBoxType;
     }
 }

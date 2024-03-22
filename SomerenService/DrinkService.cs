@@ -33,6 +33,21 @@ namespace SomerenService
 
             drinkDao.UpdateDrink(drink);
         }
+        public Drink GetByName(string name)
+        {   
+            Drink drink = drinkDao.GetByName(name);
+
+            return drink;
+        }
+        public Drink GetByID(int drinkid)
+        {
+            Drink drink = drinkDao.GetById(drinkid);
+            return drink;
+        }
+        public void AddDrink(Drink drink)
+        {
+            drinkDao.AddDrink(drink);
+        }
     }
 }
 

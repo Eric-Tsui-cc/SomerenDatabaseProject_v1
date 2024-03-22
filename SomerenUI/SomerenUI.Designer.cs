@@ -63,6 +63,7 @@
             pictureBox6 = new System.Windows.Forms.PictureBox();
             listViewRooms = new System.Windows.Forms.ListView();
             label6 = new System.Windows.Forms.Label();
+            AddDrinkButton = new System.Windows.Forms.Button();
             menuStrip1.SuspendLayout();
             pnlDashboard.SuspendLayout();
             pnlDrink.SuspendLayout();
@@ -170,6 +171,7 @@
             // 
             // pnlDrink
             // 
+            pnlDrink.Controls.Add(AddDrinkButton);
             pnlDrink.Controls.Add(EditDrinkButton);
             pnlDrink.Controls.Add(DeleteDrinkButton);
             pnlDrink.Controls.Add(button1);
@@ -184,9 +186,9 @@
             // 
             // EditDrinkButton
             // 
-            EditDrinkButton.Location = new System.Drawing.Point(1250, 393);
+            EditDrinkButton.Location = new System.Drawing.Point(1250, 337);
             EditDrinkButton.Name = "EditDrinkButton";
-            EditDrinkButton.Size = new System.Drawing.Size(147, 76);
+            EditDrinkButton.Size = new System.Drawing.Size(147, 84);
             EditDrinkButton.TabIndex = 5;
             EditDrinkButton.Text = "Edit Drinks";
             EditDrinkButton.UseVisualStyleBackColor = true;
@@ -194,9 +196,9 @@
             // 
             // DeleteDrinkButton
             // 
-            DeleteDrinkButton.Location = new System.Drawing.Point(1250, 291);
+            DeleteDrinkButton.Location = new System.Drawing.Point(1250, 231);
             DeleteDrinkButton.Name = "DeleteDrinkButton";
-            DeleteDrinkButton.Size = new System.Drawing.Size(147, 84);
+            DeleteDrinkButton.Size = new System.Drawing.Size(147, 82);
             DeleteDrinkButton.TabIndex = 4;
             DeleteDrinkButton.Text = "Delete Drink";
             DeleteDrinkButton.UseVisualStyleBackColor = true;
@@ -406,6 +408,16 @@
             label6.TabIndex = 0;
             label6.Text = "Rooms";
             // 
+            // AddDrinkButton
+            // 
+            AddDrinkButton.Location = new System.Drawing.Point(1250, 441);
+            AddDrinkButton.Name = "AddDrinkButton";
+            AddDrinkButton.Size = new System.Drawing.Size(147, 78);
+            AddDrinkButton.TabIndex = 6;
+            AddDrinkButton.Text = "Add Drink";
+            AddDrinkButton.UseVisualStyleBackColor = true;
+            AddDrinkButton.Click += AddDrinkButton_Click;
+            // 
             // SomerenUI
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
@@ -477,5 +489,6 @@
         private System.Windows.Forms.ListView listViewDrinks;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button EditDrinkButton;
+        private System.Windows.Forms.Button AddDrinkButton;
     }
 }

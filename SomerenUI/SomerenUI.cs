@@ -408,7 +408,11 @@ namespace SomerenUI
             UpdateDrinkForm updateDrinkForm = new UpdateDrinkForm();
             updateDrinkForm.ShowDialog();
         }
-
+        private void AddDrinkButton_Click(object sender, EventArgs e)
+        {
+            AddDrinkForm addDrinkForm = new AddDrinkForm();
+            addDrinkForm.ShowDialog();
+        }
 
         /// /////////////////////////////////////////////////////////////////
 

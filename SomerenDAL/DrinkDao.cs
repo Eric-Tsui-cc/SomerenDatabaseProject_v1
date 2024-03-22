@@ -19,9 +19,10 @@ public class DrinkDao : BaseDao
     {
         string query = "UPDATE Drink " +
             "SET Name=@Name, Type=@Type, stock=@stock " +
-            "WHERE drinkId=@drinkid;";
+            "WHERE drinkId=@id;";
         SqlParameter[] sqlParameters =
         {
+        new SqlParameter("@id", drink.id),
         new SqlParameter("@Name", drink.name),
         new SqlParameter("@Type", drink.type),
         new SqlParameter("@Stock", drink.stock),
@@ -54,38 +55,72 @@ public class DrinkDao : BaseDao
         };
         ExecuteEditQuery(query, sqlParameters);
     }
-    public Drink GetByName(Drink drink)
+    public void AddDrink(Drink drink)
     {
-        string query = "SELECT * FROM Drink WHERE Name = @Name";
+        string query = "INSERT INTO Drink (DrinkID, Name, Type, Stock, Price) VALUES (@DrinkID, @Name, @Type, @Stock, @Price);";
         SqlParameter[] sqlParameters =
         {
-            new SqlParameter("@Name", drink.name)
+            new SqlParameter("@DrinkID", drink.id),
+            new SqlParameter("@Name", drink.name),
+            new SqlParameter("@Type", drink.type),
+            new SqlParameter("@Stock", drink.stock),
+            new SqlParameter("@Price", drink.price)
         };
-        SqlDataReader reader = command.ExecuteReader();
-        Customer customer = null;
-        if (reader.Read())
-        {
-            customer = ReadCustomer(reader);
-        }
-        reader.Close();
-        return (ExecuteSelectQuery(query, sqlParameters));
-
+        ExecuteEditQuery(query, sqlParameters);
     }
-    public Customer GetById(int customerId)
+    public Drink GetByName(string name)
     {
-        DbConnection.Open();
-        SqlCommand command = new SqlCommand(
-        "SELECT * FROM Customers WHERE Id = @Id", DbConnection);
-        command.Parameters.AddWithValue("@Id", customerId);
-        SqlDataReader reader = command.ExecuteReader();
-        Customer customer = null;
-        if (reader.Read())
+        Drink drink = null;
+        string query = "SELECT * FROM Drink WHERE Name = @Name;";
+        SqlParameter[] sqlParameters = new SqlParameter[]
         {
-            customer = ReadCustomer(reader);
+            new SqlParameter("@Name", name)
+        };
+
+        DataTable dataTable = ExecuteSelectQuery(query, sqlParameters);
+
+        if (dataTable.Rows.Count > 0)
+        {
+            DataRow row = dataTable.Rows[0];
+            drink = new Drink
+            {
+                //id = Convert.ToInt32(row["DrinkId"]),
+                name = row["Name"].ToString(),
+                type = row["Type"].ToString(),
+                stock = Convert.ToInt32(row["stock"]),
+            };
         }
-        reader.Close();
-        DbConnection.Close();
-        return customer;
+
+        return drink;
+    }
+    public Drink GetById(int id)
+    {
+        Drink drink = null;
+        string query = "SELECT * FROM Drink WHERE DrinkId = @Id;";
+        SqlParameter[] sqlParameters = new SqlParameter[]
+        {
+        new SqlParameter("@Id", id)
+        };
+
+        DataTable dataTable = ExecuteSelectQuery(query, sqlParameters);
+
+        if (dataTable.Rows.Count > 0)
+        {
+            DataRow row = dataTable.Rows[0];
+            drink = new Drink
+            {
+                id = Convert.ToInt32(row["DrinkId"]),
+                name = row["Name"].ToString(),
+                type = row["Type"].ToString(),
+                stock = Convert.ToInt32(row["Stock"]),
+                
+            };
+        }
+
+        return drink;
     }
 }
+
+
+
 

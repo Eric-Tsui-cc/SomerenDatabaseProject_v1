@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using SomerenModel;
 using SomerenService;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace SomerenUI
 {
@@ -18,34 +19,43 @@ namespace SomerenUI
         public UpdateDrinkForm()
         {
             InitializeComponent();
+            comboBoxType.Items.AddRange(new object[] { "Alcohol", "No Alcohol" });
             DrinkService = new DrinkService();
             RefreshDrinks();
         }
         void RefreshDrinks()
         {
-            comBoxDrinkID.Items.Clear();
-            comBoxDrinkID.ResetText();
+            comBoxDrinkName.Items.Clear();
+            comBoxDrinkName.ResetText();
             List<Drink> drinks = DrinkService.GetDrinks();
             foreach (Drink drink in drinks)
             {
-                comBoxDrinkID.Items.Add(drink.id);
+                comBoxDrinkName.Items.Add(drink.id);
             }
         }
 
         private void UpdateButton_Click(object sender, EventArgs e)
         {
+            Drink updateddrink = new Drink(
+                (int)comBoxDrinkName.SelectedItem,
+                textBoxNewName.Text,
+                comboBoxType.SelectedItem.ToString(),
+                int.Parse(textBoxStock.Text)
+            );
+            DrinkService.Update(updateddrink);
+            MessageBox.Show("Drink updated!");
+            RefreshDrinks();
 
         }
 
-        //private void comBoxDrinkID_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    int DrinkID = (int)comBoxDrinkID.SelectedItem;
+        private void comBoxDrinkID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int drinkId = (int)comBoxDrinkName.SelectedItem;
+            Drink drink = DrinkService.GetByID(drinkId);
 
-        //    Drink drink = DrinkService.GetById(customerId);
-
-        //    textBoxFirstName.Text = customer.FirstName;
-        //    textBoxLastName.Text = customer.LastName;
-        //    textBoxEmail.Text = customer.EmailAddress;
-        //}
+            textBoxNewName.Text = drink.name;
+            comboBoxType.SelectedItem = drink.type;
+            textBoxStock.Text = drink.stock.ToString();
+        }
     }
 }

@@ -28,16 +28,20 @@ namespace SomerenUI
             List<Drink> drinks = DrinkService.GetDrinks();
             foreach (Drink drink in drinks)
             {
-                comboBoxDrinks.Items.Add(drink);
+                comboBoxDrinks.Items.Add(drink.id);
             }
         }
 
         private void buttonDeleteDrink_Click(object sender, EventArgs e)
         {
-            Drink drinkToDelete = comboBoxDrinks.SelectedItem as Drink;
-            DrinkService.Delete(drinkToDelete);
-            RefreshDrinks();
-            MessageBox.Show("Drink deleted!");
+            int selectedDrinkID = (int)comboBoxDrinks.SelectedItem;
+            Drink drinkToDelete = DrinkService.GetByID(selectedDrinkID);
+            if (drinkToDelete != null)
+            {
+                DrinkService.Delete(drinkToDelete);
+                RefreshDrinks();
+                MessageBox.Show("Drink deleted!");
+            }
         }
     }
 }
