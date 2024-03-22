@@ -11,6 +11,6 @@ namespace SomerenModel
         public string name {  get; set; }
         public decimal price {  get; set; }
         public string type { get; set; }
-        public int stockOfamount { get; set; }
+        public int Stock { get; set; }
     }
 }

@@ -24,6 +24,7 @@ namespace SomerenUI
             pnlRoom.Hide();
             pnlLecturer.Hide();
             pnlDrinks.Hide();
+            pnlOrder.Hide();
 
             // Show dashboard
             pnlDashboard.Show();
@@ -99,6 +100,7 @@ namespace SomerenUI
             pnlActivity.Visible = false;
             pnlLecturer.Visible = false;
             pnlDrinks.Visible = false;
+            pnlOrder.Visible = false;
 
             try
             {
@@ -157,6 +159,7 @@ namespace SomerenUI
             pnlActivity.Visible = false;
             pnlLecturer.Visible = false;
             pnlRoom.Visible = false;
+            pnlOrder.Visible = false;
 
             try
             {
@@ -326,17 +329,10 @@ namespace SomerenUI
 
             // Add columns to the ListView
             listViewDrinks.Columns.Add("Name", 200);
-            listViewDrinks.Columns.Add("Price", 100);
-            listViewDrinks.Columns.Add("Type", 150);
-            listViewDrinks.Columns.Add("Stock Status", 150);
+            listViewDrinks.Columns.Add("Price", 1050);
+            listViewDrinks.Columns.Add("Type", 200);
+            listViewDrinks.Columns.Add("Stock Status", 350);
 
-            // Create an ImageList to store custom icons
-            ImageList imageList = new ImageList();
-            imageList.ImageSize = new Size(32, 32);
-
-            // Load your custom icons and add them to the ImageList
-            imageList.Images.Add("Icon1", new Bitmap("..//..//..//icons/icon1.ico"));
-            imageList.Images.Add("Icon2", new Bitmap("..//..//..//icons/icon2.ico"));
 
             // Iterate through each drink and add them to the ListView
             foreach (Drink drink in drinks)
@@ -348,15 +344,15 @@ namespace SomerenUI
                 item.SubItems.Add(drink.price.ToString());
                 item.SubItems.Add(drink.type);
                 string status = "";
-                if (drink.stockOfamount == 0)
+                if (drink.Stock == 0)
                 {
                     status = "stock empty";
                 }
-                else if (drink.stockOfamount > 0 && drink.stockOfamount < 10)
+                else if (drink.Stock > 0 && drink.Stock < 10)
                 {
                     status = "stock nearly depleted";
                 }
-                else if (drink.stockOfamount >= 10)
+                else if (drink.Stock >= 10)
                 {
                     status = "stock sufficient";
                 }
@@ -380,12 +376,9 @@ namespace SomerenUI
                 // Set the Tag property of the ListViewItem to the drink object itself
                 item.Tag = drink;
 
-                // Add the ListViewItem to the ListView
+                // Add the ListViewItem to the ListViewreg
                 listViewDrinks.Items.Add(item);
             }
-
-            // Assign the ImageList to the ListView after adding all items
-            listViewDrinks.SmallImageList = imageList;
         }
 
 
@@ -439,9 +432,80 @@ namespace SomerenUI
         }
 
         private void drinksToolStripMenuItem_Click(object sender, EventArgs e)
-        {   
-            //show drink panel
+        {
+
+        }
+
+        private void orderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            /*Order panel*/
+
+            ShowOrderPanel();
+
+        }
+        /*Order panel*/
+
+        private void ShowOrderPanel()
+        {
+            // Hide the dashboard label
+            lblDashboard.Hide();
+
+            // Hide the room panel
+            pnlRoom.Visible = false;
+
+            // Hide other panels
+            pnlStudents.Visible = false;
+            pnlLecturer.Visible = false;
+            pnlDrinks.Visible = false;
+
+            try
+            {
+                // Show the Order panel
+                pnlOrder.Visible = true;
+
+                // Get students from the service
+                List<Student> students = GetStudents();
+                List<Drink> drinks = GetDrinks();
+
+
+                // Display students in the ListView
+                DisplayStudentsForOrder(students);
+                DisplayDrinksOrder(drinks);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Something went wrong while loading the students: " + e.Message);
+            }
+
+        }
+        // Display students in the ListView
+        private void DisplayStudentsForOrder(List<Student> students)
+        {
+            listBoxStudentOrders.Items.Clear();
+
+            foreach (Student student in students)
+            {
+                listBoxStudentOrders.Items.Add(student);
+            }
+        }
+
+        private void DisplayDrinksOrder(List<Drink> drinks)
+        {
+            // Clear existing items and columns in the ListView
+            listBoxDrinksOrders.Items.Clear();
+            foreach (Drink drink in drinks)
+            {
+                listBoxDrinksOrders.Items.Add(drink);
+            }
+        }
+        
+
+
+        private void toolStripDrinks_Click(object sender, EventArgs e)
+        {
             ShowDrinkPanel();
         }
+
+
     }
 }
