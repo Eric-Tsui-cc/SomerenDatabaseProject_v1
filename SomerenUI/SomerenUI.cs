@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using System.Collections.Generic;
 using System;
 using System.Drawing;
+using System.Reflection.Emit;
 
 namespace SomerenUI
 {
@@ -329,7 +330,7 @@ namespace SomerenUI
 
             // Add columns to the ListView
             listViewDrinks.Columns.Add("Name", 200);
-            listViewDrinks.Columns.Add("Price", 1050);
+            listViewDrinks.Columns.Add("Price", 150);
             listViewDrinks.Columns.Add("Type", 200);
             listViewDrinks.Columns.Add("Stock Status", 350);
 
@@ -498,7 +499,44 @@ namespace SomerenUI
                 listBoxDrinksOrders.Items.Add(drink);
             }
         }
-        
+        private void buttonOrder_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OrderService orderService = new();
+
+                orderService.FillOrder(listBoxStudentOrders.SelectedIndex, listBoxDrinksOrders.SelectedIndex, (Student)listBoxStudentOrders.SelectedItem, (Drink)listBoxDrinksOrders.SelectedItem, (int)QuantityOfDrinks.Value);
+                MessageBox.Show("Order is successfully placed!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void listBoxStudentOrders_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            OrderService orderService = new();
+
+            orderService.DisplayPrice((Drink)listBoxDrinksOrders.SelectedItem, listBoxStudentOrders.SelectedIndex, listBoxDrinksOrders.SelectedIndex, QuantityOfDrinks.Value, out string totalPrice);
+            PriceOutput.Text = totalPrice;
+        }
+
+        private void listBoxDrinksOrders_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            OrderService orderService = new();
+
+            orderService.DisplayPrice((Drink)listBoxDrinksOrders.SelectedItem, listBoxStudentOrders.SelectedIndex, listBoxDrinksOrders.SelectedIndex, QuantityOfDrinks.Value, out string totalPrice);
+            PriceOutput.Text = totalPrice;
+        }
+
+        private void QuantityOfDrinks_ValueChanged(object sender, EventArgs e)
+        {
+            OrderService orderService = new();
+
+            orderService.DisplayPrice((Drink)listBoxDrinksOrders.SelectedItem, listBoxStudentOrders.SelectedIndex, listBoxDrinksOrders.SelectedIndex, QuantityOfDrinks.Value, out string totalPrice);
+            PriceOutput.Text = totalPrice;
+        }
+
 
 
         private void toolStripDrinks_Click(object sender, EventArgs e)

@@ -9,23 +9,10 @@ public class DrinkDao : BaseDao
 {
     public List<Drink> GetAllDrinks()
     {
-       string query = "SELECT Name,price,VATType,type,Stock FROM Drink";
+       string query = "SELECT Name,price,VATType,type,DrinkId,Stock FROM Drink";
         SqlParameter[] sqlParameters = new SqlParameter[0];
         return ReadDrinks(ExecuteSelectQuery(query, sqlParameters));
-        // Create a mock DataTable object
- /*       DataTable mockDataTable = new DataTable();
-        mockDataTable.Columns.Add("name", typeof(string));
-        mockDataTable.Columns.Add("price", typeof(decimal));
-        mockDataTable.Columns.Add("type", typeof(string));
-        mockDataTable.Columns.Add("stockOfamount", typeof(int));
 
-        // Add some mock data rows
-        mockDataTable.Rows.Add("Beer", 2.50m, "Alc", 10);
-        mockDataTable.Rows.Add("Tea", 1.80m, "Non-Alc", 5);
-        // Add more data rows to simulate real data
-
-        // Call the ReadDrinks method and return the result
-        return ReadDrinks(mockDataTable);*/
     }
 
     private List<Drink> ReadDrinks(DataTable dataTable)
@@ -36,9 +23,20 @@ public class DrinkDao : BaseDao
         {
             Drink drink = new Drink();
 
+            drink.DrinkId = (int)dr["DrinkId"];
             drink.name = dr["name"].ToString();
             drink.price = (decimal)dr["price"];
             drink.type = dr["type"].ToString();
+
+            if (dr["VATType"] == DBNull.Value)
+            {
+                drink.Vat = Convert.ToInt32(null);
+            }
+            else
+            {
+                drink.Vat = (int)dr["VATType"];
+
+            }
             drink.Stock = (int)dr["Stock"];
             drinks.Add(drink);
         }
