@@ -327,6 +327,7 @@ namespace SomerenUI
 
                 item.SubItems.Add(status);
                 item.SubItems.Add(drink.id.ToString());
+                item.SubItems.Add(drink.price.ToString());
                 SetImageIndex(item, drink);
 
                 // Set the Tag property of the ListViewItem to the drink object itself
@@ -452,6 +453,7 @@ namespace SomerenUI
             listViewDrinks.Columns.Add("Stock", 200);
             listViewDrinks.Columns.Add("Stock Status", 200);
             listViewDrinks.Columns.Add("Drink Id", 200);
+            listViewDrinks.Columns.Add("Price", 100);
 
         }
         private void AddListViewColumnsActivity()

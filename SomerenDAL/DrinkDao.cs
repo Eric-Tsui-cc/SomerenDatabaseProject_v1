@@ -11,14 +11,14 @@ public class DrinkDao : BaseDao
 {
     public List<Drink> GetAllDrinks()
     {
-        string query = "SELECT drinkId,name, type, stock FROM Drink";
+        string query = "SELECT drinkId,name, type, stock, price FROM Drink";
         SqlParameter[] sqlParameters = new SqlParameter[0];
         return ReadDrinks(ExecuteSelectQuery(query, sqlParameters));
     }
     public void UpdateDrink(Drink drink)
     {
         string query = "UPDATE Drink " +
-            "SET Name=@Name, Type=@Type, stock=@stock " +
+            "SET Name=@Name, Type=@Type, stock=@stock, price=@price " +
             "WHERE drinkId=@id;";
         SqlParameter[] sqlParameters =
         {
@@ -26,6 +26,7 @@ public class DrinkDao : BaseDao
         new SqlParameter("@Name", drink.name),
         new SqlParameter("@Type", drink.type),
         new SqlParameter("@Stock", drink.stock),
+        new SqlParameter("@Price",drink.price)
         };
         ExecuteEditQuery(query, sqlParameters);
     }
@@ -40,8 +41,10 @@ public class DrinkDao : BaseDao
 
             drink.name = dr["name"].ToString();
             drink.type = dr["type"].ToString();
+            drink.price = Convert.ToDecimal(dr["price"]);
             drink.stock = (int)dr["stock"];
             drink.id = (int)dr["drinkId"];
+           
             drinks.Add(drink);
         }
         return drinks;
@@ -110,6 +113,7 @@ public class DrinkDao : BaseDao
             drink = new Drink
             {
                 id = Convert.ToInt32(row["DrinkId"]),
+                price = Convert.ToDecimal(row["Price"]),
                 name = row["Name"].ToString(),
                 type = row["Type"].ToString(),
                 stock = Convert.ToInt32(row["Stock"]),

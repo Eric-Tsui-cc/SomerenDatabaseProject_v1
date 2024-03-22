@@ -37,12 +37,14 @@
             textBoxNewName = new System.Windows.Forms.TextBox();
             textBoxStock = new System.Windows.Forms.TextBox();
             comboBoxType = new System.Windows.Forms.ComboBox();
+            label5 = new System.Windows.Forms.Label();
+            textBoxPrice = new System.Windows.Forms.TextBox();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(53, 52);
+            label1.Location = new System.Drawing.Point(53, 31);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(29, 24);
             label1.TabIndex = 0;
@@ -51,7 +53,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(53, 112);
+            label2.Location = new System.Drawing.Point(53, 86);
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(106, 24);
             label2.TabIndex = 1;
@@ -60,7 +62,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new System.Drawing.Point(53, 167);
+            label3.Location = new System.Drawing.Point(53, 139);
             label3.Name = "label3";
             label3.Size = new System.Drawing.Size(52, 24);
             label3.TabIndex = 2;
@@ -69,7 +71,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new System.Drawing.Point(53, 224);
+            label4.Location = new System.Drawing.Point(53, 193);
             label4.Name = "label4";
             label4.Size = new System.Drawing.Size(57, 24);
             label4.TabIndex = 3;
@@ -77,7 +79,7 @@
             // 
             // UpdateButton
             // 
-            UpdateButton.Location = new System.Drawing.Point(108, 279);
+            UpdateButton.Location = new System.Drawing.Point(95, 280);
             UpdateButton.Name = "UpdateButton";
             UpdateButton.Size = new System.Drawing.Size(148, 61);
             UpdateButton.TabIndex = 4;
@@ -88,7 +90,7 @@
             // comBoxDrinkName
             // 
             comBoxDrinkName.FormattingEnabled = true;
-            comBoxDrinkName.Location = new System.Drawing.Point(210, 52);
+            comBoxDrinkName.Location = new System.Drawing.Point(210, 31);
             comBoxDrinkName.Name = "comBoxDrinkName";
             comBoxDrinkName.Size = new System.Drawing.Size(135, 32);
             comBoxDrinkName.TabIndex = 5;
@@ -96,14 +98,14 @@
             // 
             // textBoxNewName
             // 
-            textBoxNewName.Location = new System.Drawing.Point(210, 112);
+            textBoxNewName.Location = new System.Drawing.Point(210, 86);
             textBoxNewName.Name = "textBoxNewName";
             textBoxNewName.Size = new System.Drawing.Size(135, 30);
             textBoxNewName.TabIndex = 6;
             // 
             // textBoxStock
             // 
-            textBoxStock.Location = new System.Drawing.Point(210, 224);
+            textBoxStock.Location = new System.Drawing.Point(210, 193);
             textBoxStock.Name = "textBoxStock";
             textBoxStock.Size = new System.Drawing.Size(135, 30);
             textBoxStock.TabIndex = 8;
@@ -111,16 +113,34 @@
             // comboBoxType
             // 
             comboBoxType.FormattingEnabled = true;
-            comboBoxType.Location = new System.Drawing.Point(210, 167);
+            comboBoxType.Location = new System.Drawing.Point(210, 139);
             comboBoxType.Name = "comboBoxType";
             comboBoxType.Size = new System.Drawing.Size(135, 32);
             comboBoxType.TabIndex = 9;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new System.Drawing.Point(53, 239);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(52, 24);
+            label5.TabIndex = 10;
+            label5.Text = "Price";
+            // 
+            // textBoxPrice
+            // 
+            textBoxPrice.Location = new System.Drawing.Point(210, 244);
+            textBoxPrice.Name = "textBoxPrice";
+            textBoxPrice.Size = new System.Drawing.Size(135, 30);
+            textBoxPrice.TabIndex = 11;
             // 
             // UpdateDrinkForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(379, 366);
+            Controls.Add(textBoxPrice);
+            Controls.Add(label5);
             Controls.Add(comboBoxType);
             Controls.Add(textBoxStock);
             Controls.Add(textBoxNewName);
@@ -148,5 +168,7 @@
         private System.Windows.Forms.TextBox textBoxType;
         private System.Windows.Forms.TextBox textBoxStock;
         private System.Windows.Forms.ComboBox comboBoxType;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBoxPrice;
     }
 }

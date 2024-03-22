@@ -39,8 +39,10 @@ namespace SomerenUI
             Drink updateddrink = new Drink(
                 (int)comBoxDrinkName.SelectedItem,
                 textBoxNewName.Text,
+                decimal.Parse(textBoxPrice.Text),
                 comboBoxType.SelectedItem.ToString(),
                 int.Parse(textBoxStock.Text)
+                
             );
             DrinkService.Update(updateddrink);
             MessageBox.Show("Drink updated!");
@@ -56,6 +58,7 @@ namespace SomerenUI
             textBoxNewName.Text = drink.name;
             comboBoxType.SelectedItem = drink.type;
             textBoxStock.Text = drink.stock.ToString();
+            textBoxPrice.Text = drink.price.ToString();
         }
     }
 }
