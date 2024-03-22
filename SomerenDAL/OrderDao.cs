@@ -72,10 +72,10 @@ namespace SomerenDAL
             drink.Stock = (int)dr["Stock"];
             return drink;
         }
-        public void CreateOrder(Student student, Drink drink, int quantity, DateTime dateOfOrder)
+        public void CreateOrder(Student student, Drink drink, int Amount, DateTime dateOfOrder)
         {
-            AddOrder(student, drink, quantity, dateOfOrder);
-            ChangeStock(drink, quantity);
+            AddOrder(student, drink, Amount, dateOfOrder);
+            ChangeStock(drink, Amount);
         }
         public void AddOrder(Student student, Drink drink, int quantity, DateTime dateOfOrder)
         {

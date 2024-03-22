@@ -23,7 +23,7 @@ namespace SomerenModel
 
         public override string ToString()
         {
-            return $"{name}    |    {price}    |    {Stock}    |    {Alcohol}";
+            return $"{name}/    {price}/    {Stock}/    {Alcohol}";
         }
 
     }

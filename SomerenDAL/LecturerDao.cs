@@ -13,11 +13,11 @@ namespace SomerenDAL
     {
         public List<Lecturer> GetAllLecturers()
         {
-            //string query = "SELECT lecturerid, firstname, lastname, telephonenumber, age, roomnumber FROM LECTURER";
-            //SqlParameter[] sqlParameters = new SqlParameter[0];
-            //return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+            string query = "SELECT LecturerID,FirstName, LastName,TelephoneNumber,Age,RoomNumber FROM Lecturer";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
             // Create a mock DataTable object
-            DataTable mockDataTable = new DataTable();
+/*            DataTable mockDataTable = new DataTable();
             mockDataTable.Columns.Add("lecturerid", typeof(int));
             mockDataTable.Columns.Add("firstname", typeof(string));
             mockDataTable.Columns.Add("lastname", typeof(string));
@@ -31,7 +31,7 @@ namespace SomerenDAL
             // Add more data rows to simulate real data
 
             // Call the ReadTables method and return the result
-            return ReadTables(mockDataTable);
+            return ReadTables(mockDataTable);*/
 
         }
 
@@ -43,14 +43,14 @@ namespace SomerenDAL
             {
                 Lecturer teacher = new Lecturer()
                 {
-                    Number = (int)dr["lecturerid"],
+                    Number = (int)dr["LecturerID"],
                     FirstName = dr["FirstName"].ToString(),
                     LastName = dr["LastName"].ToString(),
-                    PhoneNumber = dr["TelePhoneNumber"].ToString(),
+                    PhoneNumber = dr["TelephoneNumber"].ToString(),
                     Age = (int)dr["Age"],
-                    RoomNmber = (int)dr["RoomNumber"]
+                    RoomNumber = dr["RoomNumber"].ToString()
                 };
-                teachers.Add(teacher);
+            teachers.Add(teacher) ;
             }
             return teachers;
         }

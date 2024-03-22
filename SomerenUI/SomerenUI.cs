@@ -244,18 +244,18 @@ namespace SomerenUI
 
             listViewLecturers.View = View.Details;
 
-            listViewLecturers.Columns.Add("Full Name", 200);
-            listViewLecturers.Columns.Add("ID", 120);
-            listViewLecturers.Columns.Add("Telephone Number", 200);
+            listViewLecturers.Columns.Add("Full Name", 300);
+            listViewLecturers.Columns.Add("ID", 220);
+            listViewLecturers.Columns.Add("Telephone Number", 300);
             listViewLecturers.Columns.Add("Age", 200);
-            listViewLecturers.Columns.Add("Room Number", 150);
+            listViewLecturers.Columns.Add("Room Number", 250);
 
             foreach (Lecturer lecturer in lecturers)
             {
                 ListViewItem li = new ListViewItem(lecturer.FullName);
                 li.SubItems.Add(lecturer.PhoneNumber);
                 li.SubItems.Add(lecturer.Age.ToString());
-                li.SubItems.Add(lecturer.RoomNmber.ToString());
+                li.SubItems.Add(lecturer.RoomNumber.ToString());
                 li.Tag = lecturer;
                 listViewLecturers.Items.Add(li);
             }
@@ -271,14 +271,14 @@ namespace SomerenUI
             listViewRooms.View = View.Details;
             listViewRooms.Columns.Add("Room Number", 120);
             listViewRooms.Columns.Add("Building Number", 200);
-            listViewRooms.Columns.Add("Room Type", 200);
+            listViewRooms.Columns.Add("Room Type", 250);
             listViewRooms.Columns.Add("Floor Number", 200);
 
             foreach (Room room in rooms)
             {
                 ListViewItem li = new ListViewItem(room.RoomNumber.ToString());
-                li.SubItems.Add(room.BuildingNumber.ToString());
-                li.SubItems.Add(room.RoomType);
+                li.SubItems.Add(room.Building.ToString());
+                li.SubItems.Add(room.RoomType.ToString());
                 li.SubItems.Add(room.FloorNumber.ToString());
                 li.Tag = room;
                 listViewRooms.Items.Add(li);
@@ -485,7 +485,7 @@ namespace SomerenUI
                 listBoxDrinksOrders.Items.Add(drink);
             }
         }
-        private void buttonOrder_Click(object sender, EventArgs e)
+        private void buttonOrder_Click_1(object sender, EventArgs e)
         {
             try
             {
@@ -505,6 +505,7 @@ namespace SomerenUI
 
             orderService.DisplayPrice((Drink)listBoxDrinksOrders.SelectedItem, listBoxStudentOrders.SelectedIndex, listBoxDrinksOrders.SelectedIndex, QuantityOfDrinks.Value, out string totalPrice);
             PriceOutput.Text = totalPrice;
+
         }
 
         private void listBoxDrinksOrders_SelectedIndexChanged(object sender, EventArgs e)
@@ -513,9 +514,9 @@ namespace SomerenUI
 
             orderService.DisplayPrice((Drink)listBoxDrinksOrders.SelectedItem, listBoxStudentOrders.SelectedIndex, listBoxDrinksOrders.SelectedIndex, QuantityOfDrinks.Value, out string totalPrice);
             PriceOutput.Text = totalPrice;
-        }
 
-        private void QuantityOfDrinks_ValueChanged(object sender, EventArgs e)
+        }
+        private void QuantityOfDrinks_ValueChanged_1(object sender, EventArgs e)
         {
             OrderService orderService = new();
 
@@ -558,6 +559,7 @@ namespace SomerenUI
                 MessageBox.Show("Something went wrong while loading the drinks: " + e.Message);
             }
         }
+
 
     }
 }

@@ -13,11 +13,11 @@ namespace SomerenDAL
     {
         public List<Activity> GetAllActivities()
         {
-            //string query = "SELECT Name, CONVERT(date, Date) AS ActivityDate, CONVERT(time, Time) AS ActivityTime FROM ACTIVITY";
-            //SqlParameter[] sqlParameters = new SqlParameter[0];
-            //return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+            string query = "SELECT Name, CONVERT(date, Date) AS ActivityDate, CONVERT(time, Time) AS ActivityTime FROM ACTIVITY";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
             // Create a mock DataTable object
-            DataTable mockDataTable = new DataTable();
+/*            DataTable mockDataTable = new DataTable();
             mockDataTable.Columns.Add("Name", typeof(string));
             mockDataTable.Columns.Add("ActivityDate", typeof(DateTime));
             mockDataTable.Columns.Add("ActivityTime", typeof(TimeSpan));
@@ -28,7 +28,7 @@ namespace SomerenDAL
                                                                                                     // Add more data rows to simulate real data
 
             // Call the ReadTables method and return the result
-            return ReadTables(mockDataTable);
+            return ReadTables(mockDataTable);*/
         }
 
         private List<Activity> ReadTables(DataTable dataTable)
