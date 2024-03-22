@@ -15,9 +15,7 @@ namespace SomerenUI
         {
             InitializeComponent();
         }
-
-        // Show the dashboard panel
-        private void ShowDashboardPanel()
+        public void hideAll()
         {
             // Hide all other panels
             pnlStudents.Hide();
@@ -26,6 +24,13 @@ namespace SomerenUI
             pnlLecturer.Hide();
             pnlDrinks.Hide();
             pnlOrder.Hide();
+            pnlRevenue.Hide();
+        }
+
+        // Show the dashboard panel
+        private void ShowDashboardPanel()
+        {
+            hideAll();
 
             // Show dashboard
             pnlDashboard.Show();
@@ -68,10 +73,8 @@ namespace SomerenUI
             lblDashboard.Hide();
 
             // Hide other panels
-            pnlStudents.Visible = false;
-            pnlActivity.Visible = false;
-            pnlRoom.Visible = false;
-            pnlDrinks.Visible = false;
+            hideAll();
+
 
             try
             {
@@ -97,11 +100,8 @@ namespace SomerenUI
             lblDashboard.Hide();
 
             // Hide other panels
-            pnlStudents.Visible = false;
-            pnlActivity.Visible = false;
-            pnlLecturer.Visible = false;
-            pnlDrinks.Visible = false;
-            pnlOrder.Visible = false;
+            hideAll();
+
 
             try
             {
@@ -126,13 +126,8 @@ namespace SomerenUI
             // Hide the dashboard label
             lblDashboard.Hide();
 
-            // Hide the room panel
-            pnlRoom.Visible = false;
+            hideAll();
 
-            // Hide other panels
-            pnlStudents.Visible = false;
-            pnlLecturer.Visible = false;
-            pnlDrinks.Visible = false;
 
             try
             {
@@ -156,11 +151,7 @@ namespace SomerenUI
             lblDashboard.Hide();
 
             // Hide other panels
-            pnlStudents.Visible = false;
-            pnlActivity.Visible = false;
-            pnlLecturer.Visible = false;
-            pnlRoom.Visible = false;
-            pnlOrder.Visible = false;
+            hideAll();
 
             try
             {
@@ -452,12 +443,7 @@ namespace SomerenUI
             lblDashboard.Hide();
 
             // Hide the room panel
-            pnlRoom.Visible = false;
-
-            // Hide other panels
-            pnlStudents.Visible = false;
-            pnlLecturer.Visible = false;
-            pnlDrinks.Visible = false;
+            hideAll();
 
             try
             {
@@ -544,6 +530,34 @@ namespace SomerenUI
             ShowDrinkPanel();
         }
 
+        //Revenue panel
+        private void revenueToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowRevenuePanel();
+        }
+        public void ShowRevenuePanel()
+        {
+            // Hide the dashboard label
+            lblDashboard.Hide();
+            hideAll();
+
+
+            try
+            {
+                // Show the drinks panel
+                pnlRevenue.Visible = true;
+
+                // Get drinks from the service
+                List<Drink> drinks = GetDrinks();
+
+                // Display drinks in the ListView or any other control you're using
+                DisplayDrinks(drinks);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Something went wrong while loading the drinks: " + e.Message);
+            }
+        }
 
     }
 }
