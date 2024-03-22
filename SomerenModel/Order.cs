@@ -21,9 +21,5 @@ namespace SomerenModel
             Amount = amount;
             OrderDate = orderDate;
         }
-        public Order()
-        {
-
-        }
     }
 }
