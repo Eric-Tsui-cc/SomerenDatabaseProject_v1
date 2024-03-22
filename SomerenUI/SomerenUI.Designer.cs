@@ -40,7 +40,12 @@
             toolStripDrinksItem = new System.Windows.Forms.ToolStripMenuItem();
             drinksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             orderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            revenueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             pnlDashboard = new System.Windows.Forms.Panel();
+            Revenue = new System.Windows.Forms.Panel();
+            pictureBox7 = new System.Windows.Forms.PictureBox();
+            listView1 = new System.Windows.Forms.ListView();
+            label9 = new System.Windows.Forms.Label();
             pnlRoom = new System.Windows.Forms.Panel();
             pictureBox1 = new System.Windows.Forms.PictureBox();
             listViewRooms = new System.Windows.Forms.ListView();
@@ -72,13 +77,10 @@
             pictureBox2 = new System.Windows.Forms.PictureBox();
             listViewLecturers = new System.Windows.Forms.ListView();
             label2 = new System.Windows.Forms.Label();
-            revenueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            panel1 = new System.Windows.Forms.Panel();
-            pictureBox7 = new System.Windows.Forms.PictureBox();
-            listView1 = new System.Windows.Forms.ListView();
-            label9 = new System.Windows.Forms.Label();
             menuStrip1.SuspendLayout();
             pnlDashboard.SuspendLayout();
+            Revenue.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             pnlRoom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             pnlDrinks.SuspendLayout();
@@ -92,8 +94,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             pnlLecturer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             SuspendLayout();
             // 
             // menuStrip1
@@ -174,13 +174,19 @@
             // orderToolStripMenuItem
             // 
             orderToolStripMenuItem.Name = "orderToolStripMenuItem";
-            orderToolStripMenuItem.Size = new System.Drawing.Size(448, 54);
+            orderToolStripMenuItem.Size = new System.Drawing.Size(297, 54);
             orderToolStripMenuItem.Text = "Order";
             orderToolStripMenuItem.Click += orderToolStripMenuItem_Click;
             // 
+            // revenueToolStripMenuItem
+            // 
+            revenueToolStripMenuItem.Name = "revenueToolStripMenuItem";
+            revenueToolStripMenuItem.Size = new System.Drawing.Size(297, 54);
+            revenueToolStripMenuItem.Text = "Revenue";
+            // 
             // pnlDashboard
             // 
-            pnlDashboard.Controls.Add(panel1);
+            pnlDashboard.Controls.Add(Revenue);
             pnlDashboard.Controls.Add(pnlRoom);
             pnlDashboard.Controls.Add(pnlDrinks);
             pnlDashboard.Controls.Add(pnlOrder);
@@ -193,6 +199,47 @@
             pnlDashboard.Name = "pnlDashboard";
             pnlDashboard.Size = new System.Drawing.Size(2278, 1274);
             pnlDashboard.TabIndex = 1;
+            // 
+            // Revenue
+            // 
+            Revenue.Controls.Add(pictureBox7);
+            Revenue.Controls.Add(listView1);
+            Revenue.Controls.Add(label9);
+            Revenue.Location = new System.Drawing.Point(8, 8);
+            Revenue.Margin = new System.Windows.Forms.Padding(8, 9, 8, 9);
+            Revenue.Name = "Revenue";
+            Revenue.Size = new System.Drawing.Size(2278, 1274);
+            Revenue.TabIndex = 17;
+            // 
+            // pictureBox7
+            // 
+            pictureBox7.Image = (System.Drawing.Image)resources.GetObject("pictureBox7.Image");
+            pictureBox7.Location = new System.Drawing.Point(1932, 147);
+            pictureBox7.Margin = new System.Windows.Forms.Padding(8, 9, 8, 9);
+            pictureBox7.Name = "pictureBox7";
+            pictureBox7.Size = new System.Drawing.Size(315, 337);
+            pictureBox7.TabIndex = 2;
+            pictureBox7.TabStop = false;
+            // 
+            // listView1
+            // 
+            listView1.Location = new System.Drawing.Point(39, 215);
+            listView1.Margin = new System.Windows.Forms.Padding(8, 9, 8, 9);
+            listView1.Name = "listView1";
+            listView1.Size = new System.Drawing.Size(1854, 833);
+            listView1.TabIndex = 1;
+            listView1.UseCompatibleStateImageBehavior = false;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label9.Location = new System.Drawing.Point(48, 86);
+            label9.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            label9.Name = "label9";
+            label9.Size = new System.Drawing.Size(259, 81);
+            label9.TabIndex = 0;
+            label9.Text = "Revenue";
             // 
             // pnlRoom
             // 
@@ -520,53 +567,6 @@
             label2.TabIndex = 0;
             label2.Text = "Lecturers";
             // 
-            // revenueToolStripMenuItem
-            // 
-            revenueToolStripMenuItem.Name = "revenueToolStripMenuItem";
-            revenueToolStripMenuItem.Size = new System.Drawing.Size(448, 54);
-            revenueToolStripMenuItem.Text = "Revenue";
-            // 
-            // panel1
-            // 
-            panel1.Controls.Add(pictureBox7);
-            panel1.Controls.Add(listView1);
-            panel1.Controls.Add(label9);
-            panel1.Location = new System.Drawing.Point(8, 8);
-            panel1.Margin = new System.Windows.Forms.Padding(8, 9, 8, 9);
-            panel1.Name = "panel1";
-            panel1.Size = new System.Drawing.Size(2278, 1274);
-            panel1.TabIndex = 17;
-            // 
-            // pictureBox7
-            // 
-            pictureBox7.Image = (System.Drawing.Image)resources.GetObject("pictureBox7.Image");
-            pictureBox7.Location = new System.Drawing.Point(1932, 147);
-            pictureBox7.Margin = new System.Windows.Forms.Padding(8, 9, 8, 9);
-            pictureBox7.Name = "pictureBox7";
-            pictureBox7.Size = new System.Drawing.Size(315, 337);
-            pictureBox7.TabIndex = 2;
-            pictureBox7.TabStop = false;
-            // 
-            // listView1
-            // 
-            listView1.Location = new System.Drawing.Point(39, 215);
-            listView1.Margin = new System.Windows.Forms.Padding(8, 9, 8, 9);
-            listView1.Name = "listView1";
-            listView1.Size = new System.Drawing.Size(1854, 833);
-            listView1.TabIndex = 1;
-            listView1.UseCompatibleStateImageBehavior = false;
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label9.Location = new System.Drawing.Point(48, 86);
-            label9.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            label9.Name = "label9";
-            label9.Size = new System.Drawing.Size(259, 81);
-            label9.TabIndex = 0;
-            label9.Text = "Revenue";
-            // 
             // SomerenUI
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(17F, 41F);
@@ -583,6 +583,9 @@
             menuStrip1.PerformLayout();
             pnlDashboard.ResumeLayout(false);
             pnlDashboard.PerformLayout();
+            Revenue.ResumeLayout(false);
+            Revenue.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
             pnlRoom.ResumeLayout(false);
             pnlRoom.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -602,9 +605,6 @@
             pnlLecturer.ResumeLayout(false);
             pnlLecturer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -655,7 +655,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label PriceOutput;
         private System.Windows.Forms.ToolStripMenuItem revenueToolStripMenuItem;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel Revenue;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Label label9;

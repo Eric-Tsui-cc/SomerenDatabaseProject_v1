@@ -19,28 +19,23 @@ namespace SomerenDAL
 
         private List<Order> ReadOrder(DataTable dataTable)
         {
-
             List<Order> orders = new List<Order>();
 
             foreach (DataRow dr in dataTable.Rows)
             {
                 int quantity = (int)dr["Amount"];
                 DateTime orderDate = (DateTime)dr["OrderDate"];
+                Student student = ReadTablesStudent(dr);
+                Drink drink = ReadDrinks(dr);
 
-                Student student = ReadTablesStudent(dr); // Pass the DataRow
-                Drink drink = ReadDrinks(dr);        // Pass the DataRow
-
-                Order order = new Order();
-                order.Amount = quantity;
-                order.OrderDate = orderDate;
-                order.Drink = drink;
-                order.Student = student;
-
+                // Create Order object
+                Order order = new Order(student, drink, quantity, orderDate);
                 orders.Add(order);
             }
 
             return orders;
         }
+
 
         private Student ReadTablesStudent(DataRow dr)
         {
