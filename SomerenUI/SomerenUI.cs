@@ -218,10 +218,10 @@ namespace SomerenUI
             listViewStudents.Columns.Clear(); // Clear columns as well
 
             listViewStudents.View = View.Details;
-            listViewStudents.Columns.Add("Name", 200);
-            listViewStudents.Columns.Add("Student Number", 200);
-            listViewStudents.Columns.Add("Telephone Number", 200);
-            listViewStudents.Columns.Add("Room Number", 200);
+            listViewStudents.Columns.Add("Name", 300);
+            listViewStudents.Columns.Add("Student Number", 250);
+            listViewStudents.Columns.Add("Telephone Number", 300);
+            listViewStudents.Columns.Add("Room Number", 250);
             listViewStudents.Columns.Add("Class", 150);
 
             foreach (Student student in students)
@@ -247,7 +247,7 @@ namespace SomerenUI
             listViewLecturers.Columns.Add("Full Name", 300);
             listViewLecturers.Columns.Add("ID", 220);
             listViewLecturers.Columns.Add("Telephone Number", 300);
-            listViewLecturers.Columns.Add("Age", 200);
+            listViewLecturers.Columns.Add("Age", 150);
             listViewLecturers.Columns.Add("Room Number", 250);
 
             foreach (Lecturer lecturer in lecturers)
@@ -269,9 +269,9 @@ namespace SomerenUI
             listViewRooms.Columns.Clear(); // Clear columns as well
 
             listViewRooms.View = View.Details;
-            listViewRooms.Columns.Add("Room Number", 120);
-            listViewRooms.Columns.Add("Building Number", 200);
-            listViewRooms.Columns.Add("Room Type", 250);
+            listViewRooms.Columns.Add("Room Number", 220);
+            listViewRooms.Columns.Add("Building Number", 300);
+            listViewRooms.Columns.Add("Room Type", 300);
             listViewRooms.Columns.Add("Floor Number", 200);
 
             foreach (Room room in rooms)
@@ -293,9 +293,9 @@ namespace SomerenUI
 
             listViewActivities.View = View.Details;
 
-            listViewActivities.Columns.Add("Name", 200);
-            listViewActivities.Columns.Add("Date", 150);
-            listViewActivities.Columns.Add("Time", 100);
+            listViewActivities.Columns.Add("Name", 300);
+            listViewActivities.Columns.Add("Date", 250);
+            listViewActivities.Columns.Add("Time", 150);
 
             foreach (Activity activity in activities)
             {
