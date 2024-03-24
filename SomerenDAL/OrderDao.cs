@@ -144,11 +144,15 @@ namespace SomerenDAL
         public List<Order> GetOrdersByDateRange(DateTime startDate, DateTime endDate)
         {
 
-            string query = "SELECT Orders.Studentnumber, Orders.DrinkId, Orders.Amount, Orders.OrderDate, Orders.OrderTime " +
+            string query = "SELECT Orders.DrinkId, Orders.Amount, Orders.OrderDate " +
                            "FROM Orders " +
-                           "JOIN Student ON Orders.StudentNumber = Student.StudentNumber " +
                            "JOIN Drink ON Orders.DrinkId = Drink.DrinkId " +
                            "WHERE Orders.OrderDate >= @startDate AND Orders.OrderDate <= @endDate";
+
+
+
+
+
 
             SqlParameter[] sqlParameters = new SqlParameter[]
             {

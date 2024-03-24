@@ -11,6 +11,7 @@ namespace SomerenModel
         public int Sales { get; set; }
         public decimal Turnover { get; set; }
         public int CustomerCount { get; set; }
+        public string DrinkName {  get; set; }
 
         public RevenueReport(int sales, decimal turnover, int customerCount)
         {

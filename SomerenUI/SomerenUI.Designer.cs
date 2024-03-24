@@ -51,6 +51,13 @@
             listViewDrinks = new System.Windows.Forms.ListView();
             label3 = new System.Windows.Forms.Label();
             pnlRevenue = new System.Windows.Forms.Panel();
+            Purchases = new System.Windows.Forms.Label();
+            Profits = new System.Windows.Forms.Label();
+            DrinksSold = new System.Windows.Forms.Label();
+            label11 = new System.Windows.Forms.Label();
+            label10 = new System.Windows.Forms.Label();
+            dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             pictureBox7 = new System.Windows.Forms.PictureBox();
             listViewForRevenue = new System.Windows.Forms.ListView();
             label9 = new System.Windows.Forms.Label();
@@ -78,13 +85,6 @@
             pictureBox2 = new System.Windows.Forms.PictureBox();
             listViewLecturers = new System.Windows.Forms.ListView();
             label2 = new System.Windows.Forms.Label();
-            dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            label10 = new System.Windows.Forms.Label();
-            label11 = new System.Windows.Forms.Label();
-            DrinksSold = new System.Windows.Forms.Label();
-            Profits = new System.Windows.Forms.Label();
-            Purchases = new System.Windows.Forms.Label();
             menuStrip1.SuspendLayout();
             pnlDashboard.SuspendLayout();
             pnlRoom.SuspendLayout();
@@ -310,13 +310,74 @@
             pnlRevenue.Size = new System.Drawing.Size(2278, 1274);
             pnlRevenue.TabIndex = 17;
             // 
+            // Purchases
+            // 
+            Purchases.AutoSize = true;
+            Purchases.Location = new System.Drawing.Point(1494, 957);
+            Purchases.Name = "Purchases";
+            Purchases.Size = new System.Drawing.Size(249, 41);
+            Purchases.TabIndex = 9;
+            Purchases.Text = "Purchases Made :";
+            // 
+            // Profits
+            // 
+            Profits.AutoSize = true;
+            Profits.Location = new System.Drawing.Point(1494, 761);
+            Profits.Name = "Profits";
+            Profits.Size = new System.Drawing.Size(209, 41);
+            Profits.TabIndex = 8;
+            Profits.Text = "Profits Made : ";
+            // 
+            // DrinksSold
+            // 
+            DrinksSold.AutoSize = true;
+            DrinksSold.Location = new System.Drawing.Point(1494, 550);
+            DrinksSold.Name = "DrinksSold";
+            DrinksSold.Size = new System.Drawing.Size(188, 41);
+            DrinksSold.TabIndex = 7;
+            DrinksSold.Text = "Drinks sold : ";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new System.Drawing.Point(683, 277);
+            label11.Name = "label11";
+            label11.Size = new System.Drawing.Size(64, 41);
+            label11.TabIndex = 6;
+            label11.Text = "To :";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new System.Drawing.Point(65, 277);
+            label10.Name = "label10";
+            label10.Size = new System.Drawing.Size(102, 41);
+            label10.TabIndex = 5;
+            label10.Text = "From :";
+            // 
+            // dateTimePicker2
+            // 
+            dateTimePicker2.Location = new System.Drawing.Point(683, 348);
+            dateTimePicker2.Name = "dateTimePicker2";
+            dateTimePicker2.Size = new System.Drawing.Size(500, 47);
+            dateTimePicker2.TabIndex = 4;
+            dateTimePicker2.ValueChanged += dateTimePicker2_ValueChanged;
+            // 
+            // dateTimePicker1
+            // 
+            dateTimePicker1.Location = new System.Drawing.Point(65, 348);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new System.Drawing.Size(500, 47);
+            dateTimePicker1.TabIndex = 3;
+            dateTimePicker1.ValueChanged += dateTimePicker1_ValueChanged;
+            // 
             // pictureBox7
             // 
             pictureBox7.Image = (System.Drawing.Image)resources.GetObject("pictureBox7.Image");
             pictureBox7.Location = new System.Drawing.Point(1932, 147);
             pictureBox7.Margin = new System.Windows.Forms.Padding(8, 9, 8, 9);
             pictureBox7.Name = "pictureBox7";
-            pictureBox7.Size = new System.Drawing.Size(315, 337);
+            pictureBox7.Size = new System.Drawing.Size(131, 120);
             pictureBox7.TabIndex = 2;
             pictureBox7.TabStop = false;
             // 
@@ -597,65 +658,6 @@
             label2.Size = new System.Drawing.Size(274, 81);
             label2.TabIndex = 0;
             label2.Text = "Lecturers";
-            // 
-            // dateTimePicker1
-            // 
-            dateTimePicker1.Location = new System.Drawing.Point(65, 348);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new System.Drawing.Size(500, 47);
-            dateTimePicker1.TabIndex = 3;
-            // 
-            // dateTimePicker2
-            // 
-            dateTimePicker2.Location = new System.Drawing.Point(683, 348);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new System.Drawing.Size(500, 47);
-            dateTimePicker2.TabIndex = 4;
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Location = new System.Drawing.Point(65, 277);
-            label10.Name = "label10";
-            label10.Size = new System.Drawing.Size(102, 41);
-            label10.TabIndex = 5;
-            label10.Text = "From :";
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Location = new System.Drawing.Point(683, 277);
-            label11.Name = "label11";
-            label11.Size = new System.Drawing.Size(64, 41);
-            label11.TabIndex = 6;
-            label11.Text = "To :";
-            // 
-            // DrinksSold
-            // 
-            DrinksSold.AutoSize = true;
-            DrinksSold.Location = new System.Drawing.Point(1494, 568);
-            DrinksSold.Name = "DrinksSold";
-            DrinksSold.Size = new System.Drawing.Size(188, 41);
-            DrinksSold.TabIndex = 7;
-            DrinksSold.Text = "Drinks sold : ";
-            // 
-            // Profits
-            // 
-            Profits.AutoSize = true;
-            Profits.Location = new System.Drawing.Point(1494, 781);
-            Profits.Name = "Profits";
-            Profits.Size = new System.Drawing.Size(209, 41);
-            Profits.TabIndex = 8;
-            Profits.Text = "Profits Made : ";
-            // 
-            // Purchases
-            // 
-            Purchases.AutoSize = true;
-            Purchases.Location = new System.Drawing.Point(1494, 1012);
-            Purchases.Name = "Purchases";
-            Purchases.Size = new System.Drawing.Size(249, 41);
-            Purchases.TabIndex = 9;
-            Purchases.Text = "Purchases Made :";
             // 
             // SomerenUI
             // 

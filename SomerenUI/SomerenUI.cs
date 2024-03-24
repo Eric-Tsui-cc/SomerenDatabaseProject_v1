@@ -247,6 +247,13 @@ namespace SomerenUI
             List<Drink> drinks = drinkService.GetDrinks();
             return drinks;
         }
+        // Get Orders from the service
+        private List<Order> GetOrders()
+        {
+            OrderService orderService = new OrderService();
+            List<Order> orders = orderService.GetOrders();
+            return orders;
+        }
 
 
 
@@ -659,7 +666,7 @@ namespace SomerenUI
             }
         }
         // Display activities in the ListView
-        private void DisplayRevenueInfo(List<RevenueReport> revenueReport)
+        private void DisplayRevenueInfo(List<Order> orders)
         {
             listViewForRevenue.Items.Clear();
             listViewForRevenue.Columns.Clear();
@@ -670,19 +677,75 @@ namespace SomerenUI
             listViewForRevenue.Columns.Add("Price", 200);
             listViewForRevenue.Columns.Add("Amount", 200);
 
-            foreach (RevenueReport activity in revenueReport)
+            foreach (Order order in orders)
             {
-                ListViewItem item = new ListViewItem(drink.Name);
+                ListViewItem item = new ListViewItem(order.Drink.name);
 
-                item.SubItems.Add(activity.Date.ToShortDateString());
-                item.SubItems.Add(activity.Time.ToString());
+                item.SubItems.Add(order.Drink.price.ToString());
+                item.SubItems.Add(order.Amount.ToString());
 
-                item.Tag = activity;
-
-                listViewActivities.Items.Add(item);
+                listViewForRevenue.Items.Add(item);
             }
         }
 
 
+        private void ChangeLabels()
+        {
+            DateTime startDate = dateTimePicker1.Value;
+            DateTime endDate = dateTimePicker2.Value;
+            RevenueReportService revenueReportService = new RevenueReportService();
+
+
+            DrinksSold.Text = revenueReportService.GenerateReport(startDate, endDate).Sales.ToString();
+            Profits.Text = revenueReportService.GenerateReport(startDate, endDate).Turnover.ToString();
+            Purchases.Text = revenueReportService.GenerateReport(startDate, endDate).CustomerCount.ToString();
+        }
+
+
+        public void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            RevenueReportService revenueReportService = new();
+            try
+            {
+                if (revenueReportService.CheckDates(dateTimePicker1.Value, dateTimePicker2.Value))
+                {
+                    List<Order> orders = GetOrders();
+                    DisplayRevenueInfo(orders);
+                    ChangeLabels();
+                }
+                else
+                {
+                    throw new Exception("Select the correct date !");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        public void dateTimePicker2_ValueChanged(object sender, EventArgs e)
+        {
+            RevenueReportService revenueReportService = new();
+            try
+            {
+                if (revenueReportService.CheckDates(dateTimePicker1.Value, dateTimePicker2.Value))
+                {
+                    List<Order> orders = GetOrders();
+                    DisplayRevenueInfo(orders);
+                    ChangeLabels();
+                }
+                else
+                {
+                    throw new Exception("Select the correct date !");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
+
+
 }

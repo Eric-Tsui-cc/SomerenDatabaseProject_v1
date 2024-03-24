@@ -15,6 +15,16 @@ namespace SomerenService
         {
             orderDb = new OrderDao();
         }
+
+        // Method to retrieve all Orders
+        public List<Order> GetOrders()
+        {
+            // Retrieve all drinks from the database via the DAO
+            List<Order> orders = orderDb.GetAllOrders();
+            return orders;
+        }
+
+
         public void CreateOrder(Student student, Drink drink, int Amount, DateTime dateOfOrder, TimeSpan timeOfOrder)
         {
  

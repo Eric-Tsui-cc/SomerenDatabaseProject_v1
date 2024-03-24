@@ -8,33 +8,34 @@ using System.Threading.Tasks;
 
 namespace SomerenService
 {
-    internal class RevenueReportService
+    public class RevenueReportService
     {
-        private DrinkDao drinkDao;
         private OrderDao orderDao;
-
-        public RevenueReportService(DrinkDao drinkDao, OrderDao orderDao)
+        public RevenueReportService()
         {
-            this.drinkDao = drinkDao;
-            this.orderDao = orderDao;
+            orderDao = new OrderDao();
         }
 
 
-        //Leith
-        // Fixed the method
+
+
+        public bool CheckDates(DateTime startDate, DateTime endDate)
+        {
+            if (startDate > endDate)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+
+            }
+
+        }
+
         public RevenueReport GenerateReport(DateTime startDate, DateTime endDate)
         {
 
-            if (startDate > endDate)
-            {
-                throw new ArgumentException("Start date cannot be after end date.");
-            }
-
-
-            if (endDate > DateTime.Today)
-            {
-                throw new ArgumentException("End date cannot be in the future.");
-            }
 
             // Retrieve orders within the date range
             List<Order> orders = orderDao.GetOrdersByDateRange(startDate, endDate);
