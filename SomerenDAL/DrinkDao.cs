@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
 using SomerenDAL;
 using SomerenModel;
 
@@ -23,7 +24,7 @@ public class DrinkDao : BaseDao
         {
             Drink drink = new Drink();
 
-            drink.DrinkId = (int)dr["DrinkId"];
+            drink.DrinkId = (int)dr["DrinkId"]; // no need to retrieve DrinkId again
             drink.name = dr["name"].ToString();
             drink.price = (decimal)dr["price"];
             drink.type = dr["type"].ToString();
@@ -42,5 +43,7 @@ public class DrinkDao : BaseDao
         }
         return drinks;
     }
+
+
 }
 

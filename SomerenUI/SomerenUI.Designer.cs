@@ -50,6 +50,10 @@
             pictureBox3 = new System.Windows.Forms.PictureBox();
             listViewDrinks = new System.Windows.Forms.ListView();
             label3 = new System.Windows.Forms.Label();
+            pnlRevenue = new System.Windows.Forms.Panel();
+            pictureBox7 = new System.Windows.Forms.PictureBox();
+            listViewForRevenue = new System.Windows.Forms.ListView();
+            label9 = new System.Windows.Forms.Label();
             pnlOrder = new System.Windows.Forms.Panel();
             button1 = new System.Windows.Forms.Button();
             QuantityOfDrinks = new System.Windows.Forms.NumericUpDown();
@@ -61,11 +65,11 @@
             label5 = new System.Windows.Forms.Label();
             PriceOutput = new System.Windows.Forms.Label();
             label8 = new System.Windows.Forms.Label();
-            lblDashboard = new System.Windows.Forms.Label();
             pnlActivity = new System.Windows.Forms.Panel();
             pictureBox4 = new System.Windows.Forms.PictureBox();
             listViewActivities = new System.Windows.Forms.ListView();
             label4 = new System.Windows.Forms.Label();
+            lblDashboard = new System.Windows.Forms.Label();
             pnlStudents = new System.Windows.Forms.Panel();
             pictureBox6 = new System.Windows.Forms.PictureBox();
             listViewStudents = new System.Windows.Forms.ListView();
@@ -74,16 +78,21 @@
             pictureBox2 = new System.Windows.Forms.PictureBox();
             listViewLecturers = new System.Windows.Forms.ListView();
             label2 = new System.Windows.Forms.Label();
-            pnlRevenue = new System.Windows.Forms.Panel();
-            pictureBox7 = new System.Windows.Forms.PictureBox();
-            listView1 = new System.Windows.Forms.ListView();
-            label9 = new System.Windows.Forms.Label();
+            dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            label10 = new System.Windows.Forms.Label();
+            label11 = new System.Windows.Forms.Label();
+            DrinksSold = new System.Windows.Forms.Label();
+            Profits = new System.Windows.Forms.Label();
+            Purchases = new System.Windows.Forms.Label();
             menuStrip1.SuspendLayout();
             pnlDashboard.SuspendLayout();
             pnlRoom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             pnlDrinks.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            pnlRevenue.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             pnlOrder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)QuantityOfDrinks).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
@@ -93,8 +102,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             pnlLecturer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            pnlRevenue.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             SuspendLayout();
             // 
             // menuStrip1
@@ -189,12 +196,12 @@
             // 
             pnlDashboard.Controls.Add(pnlRoom);
             pnlDashboard.Controls.Add(pnlDrinks);
+            pnlDashboard.Controls.Add(pnlRevenue);
             pnlDashboard.Controls.Add(pnlOrder);
-            pnlDashboard.Controls.Add(lblDashboard);
             pnlDashboard.Controls.Add(pnlActivity);
+            pnlDashboard.Controls.Add(lblDashboard);
             pnlDashboard.Controls.Add(pnlStudents);
             pnlDashboard.Controls.Add(pnlLecturer);
-            pnlDashboard.Controls.Add(pnlRevenue);
             pnlDashboard.Location = new System.Drawing.Point(0, 0);
             pnlDashboard.Margin = new System.Windows.Forms.Padding(8, 9, 8, 9);
             pnlDashboard.Name = "pnlDashboard";
@@ -284,6 +291,54 @@
             label3.Size = new System.Drawing.Size(202, 81);
             label3.TabIndex = 0;
             label3.Text = "Drinks";
+            // 
+            // pnlRevenue
+            // 
+            pnlRevenue.Controls.Add(Purchases);
+            pnlRevenue.Controls.Add(Profits);
+            pnlRevenue.Controls.Add(DrinksSold);
+            pnlRevenue.Controls.Add(label11);
+            pnlRevenue.Controls.Add(label10);
+            pnlRevenue.Controls.Add(dateTimePicker2);
+            pnlRevenue.Controls.Add(dateTimePicker1);
+            pnlRevenue.Controls.Add(pictureBox7);
+            pnlRevenue.Controls.Add(listViewForRevenue);
+            pnlRevenue.Controls.Add(label9);
+            pnlRevenue.Location = new System.Drawing.Point(8, 8);
+            pnlRevenue.Margin = new System.Windows.Forms.Padding(8, 9, 8, 9);
+            pnlRevenue.Name = "pnlRevenue";
+            pnlRevenue.Size = new System.Drawing.Size(2278, 1274);
+            pnlRevenue.TabIndex = 17;
+            // 
+            // pictureBox7
+            // 
+            pictureBox7.Image = (System.Drawing.Image)resources.GetObject("pictureBox7.Image");
+            pictureBox7.Location = new System.Drawing.Point(1932, 147);
+            pictureBox7.Margin = new System.Windows.Forms.Padding(8, 9, 8, 9);
+            pictureBox7.Name = "pictureBox7";
+            pictureBox7.Size = new System.Drawing.Size(315, 337);
+            pictureBox7.TabIndex = 2;
+            pictureBox7.TabStop = false;
+            // 
+            // listViewForRevenue
+            // 
+            listViewForRevenue.Location = new System.Drawing.Point(65, 493);
+            listViewForRevenue.Margin = new System.Windows.Forms.Padding(8, 9, 8, 9);
+            listViewForRevenue.Name = "listViewForRevenue";
+            listViewForRevenue.Size = new System.Drawing.Size(1268, 605);
+            listViewForRevenue.TabIndex = 1;
+            listViewForRevenue.UseCompatibleStateImageBehavior = false;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label9.Location = new System.Drawing.Point(56, 94);
+            label9.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            label9.Name = "label9";
+            label9.Size = new System.Drawing.Size(259, 81);
+            label9.TabIndex = 0;
+            label9.Text = "Revenue";
             // 
             // pnlOrder
             // 
@@ -410,16 +465,6 @@
             label8.TabIndex = 6;
             label8.Text = "Choose the number of drinks";
             // 
-            // lblDashboard
-            // 
-            lblDashboard.AutoSize = true;
-            lblDashboard.Location = new System.Drawing.Point(39, 72);
-            lblDashboard.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            lblDashboard.Name = "lblDashboard";
-            lblDashboard.Size = new System.Drawing.Size(523, 41);
-            lblDashboard.TabIndex = 0;
-            lblDashboard.Text = "Welcome to the Someren Application!";
-            // 
             // pnlActivity
             // 
             pnlActivity.Controls.Add(pictureBox4);
@@ -460,6 +505,16 @@
             label4.Size = new System.Drawing.Size(272, 81);
             label4.TabIndex = 0;
             label4.Text = "Activities";
+            // 
+            // lblDashboard
+            // 
+            lblDashboard.AutoSize = true;
+            lblDashboard.Location = new System.Drawing.Point(39, 72);
+            lblDashboard.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            lblDashboard.Name = "lblDashboard";
+            lblDashboard.Size = new System.Drawing.Size(523, 41);
+            lblDashboard.TabIndex = 0;
+            lblDashboard.Text = "Welcome to the Someren Application!";
             // 
             // pnlStudents
             // 
@@ -543,46 +598,64 @@
             label2.TabIndex = 0;
             label2.Text = "Lecturers";
             // 
-            // pnlRevenue
+            // dateTimePicker1
             // 
-            pnlRevenue.Controls.Add(pictureBox7);
-            pnlRevenue.Controls.Add(listView1);
-            pnlRevenue.Controls.Add(label9);
-            pnlRevenue.Location = new System.Drawing.Point(8, 8);
-            pnlRevenue.Margin = new System.Windows.Forms.Padding(8, 9, 8, 9);
-            pnlRevenue.Name = "pnlRevenue";
-            pnlRevenue.Size = new System.Drawing.Size(2278, 1274);
-            pnlRevenue.TabIndex = 17;
+            dateTimePicker1.Location = new System.Drawing.Point(65, 348);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new System.Drawing.Size(500, 47);
+            dateTimePicker1.TabIndex = 3;
             // 
-            // pictureBox7
+            // dateTimePicker2
             // 
-            pictureBox7.Image = (System.Drawing.Image)resources.GetObject("pictureBox7.Image");
-            pictureBox7.Location = new System.Drawing.Point(1932, 147);
-            pictureBox7.Margin = new System.Windows.Forms.Padding(8, 9, 8, 9);
-            pictureBox7.Name = "pictureBox7";
-            pictureBox7.Size = new System.Drawing.Size(315, 337);
-            pictureBox7.TabIndex = 2;
-            pictureBox7.TabStop = false;
+            dateTimePicker2.Location = new System.Drawing.Point(683, 348);
+            dateTimePicker2.Name = "dateTimePicker2";
+            dateTimePicker2.Size = new System.Drawing.Size(500, 47);
+            dateTimePicker2.TabIndex = 4;
             // 
-            // listView1
+            // label10
             // 
-            listView1.Location = new System.Drawing.Point(48, 229);
-            listView1.Margin = new System.Windows.Forms.Padding(8, 9, 8, 9);
-            listView1.Name = "listView1";
-            listView1.Size = new System.Drawing.Size(1854, 833);
-            listView1.TabIndex = 1;
-            listView1.UseCompatibleStateImageBehavior = false;
+            label10.AutoSize = true;
+            label10.Location = new System.Drawing.Point(65, 277);
+            label10.Name = "label10";
+            label10.Size = new System.Drawing.Size(102, 41);
+            label10.TabIndex = 5;
+            label10.Text = "From :";
             // 
-            // label9
+            // label11
             // 
-            label9.AutoSize = true;
-            label9.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label9.Location = new System.Drawing.Point(56, 94);
-            label9.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            label9.Name = "label9";
-            label9.Size = new System.Drawing.Size(259, 81);
-            label9.TabIndex = 0;
-            label9.Text = "Revenue";
+            label11.AutoSize = true;
+            label11.Location = new System.Drawing.Point(683, 277);
+            label11.Name = "label11";
+            label11.Size = new System.Drawing.Size(64, 41);
+            label11.TabIndex = 6;
+            label11.Text = "To :";
+            // 
+            // DrinksSold
+            // 
+            DrinksSold.AutoSize = true;
+            DrinksSold.Location = new System.Drawing.Point(1494, 568);
+            DrinksSold.Name = "DrinksSold";
+            DrinksSold.Size = new System.Drawing.Size(188, 41);
+            DrinksSold.TabIndex = 7;
+            DrinksSold.Text = "Drinks sold : ";
+            // 
+            // Profits
+            // 
+            Profits.AutoSize = true;
+            Profits.Location = new System.Drawing.Point(1494, 781);
+            Profits.Name = "Profits";
+            Profits.Size = new System.Drawing.Size(209, 41);
+            Profits.TabIndex = 8;
+            Profits.Text = "Profits Made : ";
+            // 
+            // Purchases
+            // 
+            Purchases.AutoSize = true;
+            Purchases.Location = new System.Drawing.Point(1494, 1012);
+            Purchases.Name = "Purchases";
+            Purchases.Size = new System.Drawing.Size(249, 41);
+            Purchases.TabIndex = 9;
+            Purchases.Text = "Purchases Made :";
             // 
             // SomerenUI
             // 
@@ -606,6 +679,9 @@
             pnlDrinks.ResumeLayout(false);
             pnlDrinks.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            pnlRevenue.ResumeLayout(false);
+            pnlRevenue.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
             pnlOrder.ResumeLayout(false);
             pnlOrder.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)QuantityOfDrinks).EndInit();
@@ -619,9 +695,6 @@
             pnlLecturer.ResumeLayout(false);
             pnlLecturer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            pnlRevenue.ResumeLayout(false);
-            pnlRevenue.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -674,8 +747,15 @@
         private System.Windows.Forms.ToolStripMenuItem revenueToolStripMenuItem;
         private System.Windows.Forms.Panel pnlRevenue;
         private System.Windows.Forms.PictureBox pictureBox7;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView listViewForRevenue;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label Purchases;
+        private System.Windows.Forms.Label Profits;
+        private System.Windows.Forms.Label DrinksSold;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }

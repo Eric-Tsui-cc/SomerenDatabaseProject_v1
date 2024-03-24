@@ -135,5 +135,28 @@ namespace SomerenDAL
             ExecuteEditQuery(query, parameters);
 
         }
+
+        //Leiths part:
+
+        // Fixed the sql script !
+
+        //this method to implement retrieve order within the date range => revenueReportService 
+        public List<Order> GetOrdersByDateRange(DateTime startDate, DateTime endDate)
+        {
+
+            string query = "SELECT Orders.Studentnumber, Orders.DrinkId, Orders.Amount, Orders.OrderDate, Orders.OrderTime " +
+                           "FROM Orders " +
+                           "JOIN Student ON Orders.StudentNumber = Student.StudentNumber " +
+                           "JOIN Drink ON Orders.DrinkId = Drink.DrinkId " +
+                           "WHERE Orders.OrderDate >= @startDate AND Orders.OrderDate <= @endDate";
+
+            SqlParameter[] sqlParameters = new SqlParameter[]
+            {
+    new SqlParameter("@startDate", SqlDbType.Date) { Value = startDate },
+    new SqlParameter("@endDate", SqlDbType.Date) { Value = endDate }
+            };
+
+            return ReadOrder(ExecuteSelectQuery(query, sqlParameters));
+        }
     }
 }
