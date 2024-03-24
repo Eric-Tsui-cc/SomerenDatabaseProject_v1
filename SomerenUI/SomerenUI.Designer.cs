@@ -51,6 +51,7 @@
             listViewDrinks = new System.Windows.Forms.ListView();
             label3 = new System.Windows.Forms.Label();
             pnlOrder = new System.Windows.Forms.Panel();
+            button1 = new System.Windows.Forms.Button();
             QuantityOfDrinks = new System.Windows.Forms.NumericUpDown();
             buttonOrder = new System.Windows.Forms.Button();
             listBoxStudentOrders = new System.Windows.Forms.ListBox();
@@ -287,6 +288,7 @@
             // 
             // pnlOrder
             // 
+            pnlOrder.Controls.Add(button1);
             pnlOrder.Controls.Add(QuantityOfDrinks);
             pnlOrder.Controls.Add(buttonOrder);
             pnlOrder.Controls.Add(listBoxStudentOrders);
@@ -303,9 +305,20 @@
             pnlOrder.Size = new System.Drawing.Size(2278, 1332);
             pnlOrder.TabIndex = 16;
             // 
+            // button1
+            // 
+            button1.Location = new System.Drawing.Point(1502, 1191);
+            button1.Margin = new System.Windows.Forms.Padding(6);
+            button1.Name = "button1";
+            button1.Size = new System.Drawing.Size(238, 77);
+            button1.TabIndex = 8;
+            button1.Text = "Refresh";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // QuantityOfDrinks
             // 
-            QuantityOfDrinks.Location = new System.Drawing.Point(1502, 1118);
+            QuantityOfDrinks.Location = new System.Drawing.Point(1502, 1115);
             QuantityOfDrinks.Margin = new System.Windows.Forms.Padding(6);
             QuantityOfDrinks.Name = "QuantityOfDrinks";
             QuantityOfDrinks.Size = new System.Drawing.Size(238, 47);
@@ -314,10 +327,10 @@
             // 
             // buttonOrder
             // 
-            buttonOrder.Location = new System.Drawing.Point(1840, 1102);
+            buttonOrder.Location = new System.Drawing.Point(1840, 1115);
             buttonOrder.Margin = new System.Windows.Forms.Padding(6);
             buttonOrder.Name = "buttonOrder";
-            buttonOrder.Size = new System.Drawing.Size(355, 172);
+            buttonOrder.Size = new System.Drawing.Size(355, 153);
             buttonOrder.TabIndex = 3;
             buttonOrder.Text = "Place Order";
             buttonOrder.UseVisualStyleBackColor = true;
@@ -327,29 +340,31 @@
             // 
             listBoxStudentOrders.FormattingEnabled = true;
             listBoxStudentOrders.ItemHeight = 41;
-            listBoxStudentOrders.Location = new System.Drawing.Point(36, 152);
+            listBoxStudentOrders.Location = new System.Drawing.Point(56, 205);
             listBoxStudentOrders.Margin = new System.Windows.Forms.Padding(6);
             listBoxStudentOrders.Name = "listBoxStudentOrders";
             listBoxStudentOrders.Size = new System.Drawing.Size(552, 865);
             listBoxStudentOrders.TabIndex = 3;
+            listBoxStudentOrders.SelectedIndexChanged += listBoxStudentOrders_SelectedIndexChanged_1;
             // 
             // listBoxDrinksOrders
             // 
             listBoxDrinksOrders.FormattingEnabled = true;
             listBoxDrinksOrders.ItemHeight = 41;
-            listBoxDrinksOrders.Location = new System.Drawing.Point(797, 152);
+            listBoxDrinksOrders.Location = new System.Drawing.Point(797, 205);
             listBoxDrinksOrders.Margin = new System.Windows.Forms.Padding(6);
             listBoxDrinksOrders.Name = "listBoxDrinksOrders";
             listBoxDrinksOrders.Size = new System.Drawing.Size(943, 865);
             listBoxDrinksOrders.TabIndex = 4;
+            listBoxDrinksOrders.SelectedIndexChanged += listBoxDrinksOrders_SelectedIndexChanged;
             // 
             // pictureBox5
             // 
             pictureBox5.Image = (System.Drawing.Image)resources.GetObject("pictureBox5.Image");
-            pictureBox5.Location = new System.Drawing.Point(1932, 147);
+            pictureBox5.Location = new System.Drawing.Point(1840, 110);
             pictureBox5.Margin = new System.Windows.Forms.Padding(8, 9, 8, 9);
             pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new System.Drawing.Size(315, 337);
+            pictureBox5.Size = new System.Drawing.Size(127, 122);
             pictureBox5.TabIndex = 2;
             pictureBox5.TabStop = false;
             // 
@@ -357,7 +372,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label7.Location = new System.Drawing.Point(39, 64);
+            label7.Location = new System.Drawing.Point(56, 94);
             label7.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             label7.Name = "label7";
             label7.Size = new System.Drawing.Size(213, 81);
@@ -389,7 +404,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label8.Location = new System.Drawing.Point(1345, 1057);
+            label8.Location = new System.Drawing.Point(1066, 1115);
             label8.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             label8.Name = "label8";
             label8.Size = new System.Drawing.Size(405, 41);
@@ -420,16 +435,16 @@
             // pictureBox4
             // 
             pictureBox4.Image = (System.Drawing.Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new System.Drawing.Point(1932, 147);
+            pictureBox4.Location = new System.Drawing.Point(1955, 113);
             pictureBox4.Margin = new System.Windows.Forms.Padding(8, 9, 8, 9);
             pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new System.Drawing.Size(315, 337);
+            pictureBox4.Size = new System.Drawing.Size(134, 127);
             pictureBox4.TabIndex = 2;
             pictureBox4.TabStop = false;
             // 
             // listViewActivities
             // 
-            listViewActivities.Location = new System.Drawing.Point(39, 215);
+            listViewActivities.Location = new System.Drawing.Point(70, 187);
             listViewActivities.Margin = new System.Windows.Forms.Padding(8, 9, 8, 9);
             listViewActivities.Name = "listViewActivities";
             listViewActivities.Size = new System.Drawing.Size(1854, 833);
@@ -440,7 +455,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label4.Location = new System.Drawing.Point(48, 86);
+            label4.Location = new System.Drawing.Point(56, 94);
             label4.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             label4.Name = "label4";
             label4.Size = new System.Drawing.Size(272, 81);
@@ -461,7 +476,7 @@
             // pictureBox6
             // 
             pictureBox6.Image = (System.Drawing.Image)resources.GetObject("pictureBox6.Image");
-            pictureBox6.Location = new System.Drawing.Point(1925, 301);
+            pictureBox6.Location = new System.Drawing.Point(1923, 115);
             pictureBox6.Margin = new System.Windows.Forms.Padding(8, 9, 8, 9);
             pictureBox6.Name = "pictureBox6";
             pictureBox6.Size = new System.Drawing.Size(315, 337);
@@ -470,7 +485,7 @@
             // 
             // listViewStudents
             // 
-            listViewStudents.Location = new System.Drawing.Point(39, 147);
+            listViewStudents.Location = new System.Drawing.Point(39, 213);
             listViewStudents.Margin = new System.Windows.Forms.Padding(8, 9, 8, 9);
             listViewStudents.Name = "listViewStudents";
             listViewStudents.Size = new System.Drawing.Size(1854, 833);
@@ -481,7 +496,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label1.Location = new System.Drawing.Point(39, 41);
+            label1.Location = new System.Drawing.Point(56, 94);
             label1.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(264, 81);
@@ -502,7 +517,7 @@
             // pictureBox2
             // 
             pictureBox2.Image = (System.Drawing.Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new System.Drawing.Point(1932, 147);
+            pictureBox2.Location = new System.Drawing.Point(1963, 150);
             pictureBox2.Margin = new System.Windows.Forms.Padding(8, 9, 8, 9);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new System.Drawing.Size(315, 337);
@@ -511,7 +526,7 @@
             // 
             // listViewLecturers
             // 
-            listViewLecturers.Location = new System.Drawing.Point(39, 147);
+            listViewLecturers.Location = new System.Drawing.Point(70, 221);
             listViewLecturers.Margin = new System.Windows.Forms.Padding(8, 9, 8, 9);
             listViewLecturers.Name = "listViewLecturers";
             listViewLecturers.Size = new System.Drawing.Size(1854, 833);
@@ -522,7 +537,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label2.Location = new System.Drawing.Point(39, 38);
+            label2.Location = new System.Drawing.Point(56, 94);
             label2.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(274, 81);
@@ -552,7 +567,7 @@
             // 
             // listView1
             // 
-            listView1.Location = new System.Drawing.Point(39, 215);
+            listView1.Location = new System.Drawing.Point(48, 229);
             listView1.Margin = new System.Windows.Forms.Padding(8, 9, 8, 9);
             listView1.Name = "listView1";
             listView1.Size = new System.Drawing.Size(1854, 833);
@@ -563,7 +578,7 @@
             // 
             label9.AutoSize = true;
             label9.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label9.Location = new System.Drawing.Point(48, 86);
+            label9.Location = new System.Drawing.Point(56, 94);
             label9.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             label9.Name = "label9";
             label9.Size = new System.Drawing.Size(259, 81);
@@ -662,5 +677,6 @@
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button button1;
     }
 }

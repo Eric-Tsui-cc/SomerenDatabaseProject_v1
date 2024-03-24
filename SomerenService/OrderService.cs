@@ -15,11 +15,22 @@ namespace SomerenService
         {
             orderDb = new OrderDao();
         }
-        public void CreateOrder(Student student, Drink drink, int Amount, DateTime dateOfOrder)
+        public void CreateOrder(Student student, Drink drink, int Amount, DateTime dateOfOrder, TimeSpan timeOfOrder)
         {
-            orderDb.CreateOrder(student, drink, Amount, dateOfOrder);
+ 
+            if(orderDb.OrderExists( student.Number, drink.DrinkId) )
+            {
+                orderDb.ifOrderExists(drink, Amount, student);
+
+            }
+            else
+            {
+                orderDb.CreateOrder(student, drink, Amount, dateOfOrder, timeOfOrder);
+
+            }            
+
         }
-        public void FillOrder(int studentSelectedIndex, int drinkSelectedIndex, Student student, Drink drink, int Amount)
+        public void FillTheOrder(int studentSelectedIndex, int drinkSelectedIndex, Student student, Drink drink, int Amount)
         {
             if (studentSelectedIndex == -1)
             {
@@ -32,13 +43,15 @@ namespace SomerenService
             else
             {
                 DateTime dateOfOrder = DateTime.Now;
+                TimeSpan timeOfOrder = new TimeSpan();
+                timeOfOrder = DateTime.Now.TimeOfDay; ;
 
                 if (drink.Stock < Amount)
                 {
                     throw new Exception($"Only {drink.Stock} is in stock.");
                 }
 
-                orderDb.CreateOrder(student, drink, Amount, dateOfOrder);
+                orderDb.CreateOrder(student, drink, Amount, dateOfOrder, timeOfOrder);
             }
         }
         public void DisplayPrice(Drink drink, int studentSelectedIndex, int drinkSelectedIndex, decimal quantityOfDrinks, out string totalPrice)

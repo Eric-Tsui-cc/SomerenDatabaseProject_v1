@@ -11,7 +11,7 @@ namespace SomerenDAL
     {
         public List<Order> GetAllOrders()
         {
-            string query = "SELECT Orders.Amount, Orders.OrderDate, Student.*, Drink.* FROM Orders JOIN Student ON Orders.StudentNumber = Student.StudentNumber JOIN Drink ON Orders.DrinkId = Drink.DrinkId";
+            string query = "SELECT Orders.Amount, Orders.OrderDate,Orders.OrderTime, Student.*, Drink.* FROM Orders JOIN Student ON Orders.StudentNumber = Student.StudentNumber JOIN Drink ON Orders.DrinkId = Drink.DrinkId";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadOrder(ExecuteSelectQuery(query, sqlParameters));
         }
@@ -25,17 +25,17 @@ namespace SomerenDAL
             {
                 int quantity = (int)dr["Amount"];
                 DateTime orderDate = (DateTime)dr["OrderDate"];
+                TimeSpan orderTime = (TimeSpan)dr["orderTime"];
                 Student student = ReadTablesStudent(dr);
                 Drink drink = ReadDrinks(dr);
 
                 // Create Order object
-                Order order = new Order(student, drink, quantity, orderDate);
+                Order order = new Order(student, drink, quantity, orderDate, orderTime);
                 orders.Add(order);
             }
 
             return orders;
         }
-
 
         private Student ReadTablesStudent(DataRow dr)
         {
@@ -72,21 +72,23 @@ namespace SomerenDAL
             drink.Stock = (int)dr["Stock"];
             return drink;
         }
-        public void CreateOrder(Student student, Drink drink, int Amount, DateTime dateOfOrder)
+        public void CreateOrder(Student student, Drink drink, int Amount, DateTime dateOfOrder, TimeSpan timeOfOrder)
         {
-            AddOrder(student, drink, Amount, dateOfOrder);
+            AddOrder(student, drink, Amount, dateOfOrder, timeOfOrder);
             ChangeStock(drink, Amount);
         }
-        public void AddOrder(Student student, Drink drink, int quantity, DateTime dateOfOrder)
+        public void AddOrder(Student student, Drink drink, int quantity, DateTime dateOfOrder, TimeSpan timeOfOrder)
         {
-            string query = "INSERT INTO Orders (Studentnumber, DrinkId, Amount, OrderDate) VALUES (@studentNumber, @drinkId, @quantity, @orderDate)";
+            string query = "INSERT INTO Orders (Studentnumber, DrinkId, Amount, OrderDate, OrderTime) VALUES (@studentNumber, @drinkId, @quantity, @orderDate, @orderTime)";
 
             SqlParameter[] parameters = new SqlParameter[]
             {
                 new("@studentNumber", SqlDbType.Int) {Value = student.Number},
                 new("@drinkId", SqlDbType.Int) {Value = drink.DrinkId},
                 new("@quantity", SqlDbType.Int) {Value = quantity},
-                new("@orderDate", SqlDbType.Date) {Value = dateOfOrder}
+                new("@orderDate", SqlDbType.Date) {Value = dateOfOrder},
+                new("@orderTime", SqlDbType.Time) {Value = timeOfOrder}
+
             };
 
             ExecuteEditQuery(query, parameters);
@@ -104,6 +106,34 @@ namespace SomerenDAL
             };
 
             ExecuteEditQuery(query, parameters);
+        }
+        public bool OrderExists(int studentNumber, int drinkId)
+        {
+            string query = "SELECT EXISTS(SELECT 1 FROM Orders WHERE StudentNumber = @studentNumber AND DrinkId = @drinkId)";
+
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                 new("@studentNumber", SqlDbType.Int) { Value = studentNumber },
+                 new("@drinkId", SqlDbType.Int) { Value = drinkId }
+            };
+
+            object result = ExecuteScalarQuery(query, parameters);
+            return (result != null) && (int)result == 1;
+        }
+
+
+        public void ifOrderExists(Drink drink, int amount, Student student)
+        {
+            string query = "UPDATE Orders SET Amount = Amount + @quantity WHERE StudentNumber = @studentNumber";
+
+            SqlParameter[] parameters = new SqlParameter[]
+{
+                new("@quantity", SqlDbType.Int) {Value = amount},
+                new("@drinkId", SqlDbType.Int) {Value = drink.DrinkId},
+                new("@studentNumber", SqlDbType.Int){Value = student.Number}
+};
+            ExecuteEditQuery(query, parameters);
+
         }
     }
 }

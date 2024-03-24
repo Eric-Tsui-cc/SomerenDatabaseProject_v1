@@ -90,6 +90,19 @@ namespace SomerenDAL
         }
 
         /* For Select Queries */
+        public object ExecuteScalarQuery(string query, SqlParameter[] parameters)
+        {
+            using (SqlConnection connection = new SqlConnection(/* Your connection string */))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddRange(parameters);
+                    connection.Open();
+                    return command.ExecuteScalar();
+                }
+            }
+        }
+
         protected DataTable ExecuteSelectQuery(string query, params SqlParameter[] sqlParameters)
         {
             SqlCommand command = new SqlCommand();

@@ -455,7 +455,7 @@ namespace SomerenUI
                 List<Drink> drinks = GetDrinks();
 
 
-                // Display students in the ListView
+                // Display students & drinks in the ListView
                 DisplayStudentsForOrder(students);
                 DisplayDrinksOrder(drinks);
             }
@@ -491,15 +491,17 @@ namespace SomerenUI
             {
                 OrderService orderService = new();
 
-                orderService.FillOrder(listBoxStudentOrders.SelectedIndex, listBoxDrinksOrders.SelectedIndex, (Student)listBoxStudentOrders.SelectedItem, (Drink)listBoxDrinksOrders.SelectedItem, (int)QuantityOfDrinks.Value);
+                orderService.FillTheOrder(listBoxStudentOrders.SelectedIndex, listBoxDrinksOrders.SelectedIndex, (Student)listBoxStudentOrders.SelectedItem, (Drink)listBoxDrinksOrders.SelectedItem, (int)QuantityOfDrinks.Value);
                 MessageBox.Show("Order is successfully placed!");
+                ShowOrderPanel();
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
-        private void listBoxStudentOrders_SelectedIndexChanged(object sender, EventArgs e)
+        private void listBoxStudentOrders_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             OrderService orderService = new();
 
@@ -558,6 +560,11 @@ namespace SomerenUI
             {
                 MessageBox.Show("Something went wrong while loading the drinks: " + e.Message);
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ShowOrderPanel();
         }
 
 
