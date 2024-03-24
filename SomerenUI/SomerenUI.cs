@@ -15,19 +15,11 @@ namespace SomerenUI
         {
             InitializeComponent();
         }
-        public void hideAll()
-        {
-            // Hide all other panels
-            pnlStudents.Hide();
-            pnlActivity.Hide();
-            pnlRoom.Hide();
-            pnlLecturer.Hide();
-            pnlDrinks.Hide();
-            pnlOrder.Hide();
-            pnlRevenue.Hide();
-        }
+        
+        //SHOW PANLES METHODS !!!!
 
-        // Show the dashboard panel
+
+        // Show the dashboard panel !!!
         private void ShowDashboardPanel()
         {
             hideAll();
@@ -65,6 +57,7 @@ namespace SomerenUI
                 MessageBox.Show("Something went wrong while loading the students: " + e.Message);
             }
         }
+        //SHOW THE PANELS
 
         // Show the lecturers panel
         private void ShowLectueresPanel()
@@ -171,6 +164,75 @@ namespace SomerenUI
         }
 
 
+        /*Order panel*/
+
+        private void ShowOrderPanel()
+        {
+            // Hide the dashboard label
+            lblDashboard.Hide();
+
+            // Hide the room panel
+            hideAll();
+
+            try
+            {
+                // Show the Order panel
+                pnlOrder.Visible = true;
+
+                // Get students from the service
+                List<Student> students = GetStudents();
+                List<Drink> drinks = GetDrinks();
+
+
+                // Display students & drinks in the ListView
+                DisplayStudentsForOrder(students);
+                DisplayDrinksOrder(drinks);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Something went wrong while loading the students: " + e.Message);
+            }
+
+        }
+
+        public void ShowRevenuePanel()
+        {
+            // Hide the dashboard label
+            lblDashboard.Hide();
+            hideAll();
+
+
+            try
+            {
+                // Show the drinks panel
+                pnlRevenue.Visible = true;
+
+                // Get drinks from the service
+                List<Drink> drinks = GetDrinks();
+
+                // Display drinks in the ListView or any other control you're using
+                DisplayDrinks(drinks);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Something went wrong while loading the drinks: " + e.Message);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ShowOrderPanel();
+        }
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+        //THE GET SERVICES !!!
+
+
         // Get students from the service
         private List<Student> GetStudents()
         {
@@ -208,6 +270,115 @@ namespace SomerenUI
             DrinkService drinkService = new DrinkService();
             List<Drink> drinks = drinkService.GetDrinks();
             return drinks;
+        }
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+        //EVENT HANDLERS
+
+        // Event handler for dashboard menu item click
+        private void dashboardToolStripMenuItem1_Click(object sender, System.EventArgs e)
+        {
+            // Show the dashboard panel
+            ShowDashboardPanel();
+        }
+
+        // Event handler for exit menu item click
+        private void exitToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            // Exit the application
+            Application.Exit();
+        }
+
+        // Event handler for students menu item click
+        private void studentsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Show the students panel
+            ShowStudentsPanel();
+        }
+
+        // Event handler for lecturers menu item click
+        private void lecturersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Show the lecturers panel
+            ShowLectueresPanel();
+        }
+
+        // Event handler when the form is loaded
+        private void SomerenUI_Load(object sender, EventArgs e)
+        {
+            // Show the dashboard panel by default when the form is loaded
+            ShowDashboardPanel();
+        }
+
+        // Event handler for rooms menu item click
+        private void roomsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Show the rooms panel
+            ShowRoomPanel();
+        }
+
+        // Event handler for activities menu item click
+        private void activitiesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Show the activities panel
+            ShowActivityPanel();
+        }
+        private void toolStripDrinks_Click(object sender, EventArgs e)
+        {
+            ShowDrinkPanel();
+        }
+
+        //Revenue panel
+        private void revenueToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowRevenuePanel();
+        }
+        private void orderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            /*Order panel*/
+
+            ShowOrderPanel();
+
+        }
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+        //DISPLAY STUFF IN LISTVIEWS AND LISTBOXES METHODS !!!!
+
+
+
+
+        // Display Order students in the ListBox
+        private void DisplayStudentsForOrder(List<Student> students)
+        {
+            listBoxStudentOrders.Items.Clear();
+
+            foreach (Student student in students)
+            {
+                listBoxStudentOrders.Items.Add(student);
+            }
+        }
+        // Display Order Drinks in the ListBox
+        private void DisplayDrinksOrder(List<Drink> drinks)
+        {
+            // Clear existing items and columns in the ListBox
+            listBoxDrinksOrders.Items.Clear();
+            foreach (Drink drink in drinks)
+            {
+                listBoxDrinksOrders.Items.Add(drink);
+            }
         }
 
         // Display students in the ListView
@@ -374,117 +545,30 @@ namespace SomerenUI
         }
 
 
-        // Event handler for dashboard menu item click
-        private void dashboardToolStripMenuItem1_Click(object sender, System.EventArgs e)
-        {
-            // Show the dashboard panel
-            ShowDashboardPanel();
-        }
-
-        // Event handler for exit menu item click
-        private void exitToolStripMenuItem_Click(object sender, System.EventArgs e)
-        {
-            // Exit the application
-            Application.Exit();
-        }
-
-        // Event handler for students menu item click
-        private void studentsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            // Show the students panel
-            ShowStudentsPanel();
-        }
-
-        // Event handler for lecturers menu item click
-        private void lecturersToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            // Show the lecturers panel
-            ShowLectueresPanel();
-        }
-
-        // Event handler when the form is loaded
-        private void SomerenUI_Load(object sender, EventArgs e)
-        {
-            // Show the dashboard panel by default when the form is loaded
-            ShowDashboardPanel();
-        }
-
-        // Event handler for rooms menu item click
-        private void roomsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            // Show the rooms panel
-            ShowRoomPanel();
-        }
-
-        // Event handler for activities menu item click
-        private void activitiesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            // Show the activities panel
-            ShowActivityPanel();
-        }
-
-        private void drinksToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void orderToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            /*Order panel*/
-
-            ShowOrderPanel();
-
-        }
-        /*Order panel*/
-
-        private void ShowOrderPanel()
-        {
-            // Hide the dashboard label
-            lblDashboard.Hide();
-
-            // Hide the room panel
-            hideAll();
-
-            try
-            {
-                // Show the Order panel
-                pnlOrder.Visible = true;
-
-                // Get students from the service
-                List<Student> students = GetStudents();
-                List<Drink> drinks = GetDrinks();
 
 
-                // Display students & drinks in the ListView
-                DisplayStudentsForOrder(students);
-                DisplayDrinksOrder(drinks);
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("Something went wrong while loading the students: " + e.Message);
-            }
 
-        }
-        // Display students in the ListView
-        private void DisplayStudentsForOrder(List<Student> students)
-        {
-            listBoxStudentOrders.Items.Clear();
 
-            foreach (Student student in students)
-            {
-                listBoxStudentOrders.Items.Add(student);
-            }
-        }
 
-        private void DisplayDrinksOrder(List<Drink> drinks)
-        {
-            // Clear existing items and columns in the ListView
-            listBoxDrinksOrders.Items.Clear();
-            foreach (Drink drink in drinks)
-            {
-                listBoxDrinksOrders.Items.Add(drink);
-            }
-        }
+
+
+
+ //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+ ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+     // BUTTONS & SINGLE USE NON REPEATING METHODS
+
         private void buttonOrder_Click_1(object sender, EventArgs e)
         {
             try
@@ -501,71 +585,62 @@ namespace SomerenUI
                 MessageBox.Show(ex.Message);
             }
         }
+
         private void listBoxStudentOrders_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            OrderService orderService = new();
-
-            orderService.DisplayPrice((Drink)listBoxDrinksOrders.SelectedItem, listBoxStudentOrders.SelectedIndex, listBoxDrinksOrders.SelectedIndex, QuantityOfDrinks.Value, out string totalPrice);
-            PriceOutput.Text = totalPrice;
+            DoingMyBestNotToRepeat();
 
         }
 
         private void listBoxDrinksOrders_SelectedIndexChanged(object sender, EventArgs e)
         {
-            OrderService orderService = new();
+            DoingMyBestNotToRepeat();
 
-            orderService.DisplayPrice((Drink)listBoxDrinksOrders.SelectedItem, listBoxStudentOrders.SelectedIndex, listBoxDrinksOrders.SelectedIndex, QuantityOfDrinks.Value, out string totalPrice);
-            PriceOutput.Text = totalPrice;
 
         }
         private void QuantityOfDrinks_ValueChanged_1(object sender, EventArgs e)
         {
+            DoingMyBestNotToRepeat();
+        }
+
+
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+        //REPEATING CODE PREVENTION METHODS
+
+        public void hideAll()
+        {
+            // Hide all other panels
+            pnlStudents.Hide();
+            pnlActivity.Hide();
+            pnlRoom.Hide();
+            pnlLecturer.Hide();
+            pnlDrinks.Hide();
+            pnlOrder.Hide();
+            pnlRevenue.Hide();
+        }
+        private void DoingMyBestNotToRepeat()
+        {
             OrderService orderService = new();
+            string finalPrice;
 
-            orderService.DisplayPrice((Drink)listBoxDrinksOrders.SelectedItem, listBoxStudentOrders.SelectedIndex, listBoxDrinksOrders.SelectedIndex, QuantityOfDrinks.Value, out string totalPrice);
-            PriceOutput.Text = totalPrice;
-        }
-
-
-
-        private void toolStripDrinks_Click(object sender, EventArgs e)
-        {
-            ShowDrinkPanel();
-        }
-
-        //Revenue panel
-        private void revenueToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ShowRevenuePanel();
-        }
-        public void ShowRevenuePanel()
-        {
-            // Hide the dashboard label
-            lblDashboard.Hide();
-            hideAll();
+            orderService.DisplayPrice((Drink)listBoxDrinksOrders.SelectedItem, listBoxStudentOrders.SelectedIndex, listBoxDrinksOrders.SelectedIndex, QuantityOfDrinks.Value, out finalPrice);
+            PriceOutput.Text = finalPrice;
+        } 
 
 
-            try
-            {
-                // Show the drinks panel
-                pnlRevenue.Visible = true;
-
-                // Get drinks from the service
-                List<Drink> drinks = GetDrinks();
-
-                // Display drinks in the ListView or any other control you're using
-                DisplayDrinks(drinks);
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("Something went wrong while loading the drinks: " + e.Message);
-            }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            ShowOrderPanel();
-        }
 
 
     }

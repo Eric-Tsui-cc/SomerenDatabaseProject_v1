@@ -34,11 +34,11 @@ namespace SomerenService
         {
             if (studentSelectedIndex == -1)
             {
-                throw new Exception("Select a student.");
+                throw new Exception("Select one student !");
             }
             else if (drinkSelectedIndex == -1)
             {
-                throw new Exception("Select a drink.");
+                throw new Exception("Select one drink !");
             }
             else
             {
@@ -48,22 +48,22 @@ namespace SomerenService
 
                 if (drink.Stock < Amount)
                 {
-                    throw new Exception($"Only {drink.Stock} is in stock.");
+                    throw new Exception($" {drink.Stock} is in stock. Stock is insufficient !");
                 }
 
                 orderDb.CreateOrder(student, drink, Amount, dateOfOrder, timeOfOrder);
             }
         }
-        public void DisplayPrice(Drink drink, int studentSelectedIndex, int drinkSelectedIndex, decimal quantityOfDrinks, out string totalPrice)
+        public void DisplayPrice(Drink drink, int studentSelectedIndex, int drinkSelectedIndex, decimal amountOfDrinks, out string finalPrice)
         {
             decimal price = 0m;
 
             if (studentSelectedIndex != -1 && drinkSelectedIndex != -1)
             {
-                price = drink.price * quantityOfDrinks;
+                price = drink.price * amountOfDrinks;
             }
 
-            totalPrice = $"{price}";
+            finalPrice = $"{price}";
         }
 
     }

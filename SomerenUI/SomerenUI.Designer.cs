@@ -170,7 +170,6 @@
             drinksToolStripMenuItem.Name = "drinksToolStripMenuItem";
             drinksToolStripMenuItem.Size = new System.Drawing.Size(169, 45);
             drinksToolStripMenuItem.Text = "Financials";
-            drinksToolStripMenuItem.Click += drinksToolStripMenuItem_Click;
             // 
             // orderToolStripMenuItem
             // 
