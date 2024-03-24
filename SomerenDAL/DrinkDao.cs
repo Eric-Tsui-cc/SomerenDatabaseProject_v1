@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
 using SomerenDAL;
 using SomerenModel;
 
@@ -41,6 +42,17 @@ public class DrinkDao : BaseDao
             drinks.Add(drink);
         }
         return drinks;
+    }
+    // this  method for calculating the revanue report 
+    public Drink GetById(int drinkId)
+    {
+        // Query to retrieve Drink by ID
+        string query = "SELECT * FROM Drink WHERE DrinkId = @drinkId";
+        SqlParameter[] parameters = new SqlParameter[] { new SqlParameter("@drinkId", drinkId) };
+        DataTable dataTable = ExecuteSelectQuery(query, parameters);
+
+        // Use ReadDrinks method to parse the result
+        return ReadDrinks(dataTable).SingleOrDefault();
     }
 }
 

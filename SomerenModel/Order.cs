@@ -14,6 +14,8 @@ namespace SomerenModel
         public int Amount { get => _Amount; set => _Amount = (value > 0) ? value : throw new Exception("Select 1 or more"); }
         public DateTime OrderDate { get; set; }
 
+        public int StudentId { get; set; } //for the 
+        public int DrinkId { get; set; }
         public Order(Student student, Drink drink, int amount, DateTime orderDate)
         {
             Student = student;

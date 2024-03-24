@@ -74,8 +74,11 @@ namespace SomerenDAL
         }
         public void CreateOrder(Student student, Drink drink, int Amount, DateTime dateOfOrder)
         {
+            Order order = new Order(student, drink, Amount, dateOfOrder); // add this to implemnt the studentid
             AddOrder(student, drink, Amount, dateOfOrder);
             ChangeStock(drink, Amount);
+            order.StudentId = student.Number; // to calcualte the revenue 
+            order.DrinkId = drink.DrinkId;
         }
         public void AddOrder(Student student, Drink drink, int quantity, DateTime dateOfOrder)
         {
@@ -90,6 +93,7 @@ namespace SomerenDAL
             };
 
             ExecuteEditQuery(query, parameters);
+
         }
 
         private void ChangeStock(Drink drink, int quantity)
@@ -105,5 +109,24 @@ namespace SomerenDAL
 
             ExecuteEditQuery(query, parameters);
         }
+        //this method to implement retrieve order within the date range => revenueReportService 
+        public List<Order> GetOrdersByDateRange(DateTime startDate, DateTime endDate)
+        {
+           
+            string query = "SELECT Orders.Amount, Orders.OrderDate, Student.*, Drink.* " +
+                           "FROM Orders " +
+                           "JOIN Student ON Orders.StudentNumber = Student.StudentNumber " +
+                           "JOIN Drink ON Orders.DrinkId = Drink.DrinkId " +
+                           "WHERE Orders.OrderDate >= @startDate AND Orders.OrderDate <= @endDate";
+
+            SqlParameter[] sqlParameters = new SqlParameter[]
+            {
+            new SqlParameter("@startDate", SqlDbType.Date) { Value = startDate },
+            new SqlParameter("@endDate", SqlDbType.Date) { Value = endDate }
+            };
+
+            return ReadOrder(ExecuteSelectQuery(query, sqlParameters));
+        }
+
     }
 }

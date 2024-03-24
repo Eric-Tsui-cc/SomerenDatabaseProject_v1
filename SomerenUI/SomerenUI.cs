@@ -560,6 +560,9 @@ namespace SomerenUI
             }
         }
 
+        private void pnlOrder_Paint(object sender, PaintEventArgs e)
+        {
 
+        }
     }
 }
