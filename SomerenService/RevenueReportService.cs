@@ -10,10 +10,10 @@ namespace SomerenService
 {
     public class RevenueReportService
     {
-        private OrderDao orderDao;
+        private RRDao RRDao;
         public RevenueReportService()
         {
-            orderDao = new OrderDao();
+            RRDao = new RRDao();
         }
 
 
@@ -32,25 +32,46 @@ namespace SomerenService
             }
 
         }
-
-        public RevenueReport GenerateReport(DateTime startDate, DateTime endDate)
+        public int GenerateSales(DateTime startDate, DateTime endDate)
         {
 
 
             // Retrieve orders within the date range
-            List<Order> orders = orderDao.GetOrdersByDateRange(startDate, endDate);
+            List<Order> orders = RRDao.GetOrdersByDateRange(startDate, endDate);
 
             // Calculate revenue report data
             int sales = orders.Sum(order => order.Amount);
+
+            return sales;
+        }
+        public decimal GenerateTurnover(DateTime startDate, DateTime endDate)
+        {
+
+
+            // Retrieve orders within the date range
+            List<Order> orders = RRDao.GetOrdersByDateRange(startDate, endDate);
+
+            // Calculate revenue report data
             decimal turnover = orders.Sum(order =>
             {
                 Drink drink = order.Drink;
                 return drink != null ? order.Amount * drink.price : 0;
             });
 
+
+            return turnover;
+        }
+
+        public int GenerateCustomerCount(DateTime startDate, DateTime endDate)
+        {
+
+
+            // Retrieve orders within the date range
+            List<Order> orders = RRDao.GetOrdersByDateRange(startDate, endDate);
+
             int customerCount = orders.Count;
 
-            return new RevenueReport(sales, turnover, customerCount);
+            return customerCount;
         }
     }
 }

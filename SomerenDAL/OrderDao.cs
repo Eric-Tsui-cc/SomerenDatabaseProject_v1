@@ -25,7 +25,7 @@ namespace SomerenDAL
             {
                 int quantity = (int)dr["Amount"];
                 DateTime orderDate = (DateTime)dr["OrderDate"];
-                TimeSpan orderTime = (TimeSpan)dr["orderTime"];
+                TimeSpan orderTime = (TimeSpan)dr["OrderTime"];
                 Student student = ReadTablesStudent(dr);
                 Drink drink = ReadDrinks(dr);
 
@@ -141,26 +141,9 @@ namespace SomerenDAL
         // Fixed the sql script !
 
         //this method to implement retrieve order within the date range => revenueReportService 
-        public List<Order> GetOrdersByDateRange(DateTime startDate, DateTime endDate)
-        {
 
-            string query = "SELECT Orders.DrinkId, Orders.Amount, Orders.OrderDate " +
-                           "FROM Orders " +
-                           "JOIN Drink ON Orders.DrinkId = Drink.DrinkId " +
-                           "WHERE Orders.OrderDate >= @startDate AND Orders.OrderDate <= @endDate";
+        // Inside your OrderDao class
 
 
-
-
-
-
-            SqlParameter[] sqlParameters = new SqlParameter[]
-            {
-    new SqlParameter("@startDate", SqlDbType.Date) { Value = startDate },
-    new SqlParameter("@endDate", SqlDbType.Date) { Value = endDate }
-            };
-
-            return ReadOrder(ExecuteSelectQuery(query, sqlParameters));
-        }
     }
 }

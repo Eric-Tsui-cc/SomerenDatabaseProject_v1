@@ -15,6 +15,12 @@ namespace SomerenModel
         public DateTime OrderDate { get; set; }
         public TimeSpan OrderTime { get; set; }
 
+        public Order(Drink drink, int amount, DateTime orderDate)
+        {
+            Drink = drink;
+            Amount = amount;
+            OrderDate = orderDate;
+        }
         public Order(Student student, Drink drink, int amount, DateTime orderDate, TimeSpan orderTime)
         {
             Student = student;

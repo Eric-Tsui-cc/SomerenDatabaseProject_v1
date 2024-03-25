@@ -695,10 +695,9 @@ namespace SomerenUI
             DateTime endDate = dateTimePicker2.Value;
             RevenueReportService revenueReportService = new RevenueReportService();
 
-
-            DrinksSold.Text = revenueReportService.GenerateReport(startDate, endDate).Sales.ToString();
-            Profits.Text = revenueReportService.GenerateReport(startDate, endDate).Turnover.ToString();
-            Purchases.Text = revenueReportService.GenerateReport(startDate, endDate).CustomerCount.ToString();
+            DrinksSold.Text = revenueReportService.GenerateSales(startDate, endDate).ToString();
+            Profits.Text = revenueReportService.GenerateTurnover(startDate, endDate).ToString() + " $";
+            Purchases.Text = revenueReportService.GenerateCustomerCount(startDate, endDate).ToString();
         }
 
 
