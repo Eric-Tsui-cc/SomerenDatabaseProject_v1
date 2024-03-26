@@ -646,7 +646,7 @@ namespace SomerenUI
             RevenueReportService revenueReportService = new RevenueReportService();
 
             DrinksSold.Text = revenueReportService.GenerateSales(startDate, endDate).ToString();
-            Profits.Text = revenueReportService.GenerateTurnover(startDate, endDate).ToString() + " $";
+            Profits.Text = revenueReportService.GenerateTurnover(startDate, endDate).ToString() + "€";
             Purchases.Text = revenueReportService.GenerateCustomerCount(startDate, endDate).ToString();
         }
 
@@ -752,7 +752,7 @@ namespace SomerenUI
             listViewDrinks.Columns.Add("Stock", 150);
             listViewDrinks.Columns.Add("Stock Status", 250);
             listViewDrinks.Columns.Add("Drink Id", 180);
-            listViewDrinks.Columns.Add("Price", 150);
+            listViewDrinks.Columns.Add("Price (€)", 200);
 
         }
         private void AddListViewColumnsActivity()
@@ -914,11 +914,11 @@ namespace SomerenUI
 
         private void ShowLabels(DateTime startDate, DateTime endDate, decimal vat9Percent, decimal vat21Percent, decimal vatTotal)
         {
-            label24.Text = startDate.ToLongDateString();
+            label24.Text = startDate.ToLongDateString() ;
             label25.Text = endDate.ToLongDateString();
-            label21.Text = vat9Percent.ToString();
-            label22.Text = vat21Percent.ToString();
-            label23.Text = vatTotal.ToString();
+            label21.Text = vat9Percent.ToString() + "€";
+            label22.Text = vat21Percent.ToString() + "€";
+            label23.Text = vatTotal.ToString() + "€";
         }
 
 
