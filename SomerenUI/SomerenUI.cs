@@ -370,12 +370,7 @@ namespace SomerenUI
         {
             ClearListViewStudent();
 
-            listViewStudents.View = View.Details;
-            listViewStudents.Columns.Add("Name", 300);
-            listViewStudents.Columns.Add("Student Number", 250);
-            listViewStudents.Columns.Add("Telephone Number", 300);
-            listViewStudents.Columns.Add("Room Number", 250);
-            listViewStudents.Columns.Add("Class", 150);
+            AddListViewColumnsStudent();
 
             foreach (Student student in students)
             {
@@ -396,11 +391,7 @@ namespace SomerenUI
 
             listViewLecturers.View = View.Details;
 
-            listViewLecturers.Columns.Add("Full Name", 300);
-            listViewLecturers.Columns.Add("ID", 220);
-            listViewLecturers.Columns.Add("Telephone Number", 300);
-            listViewLecturers.Columns.Add("Age", 150);
-            listViewLecturers.Columns.Add("Room Number", 250);
+            AddListViewColumnsLectuer();
 
             foreach (Lecturer lecturer in lecturers)
             {
@@ -419,10 +410,7 @@ namespace SomerenUI
             ClearListViewRoom();
 
             listViewRooms.View = View.Details;
-            listViewRooms.Columns.Add("Room Number", 220);
-            listViewRooms.Columns.Add("Building Number", 300);
-            listViewRooms.Columns.Add("Room Type", 300);
-            listViewRooms.Columns.Add("Floor Number", 200);
+            AddListViewColumnsRoom();
 
             foreach (Room room in rooms)
             {
@@ -442,9 +430,7 @@ namespace SomerenUI
 
             listViewActivities.View = View.Details;
 
-            listViewActivities.Columns.Add("Name", 300);
-            listViewActivities.Columns.Add("Date", 250);
-            listViewActivities.Columns.Add("Time", 150);
+            AddListViewColumnsActivity();
 
             foreach (Activity activity in activities)
             {
@@ -458,18 +444,16 @@ namespace SomerenUI
                 listViewActivities.Items.Add(item);
             }
         }
-
         private void DisplayDrinks(List<Drink> drinks)
         {
             ClearListViewDrink();
             listViewDrinks.View = View.Details;
 
-            // Add columns to the ListView
-            listViewDrinks.Columns.Add("Name", 200);
-            listViewDrinks.Columns.Add("Price", 150);
-            listViewDrinks.Columns.Add("Type", 200);
-            listViewDrinks.Columns.Add("Stock Status", 350);
+            AddListViewColumnsDrink();
 
+            // Set the view to Details
+
+            ImageList imageList = CreateImageList();
 
             // Iterate through each drink and add them to the ListView
             foreach (Drink drink in drinks)
@@ -479,19 +463,9 @@ namespace SomerenUI
 
                 // Add sub-items for other properties of the drink
                 item.SubItems.Add(drink.type);
-                string status = "";
-                if (drink.Stock == 0)
-                {
-                    status = "stock empty";
-                }
-                else if (drink.Stock > 0 && drink.Stock < 10)
-                {
-                    status = "stock nearly depleted";
-                }
-                else if (drink.Stock >= 10)
-                {
-                    status = "stock sufficient";
-                }
+                item.SubItems.Add(drink.stock.ToString());
+                //get stock status
+                string status = GetStockStatus(drink);
 
                 item.SubItems.Add(status);
                 item.SubItems.Add(drink.id.ToString());
@@ -501,10 +475,14 @@ namespace SomerenUI
                 // Set the Tag property of the ListViewItem to the drink object itself
                 item.Tag = drink;
 
-                // Add the ListViewItem to the ListViewreg
+                // Add the ListViewItem to the ListView
                 listViewDrinks.Items.Add(item);
             }
+
+            // Assign the ImageList to the ListView after adding all items
+            listViewDrinks.SmallImageList = imageList;
         }
+
 
 
 
@@ -531,22 +509,7 @@ namespace SomerenUI
 
         // BUTTONS & SINGLE USE NON REPEATING METHODS
 
-        private void buttonOrder_Click_1(object sender, EventArgs e)
-        {
-            try
-            {
-                OrderService orderService = new();
 
-                orderService.FillTheOrder(listBoxStudentOrders.SelectedIndex, listBoxDrinksOrders.SelectedIndex, (Student)listBoxStudentOrders.SelectedItem, (Drink)listBoxDrinksOrders.SelectedItem, (int)QuantityOfDrinks.Value);
-                MessageBox.Show("Order is successfully placed!");
-                ShowOrderPanel();
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
         private void button1_Click(object sender, EventArgs e)
         {
             ShowOrderPanel();
@@ -568,21 +531,25 @@ namespace SomerenUI
         {
             DoingMyBestNotToRepeat();
         }
+        private void buttonOrder_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OrderService orderService = new();
 
+                orderService.FillTheOrder(listBoxStudentOrders.SelectedIndex, listBoxDrinksOrders.SelectedIndex, (Student)listBoxStudentOrders.SelectedItem, (Drink)listBoxDrinksOrders.SelectedItem, (int)QuantityOfDrinks.Value);
+                MessageBox.Show("Order is successfully placed!");
+                ShowOrderPanel();
 
-
-
-
-
-
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
 
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-
-
 
         //REPEATING CODE PREVENTION METHODS
 
@@ -593,7 +560,7 @@ namespace SomerenUI
             pnlActivity.Hide();
             pnlRoom.Hide();
             pnlLecturer.Hide();
-            pnlDrinks.Hide();
+            pnlDrink.Hide();
             pnlOrder.Hide();
             pnlRevenue.Hide();
         }
@@ -723,20 +690,22 @@ namespace SomerenUI
                 MessageBox.Show(ex.Message);
             }
         }
-        private void DeleteDrinkButton_Click_1(object sender, EventArgs e)
+        private void DeleteDrinkButton_Click(object sender, EventArgs e)
         {
             DeleteDrinkForm deleteDrinkForm = new DeleteDrinkForm();
             deleteDrinkForm.ShowDialog();
         }
-        private void EditDrinkButton_Click(object sender, EventArgs e)
-        {
-            UpdateDrinkForm updateDrinkForm = new UpdateDrinkForm();
-            updateDrinkForm.ShowDialog();
-        }
-        private void AddDrinkButton_Click(object sender, EventArgs e)
+
+        private void AddDrinkButton_Click_1(object sender, EventArgs e)
         {
             AddDrinkForm addDrinkForm = new AddDrinkForm();
             addDrinkForm.ShowDialog();
+        }
+
+        private void EditDrinkButton_Click_1(object sender, EventArgs e)
+        {
+            UpdateDrinkForm updateDrinkForm = new UpdateDrinkForm();
+            updateDrinkForm.ShowDialog();
         }
 
         /// /////////////////////////////////////////////////////////////////
@@ -774,7 +743,7 @@ namespace SomerenUI
         {
             listViewDrinks.Columns.Add("Name", 200);
             listViewDrinks.Columns.Add("Type", 150);
-            listViewDrinks.Columns.Add("Stock", 200);
+            listViewDrinks.Columns.Add("Stock", 100);
             listViewDrinks.Columns.Add("Stock Status", 200);
             listViewDrinks.Columns.Add("Drink Id", 200);
             listViewDrinks.Columns.Add("Price", 100);
@@ -850,6 +819,7 @@ namespace SomerenUI
 
             item.ImageIndex = imageIndex;
         }
+
 
     }
 

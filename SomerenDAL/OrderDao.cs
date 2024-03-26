@@ -69,7 +69,7 @@ namespace SomerenDAL
                 drink.Vat = (int)dr["VATType"];
             }
 
-            drink.Stock = (int)dr["Stock"];
+            drink.stock = (int)dr["Stock"];
             return drink;
         }
         public void CreateOrder(Student student, Drink drink, int Amount, DateTime dateOfOrder, TimeSpan timeOfOrder)

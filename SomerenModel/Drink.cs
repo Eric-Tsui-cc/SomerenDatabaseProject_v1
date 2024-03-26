@@ -34,15 +34,14 @@ namespace SomerenModel
         }
         public Drink() { }
 
-        public int Stock { get; set; }
         public int Vat { get; set; }
 
-        public string StockToText { get => Stock == 0 ? "stock empty" : Stock < 50 ? "stock nearly depleted" : "stock sufficient"; }
+        public string StockToText { get => stock == 0 ? "stock empty" : stock < 50 ? "stock nearly depleted" : "stock sufficient"; }
         public string Alcohol { get => (Vat == 21) ? "alcoholic" : "non-alcoholic"; }
 
         public override string ToString()
         {
-            return $"{name}/    {price}/    {Stock}/    {Alcohol}";
+            return $"{name}/    {price}/    {stock}/    {Alcohol}";
         }
 
     }

@@ -48,7 +48,7 @@ namespace SomerenDAL
                 drink.Vat = (int)dr["VATType"];
             }
 
-            drink.Stock = (int)dr["Stock"];
+            drink.stock = (int)dr["Stock"];
             return drink;
         }
 

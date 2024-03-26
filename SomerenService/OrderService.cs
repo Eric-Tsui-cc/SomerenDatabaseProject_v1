@@ -56,9 +56,9 @@ namespace SomerenService
                 TimeSpan timeOfOrder = new TimeSpan();
                 timeOfOrder = DateTime.Now.TimeOfDay; ;
 
-                if (drink.Stock < Amount)
+                if (drink.stock < Amount)
                 {
-                    throw new Exception($" {drink.Stock} is in stock. Stock is insufficient !");
+                    throw new Exception($" {drink.stock} is in stock. Stock is insufficient !");
                 }
 
                 orderDb.CreateOrder(student, drink, Amount, dateOfOrder, timeOfOrder);
