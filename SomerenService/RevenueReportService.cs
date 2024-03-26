@@ -17,7 +17,11 @@ namespace SomerenService
         }
 
 
-
+        public List<Order> GetOrdersBydate(DateTime startDate, DateTime endDate)
+        {
+            List<Order> orders = RRDao.GetOrdersByDateRange(startDate, endDate);
+            return orders;
+        }
 
         public bool CheckDates(DateTime startDate, DateTime endDate)
         {

@@ -679,7 +679,7 @@ namespace SomerenUI
             {
                 if (revenueReportService.CheckDates(dateTimePicker1.Value, dateTimePicker2.Value))
                 {
-                    List<Order> orders = GetOrders();
+                    List<Order> orders = revenueReportService.GetOrdersBydate(dateTimePicker1.Value, dateTimePicker2.Value);
                     DisplayRevenueInfo(orders);
                     ChangeLabels();
                 }
