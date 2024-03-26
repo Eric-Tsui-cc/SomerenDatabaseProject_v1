@@ -13,22 +13,6 @@ namespace SomerenDAL
             string query = "SELECT Studentnumber, FirstName, LastName,Telephonenumber,RoomNumber,Class FROM STUDENT";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
-            // Create a mock DataTable object
-/*            DataTable mockDataTable = new DataTable();
-            mockDataTable.Columns.Add("Studentnumber", typeof(int));
-            mockDataTable.Columns.Add("FirstName", typeof(string));
-            mockDataTable.Columns.Add("LastName", typeof(string));
-            mockDataTable.Columns.Add("Telephonenumber", typeof(string));
-            mockDataTable.Columns.Add("RoomNumber", typeof(string));
-            mockDataTable.Columns.Add("Class", typeof(string));
-
-            // Add some mock data rows
-            mockDataTable.Rows.Add(1, "John", "Doe", "123-456-7890", "101", "Math");
-            mockDataTable.Rows.Add(2, "Jane", "Smith", "987-654-3210", "102", "History");
-            // Add more data rows to simulate real data
-
-            // Call the ReadTables method and return the result
-            return ReadTables(mockDataTable);*/
         }
 
         private List<Student> ReadTables(DataTable dataTable)
