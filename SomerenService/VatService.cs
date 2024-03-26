@@ -39,12 +39,13 @@ namespace SomerenService
                     drink21Vat.Add(order.Drink);
                 }
             }
-
+            int nineVatCount = drink9Vat.Count;
+            int twentyOneVatCount = drink21Vat.Count;
             // Calculate VAT for 9% drinks
-            vatNine = drink9Vat.Sum(drink => drink.price * drink.Vat ); 
+            vatNine = drink9Vat.Sum(drink => drink.price  * 0.09m ); 
 
             // Calculate VAT for 21% drinks
-            vatTwentyOne = drink21Vat.Sum(drink => drink.price * drink.Vat); 
+            vatTwentyOne = drink21Vat.Sum(drink => drink.price * 0.21m); 
 
             // Calculate total VAT
             vatTotal = vatNine + vatTwentyOne;
