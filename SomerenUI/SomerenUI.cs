@@ -302,6 +302,11 @@ namespace SomerenUI
         {
             // Show the dashboard panel by default when the form is loaded
             ShowDashboardPanel();
+            
+            listBoxDrinksOrders.SelectedIndexChanged += QuantityOfDrinks_ValueChanged;
+
+            
+            QuantityOfDrinks.TextChanged += listBoxDrinksOrders_SelectedIndexChanged_1;
         }
 
         // Event handler for rooms menu item click
@@ -369,7 +374,7 @@ namespace SomerenUI
         private void DisplayStudents(List<Student> students)
         {
             ClearListViewStudent();
-
+            listViewStudents.View = View.Details;
             AddListViewColumnsStudent();
 
             foreach (Student student in students)
@@ -530,6 +535,15 @@ namespace SomerenUI
         private void QuantityOfDrinks_ValueChanged_1(object sender, EventArgs e)
         {
             DoingMyBestNotToRepeat();
+        }
+        private void QuantityOfDrinks_ValueChanged(object sender, EventArgs e)
+        {
+            UpdateTotalPrice();
+        }
+
+        private void listBoxDrinksOrders_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            UpdateTotalPrice();
         }
         private void buttonOrder_Click(object sender, EventArgs e)
         {
@@ -818,6 +832,34 @@ namespace SomerenUI
             // Assign the image index to the ListViewItem
 
             item.ImageIndex = imageIndex;
+        }
+        private void UpdateTotalPrice()
+        {
+            List<Drink> drinks = GetDrinks();
+
+            if (listBoxDrinksOrders.SelectedIndex != -1)
+            {
+                if (decimal.TryParse(QuantityOfDrinks.Text, out decimal quantity))
+                {
+                    Drink selectedDrink = drinks[listBoxDrinksOrders.SelectedIndex];
+                    decimal pricePerItem = selectedDrink.price;
+                    decimal totalPrice = quantity * pricePerItem;
+                    labelOfTotalPrice.Text = totalPrice.ToString();
+                }
+                else
+                {
+                    MessageBox.Show("Invalid value for quantity.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a drink.");
+            }
+        }
+
+        private void vATInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
 
 
