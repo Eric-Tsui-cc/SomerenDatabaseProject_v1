@@ -566,6 +566,7 @@ namespace SomerenUI
             pnlDrink.Hide();
             pnlOrder.Hide();
             pnlRevenue.Hide();
+            pnlVat.Hide();
         }
         private void DoingMyBestNotToRepeat()
         {
@@ -824,6 +825,102 @@ namespace SomerenUI
 
             item.ImageIndex = imageIndex;
         }
+
+
+
+
+
+
+        private void dateTimePicker3_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void vatToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowVatPanel();
+        }
+        /*Vat panel*/
+
+        private void ShowVatPanel()
+        {
+            // Hide the dashboard label
+            lblDashboard.Hide();
+            hideAll();
+
+            try
+            {
+                // Show the panel
+                pnlVat.Visible = true;
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Something went wrong while loading the Vat: " + e.Message);
+            }
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            VatInfo(1);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            VatInfo(2);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            VatInfo(3);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            VatInfo(4);
+
+        }
+        private void VatInfo(int quarterNumber)
+        {
+            try
+            {
+                VatService vatService = new();
+                DateTime startDate;
+                DateTime endDate;
+                QuarterCreation(dateTimePicker3.Value, quarterNumber, out endDate, out startDate);
+                decimal vatNine; decimal vatTwentyOne; decimal vatTotal;
+                vatService.VatCalculation(startDate, endDate, out vatNine, out vatTwentyOne, out vatTotal);
+
+                ShowLabels(startDate, endDate, vatNine, vatTwentyOne, vatTotal);
+
+
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Catastrophic Faliure !!!");
+            }
+        }
+
+        public void QuarterCreation(DateTime year, int quarterNumber, out DateTime endDate, out DateTime startDate)
+        {
+            DateTime startDateCalc = new DateTime(dateTimePicker3.Value.Year, ((quarterNumber - 1) * 3) + 1, 1);
+            DateTime endDateCalc = startDateCalc.AddMonths(3).AddDays(-1);
+            endDate = endDateCalc;
+            startDate = startDateCalc;
+        }
+
+
+        private void ShowLabels(DateTime startDate, DateTime endDate, decimal vat9Percent, decimal vat21Percent, decimal vatTotal)
+        {
+            label24.Text = startDate.ToLongDateString();
+            label25.Text = endDate.ToLongDateString();
+            label21.Text = vat9Percent.ToString();
+            label22.Text = vat21Percent.ToString();
+            label23.Text = vatTotal.ToString();
+        }
+
 
     }
 

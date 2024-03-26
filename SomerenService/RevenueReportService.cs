@@ -41,7 +41,7 @@ namespace SomerenService
 
 
             // Retrieve orders within the date range
-            List<Order> orders = RRDao.GetOrdersByDateRange(startDate, endDate);
+            List<Order> orders = GetOrdersBydate(startDate, endDate);
 
             // Calculate revenue report data
             int sales = orders.Sum(order => order.Amount);
@@ -53,7 +53,7 @@ namespace SomerenService
 
 
             // Retrieve orders within the date range
-            List<Order> orders = RRDao.GetOrdersByDateRange(startDate, endDate);
+            List<Order> orders = GetOrdersBydate(startDate, endDate);
 
             // Calculate revenue report data
             decimal turnover = orders.Sum(order =>
@@ -69,9 +69,8 @@ namespace SomerenService
         public int GenerateCustomerCount(DateTime startDate, DateTime endDate)
         {
 
-
             // Retrieve orders within the date range
-            List<Order> orders = RRDao.GetOrdersByDateRange(startDate, endDate);
+            List<Order> orders = GetOrdersBydate(startDate, endDate);
 
             int customerCount = orders.Count;
 

@@ -77,8 +77,9 @@ namespace SomerenService
                 price = drink.price * amountOfDrinks;
             }
 
-            finalPrice = $"{price}";
+            finalPrice = $"{price} €";
         }
+
 
     }
 }

@@ -32,65 +32,85 @@ namespace SomerenUI
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SomerenUI));
-            menuStrip1 = new System.Windows.Forms.MenuStrip();
-            dashboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            dashboardToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            studentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            lecturersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            activitiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            roomsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            toolStripDrinksItem = new System.Windows.Forms.ToolStripMenuItem();
-            drinksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            orderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            revenueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            pnlDashboard = new System.Windows.Forms.Panel();
-            pnlRoom = new System.Windows.Forms.Panel();
-            pictureBox1 = new System.Windows.Forms.PictureBox();
-            listViewRooms = new System.Windows.Forms.ListView();
-            label6 = new System.Windows.Forms.Label();
-            pnlRevenue = new System.Windows.Forms.Panel();
-            label14 = new System.Windows.Forms.Label();
-            label13 = new System.Windows.Forms.Label();
-            label12 = new System.Windows.Forms.Label();
-            Purchases = new System.Windows.Forms.Label();
-            Profits = new System.Windows.Forms.Label();
-            DrinksSold = new System.Windows.Forms.Label();
-            label11 = new System.Windows.Forms.Label();
-            label10 = new System.Windows.Forms.Label();
-            dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            listViewForRevenue = new System.Windows.Forms.ListView();
-            label9 = new System.Windows.Forms.Label();
-            lblDashboard = new System.Windows.Forms.Label();
-            pnlDrink = new System.Windows.Forms.Panel();
-            refreshBtn = new System.Windows.Forms.Button();
-            EditDrinkButton = new System.Windows.Forms.Button();
-            AddDrinkButton = new System.Windows.Forms.Button();
-            DeleteDrinkButton = new System.Windows.Forms.Button();
-            listViewDrinks = new System.Windows.Forms.ListView();
-            label3 = new System.Windows.Forms.Label();
-            pnlOrder = new System.Windows.Forms.Panel();
-            label5 = new System.Windows.Forms.Label();
-            QuantityOfDrinks = new System.Windows.Forms.NumericUpDown();
-            buttonOrder = new System.Windows.Forms.Button();
-            listBoxStudentOrders = new System.Windows.Forms.ListBox();
-            listBoxDrinksOrders = new System.Windows.Forms.ListBox();
-            label7 = new System.Windows.Forms.Label();
-            PriceOutput = new System.Windows.Forms.Label();
-            label8 = new System.Windows.Forms.Label();
-            pnlActivity = new System.Windows.Forms.Panel();
-            listViewActivities = new System.Windows.Forms.ListView();
-            label4 = new System.Windows.Forms.Label();
-            pnlStudents = new System.Windows.Forms.Panel();
-            listViewStudents = new System.Windows.Forms.ListView();
-            label1 = new System.Windows.Forms.Label();
-            pnlLecturer = new System.Windows.Forms.Panel();
-            listViewLecturers = new System.Windows.Forms.ListView();
-            label2 = new System.Windows.Forms.Label();
-            pictureBox7 = new System.Windows.Forms.PictureBox();
-            dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            menuStrip1 = new MenuStrip();
+            dashboardToolStripMenuItem = new ToolStripMenuItem();
+            dashboardToolStripMenuItem1 = new ToolStripMenuItem();
+            exitToolStripMenuItem = new ToolStripMenuItem();
+            studentsToolStripMenuItem = new ToolStripMenuItem();
+            lecturersToolStripMenuItem = new ToolStripMenuItem();
+            activitiesToolStripMenuItem = new ToolStripMenuItem();
+            roomsToolStripMenuItem = new ToolStripMenuItem();
+            toolStripDrinksItem = new ToolStripMenuItem();
+            drinksToolStripMenuItem = new ToolStripMenuItem();
+            orderToolStripMenuItem = new ToolStripMenuItem();
+            revenueToolStripMenuItem = new ToolStripMenuItem();
+            vatToolStripMenuItem = new ToolStripMenuItem();
+            pnlDashboard = new Panel();
+            pnlVat = new Panel();
+            button4 = new Button();
+            button3 = new Button();
+            button2 = new Button();
+            button1 = new Button();
+            label25 = new Label();
+            label24 = new Label();
+            label23 = new Label();
+            label22 = new Label();
+            label21 = new Label();
+            label20 = new Label();
+            label19 = new Label();
+            label18 = new Label();
+            label17 = new Label();
+            label16 = new Label();
+            yearOnlySelect = new Label();
+            dateTimePicker3 = new DateTimePicker();
+            label15 = new Label();
+            pnlRoom = new Panel();
+            pictureBox1 = new PictureBox();
+            listViewRooms = new ListView();
+            label6 = new Label();
+            pnlRevenue = new Panel();
+            label14 = new Label();
+            label13 = new Label();
+            label12 = new Label();
+            Purchases = new Label();
+            Profits = new Label();
+            DrinksSold = new Label();
+            label11 = new Label();
+            label10 = new Label();
+            dateTimePicker2 = new DateTimePicker();
+            dateTimePicker1 = new DateTimePicker();
+            listViewForRevenue = new ListView();
+            label9 = new Label();
+            lblDashboard = new Label();
+            pnlDrink = new Panel();
+            refreshBtn = new Button();
+            EditDrinkButton = new Button();
+            AddDrinkButton = new Button();
+            DeleteDrinkButton = new Button();
+            listViewDrinks = new ListView();
+            label3 = new Label();
+            pnlOrder = new Panel();
+            label5 = new Label();
+            QuantityOfDrinks = new NumericUpDown();
+            buttonOrder = new Button();
+            listBoxStudentOrders = new ListBox();
+            listBoxDrinksOrders = new ListBox();
+            label7 = new Label();
+            PriceOutput = new Label();
+            label8 = new Label();
+            pnlActivity = new Panel();
+            listViewActivities = new ListView();
+            label4 = new Label();
+            pnlStudents = new Panel();
+            listViewStudents = new ListView();
+            label1 = new Label();
+            pnlLecturer = new Panel();
+            listViewLecturers = new ListView();
+            label2 = new Label();
+            pictureBox7 = new PictureBox();
             menuStrip1.SuspendLayout();
             pnlDashboard.SuspendLayout();
+            pnlVat.SuspendLayout();
             pnlRoom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             pnlRevenue.SuspendLayout();
@@ -106,17 +126,17 @@ namespace SomerenUI
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { dashboardToolStripMenuItem, studentsToolStripMenuItem, lecturersToolStripMenuItem, activitiesToolStripMenuItem, roomsToolStripMenuItem, toolStripDrinksItem, drinksToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { dashboardToolStripMenuItem, studentsToolStripMenuItem, lecturersToolStripMenuItem, activitiesToolStripMenuItem, roomsToolStripMenuItem, toolStripDrinksItem, drinksToolStripMenuItem });
             menuStrip1.Location = new System.Drawing.Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Padding = new System.Windows.Forms.Padding(14, 5, 0, 5);
+            menuStrip1.Padding = new Padding(14, 5, 0, 5);
             menuStrip1.Size = new System.Drawing.Size(2463, 55);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
             // dashboardToolStripMenuItem
             // 
-            dashboardToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { dashboardToolStripMenuItem1, exitToolStripMenuItem });
+            dashboardToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { dashboardToolStripMenuItem1, exitToolStripMenuItem });
             dashboardToolStripMenuItem.Name = "dashboardToolStripMenuItem";
             dashboardToolStripMenuItem.Size = new System.Drawing.Size(192, 45);
             dashboardToolStripMenuItem.Text = "Application";
@@ -172,7 +192,7 @@ namespace SomerenUI
             // 
             // drinksToolStripMenuItem
             // 
-            drinksToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { orderToolStripMenuItem, revenueToolStripMenuItem });
+            drinksToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { orderToolStripMenuItem, revenueToolStripMenuItem, vatToolStripMenuItem });
             drinksToolStripMenuItem.Name = "drinksToolStripMenuItem";
             drinksToolStripMenuItem.Size = new System.Drawing.Size(169, 45);
             drinksToolStripMenuItem.Text = "Financials";
@@ -191,6 +211,13 @@ namespace SomerenUI
             revenueToolStripMenuItem.Text = "Revenue";
             revenueToolStripMenuItem.Click += revenueToolStripMenuItem_Click;
             // 
+            // vatToolStripMenuItem
+            // 
+            vatToolStripMenuItem.Name = "vatToolStripMenuItem";
+            vatToolStripMenuItem.Size = new System.Drawing.Size(297, 54);
+            vatToolStripMenuItem.Text = "Vat ";
+            vatToolStripMenuItem.Click += vatToolStripMenuItem_Click;
+            // 
             // pnlDashboard
             // 
             pnlDashboard.Controls.Add(pnlRoom);
@@ -201,20 +228,245 @@ namespace SomerenUI
             pnlDashboard.Controls.Add(pnlActivity);
             pnlDashboard.Controls.Add(pnlStudents);
             pnlDashboard.Controls.Add(pnlLecturer);
+            pnlDashboard.Controls.Add(pnlVat);
             pnlDashboard.Location = new System.Drawing.Point(0, 0);
-            pnlDashboard.Margin = new System.Windows.Forms.Padding(8, 9, 8, 9);
+            pnlDashboard.Margin = new Padding(8, 9, 8, 9);
             pnlDashboard.Name = "pnlDashboard";
             pnlDashboard.Size = new System.Drawing.Size(2278, 1274);
             pnlDashboard.TabIndex = 1;
+            // 
+            // pnlVat
+            // 
+            pnlVat.Controls.Add(button4);
+            pnlVat.Controls.Add(button3);
+            pnlVat.Controls.Add(button2);
+            pnlVat.Controls.Add(button1);
+            pnlVat.Controls.Add(label25);
+            pnlVat.Controls.Add(label24);
+            pnlVat.Controls.Add(label23);
+            pnlVat.Controls.Add(label22);
+            pnlVat.Controls.Add(label21);
+            pnlVat.Controls.Add(label20);
+            pnlVat.Controls.Add(label19);
+            pnlVat.Controls.Add(label18);
+            pnlVat.Controls.Add(label17);
+            pnlVat.Controls.Add(label16);
+            pnlVat.Controls.Add(yearOnlySelect);
+            pnlVat.Controls.Add(dateTimePicker3);
+            pnlVat.Controls.Add(label15);
+            pnlVat.Location = new System.Drawing.Point(8, 8);
+            pnlVat.Margin = new Padding(8, 9, 8, 9);
+            pnlVat.Name = "pnlVat";
+            pnlVat.Size = new System.Drawing.Size(2278, 1274);
+            pnlVat.TabIndex = 3;
+            // 
+            // button4
+            // 
+            button4.Location = new System.Drawing.Point(692, 539);
+            button4.Name = "button4";
+            button4.Size = new System.Drawing.Size(206, 53);
+            button4.TabIndex = 20;
+            button4.Text = "Quarter 4";
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
+            // 
+            // button3
+            // 
+            button3.Location = new System.Drawing.Point(692, 451);
+            button3.Name = "button3";
+            button3.Size = new System.Drawing.Size(206, 53);
+            button3.TabIndex = 19;
+            button3.Text = "Quarter 3";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
+            // button2
+            // 
+            button2.Location = new System.Drawing.Point(425, 539);
+            button2.Name = "button2";
+            button2.Size = new System.Drawing.Size(206, 53);
+            button2.TabIndex = 18;
+            button2.Text = "Quarter 2";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
+            // button1
+            // 
+            button1.Location = new System.Drawing.Point(425, 451);
+            button1.Name = "button1";
+            button1.Size = new System.Drawing.Size(206, 53);
+            button1.TabIndex = 17;
+            button1.Text = "Quarter 1";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // label25
+            // 
+            label25.AutoEllipsis = true;
+            label25.AutoSize = true;
+            label25.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label25.Location = new System.Drawing.Point(863, 822);
+            label25.Margin = new Padding(8, 0, 8, 0);
+            label25.Name = "label25";
+            label25.Size = new System.Drawing.Size(230, 50);
+            label25.TabIndex = 16;
+            label25.Text = "dd/mm/yyyy";
+            // 
+            // label24
+            // 
+            label24.AutoEllipsis = true;
+            label24.AutoSize = true;
+            label24.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label24.Location = new System.Drawing.Point(863, 692);
+            label24.Margin = new Padding(8, 0, 8, 0);
+            label24.Name = "label24";
+            label24.Size = new System.Drawing.Size(230, 50);
+            label24.TabIndex = 15;
+            label24.Text = "dd/mm/yyyy";
+            // 
+            // label23
+            // 
+            label23.AutoEllipsis = true;
+            label23.AutoSize = true;
+            label23.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label23.Location = new System.Drawing.Point(1947, 822);
+            label23.Margin = new Padding(8, 0, 8, 0);
+            label23.Name = "label23";
+            label23.Size = new System.Drawing.Size(90, 50);
+            label23.TabIndex = 14;
+            label23.Text = "0.00";
+            label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label22
+            // 
+            label22.AutoEllipsis = true;
+            label22.AutoSize = true;
+            label22.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label22.Location = new System.Drawing.Point(1947, 638);
+            label22.Margin = new Padding(8, 0, 8, 0);
+            label22.Name = "label22";
+            label22.Size = new System.Drawing.Size(90, 50);
+            label22.TabIndex = 13;
+            label22.Text = "0.00";
+            label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label21
+            // 
+            label21.AutoEllipsis = true;
+            label21.AutoSize = true;
+            label21.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label21.Location = new System.Drawing.Point(1947, 458);
+            label21.Margin = new Padding(8, 0, 8, 0);
+            label21.Name = "label21";
+            label21.Size = new System.Drawing.Size(90, 50);
+            label21.TabIndex = 12;
+            label21.Text = "0.00";
+            label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label20
+            // 
+            label20.AutoEllipsis = true;
+            label20.AutoSize = true;
+            label20.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label20.Location = new System.Drawing.Point(1556, 822);
+            label20.Margin = new Padding(8, 0, 8, 0);
+            label20.Name = "label20";
+            label20.Size = new System.Drawing.Size(188, 50);
+            label20.TabIndex = 11;
+            label20.Text = "Total vat  :";
+            // 
+            // label19
+            // 
+            label19.AutoEllipsis = true;
+            label19.AutoSize = true;
+            label19.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label19.Location = new System.Drawing.Point(1556, 638);
+            label19.Margin = new Padding(8, 0, 8, 0);
+            label19.Name = "label19";
+            label19.Size = new System.Drawing.Size(315, 50);
+            label19.TabIndex = 10;
+            label19.Text = "Total vat for 21% :";
+            // 
+            // label18
+            // 
+            label18.AutoEllipsis = true;
+            label18.AutoSize = true;
+            label18.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label18.Location = new System.Drawing.Point(1556, 458);
+            label18.Margin = new Padding(8, 0, 8, 0);
+            label18.Name = "label18";
+            label18.Size = new System.Drawing.Size(295, 50);
+            label18.TabIndex = 9;
+            label18.Text = "Total vat for 9% :";
+            // 
+            // label17
+            // 
+            label17.AutoEllipsis = true;
+            label17.AutoSize = true;
+            label17.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label17.Location = new System.Drawing.Point(404, 822);
+            label17.Margin = new Padding(8, 0, 8, 0);
+            label17.Name = "label17";
+            label17.Size = new System.Drawing.Size(428, 50);
+            label17.TabIndex = 8;
+            label17.Text = "End Day of the Quarter : ";
+            // 
+            // label16
+            // 
+            label16.AutoEllipsis = true;
+            label16.AutoSize = true;
+            label16.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label16.Location = new System.Drawing.Point(404, 692);
+            label16.Margin = new Padding(8, 0, 8, 0);
+            label16.Name = "label16";
+            label16.Size = new System.Drawing.Size(443, 50);
+            label16.TabIndex = 7;
+            label16.Text = "Start Day of the Quarter : ";
+            // 
+            // yearOnlySelect
+            // 
+            yearOnlySelect.AutoEllipsis = true;
+            yearOnlySelect.AutoSize = true;
+            yearOnlySelect.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            yearOnlySelect.Location = new System.Drawing.Point(404, 375);
+            yearOnlySelect.Margin = new Padding(8, 0, 8, 0);
+            yearOnlySelect.Name = "yearOnlySelect";
+            yearOnlySelect.Size = new System.Drawing.Size(216, 50);
+            yearOnlySelect.TabIndex = 6;
+            yearOnlySelect.Text = "Select year :";
+            // 
+            // dateTimePicker3
+            // 
+            dateTimePicker3.CustomFormat = "yyyy";
+            dateTimePicker3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dateTimePicker3.Format = DateTimePickerFormat.Custom;
+            dateTimePicker3.ImeMode = ImeMode.NoControl;
+            dateTimePicker3.Location = new System.Drawing.Point(693, 375);
+            dateTimePicker3.Name = "dateTimePicker3";
+            dateTimePicker3.RightToLeft = RightToLeft.Yes;
+            dateTimePicker3.Size = new System.Drawing.Size(205, 52);
+            dateTimePicker3.TabIndex = 5;
+            dateTimePicker3.ValueChanged += dateTimePicker3_ValueChanged;
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label15.Location = new System.Drawing.Point(56, 94);
+            label15.Margin = new Padding(8, 0, 8, 0);
+            label15.Name = "label15";
+            label15.Size = new System.Drawing.Size(119, 81);
+            label15.TabIndex = 0;
+            label15.Text = "Vat";
             // 
             // pnlRoom
             // 
             pnlRoom.Controls.Add(pictureBox1);
             pnlRoom.Controls.Add(listViewRooms);
             pnlRoom.Controls.Add(label6);
-            pnlRoom.Dock = System.Windows.Forms.DockStyle.Top;
+            pnlRoom.Dock = DockStyle.Top;
             pnlRoom.Location = new System.Drawing.Point(0, 1274);
-            pnlRoom.Margin = new System.Windows.Forms.Padding(8, 9, 8, 9);
+            pnlRoom.Margin = new Padding(8, 9, 8, 9);
             pnlRoom.Name = "pnlRoom";
             pnlRoom.Size = new System.Drawing.Size(2278, 1274);
             pnlRoom.TabIndex = 3;
@@ -223,7 +475,7 @@ namespace SomerenUI
             // 
             pictureBox1.Image = (System.Drawing.Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new System.Drawing.Point(2096, 193);
-            pictureBox1.Margin = new System.Windows.Forms.Padding(8, 9, 8, 9);
+            pictureBox1.Margin = new Padding(8, 9, 8, 9);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new System.Drawing.Size(235, 275);
             pictureBox1.TabIndex = 2;
@@ -232,7 +484,7 @@ namespace SomerenUI
             // listViewRooms
             // 
             listViewRooms.Location = new System.Drawing.Point(56, 205);
-            listViewRooms.Margin = new System.Windows.Forms.Padding(5);
+            listViewRooms.Margin = new Padding(5);
             listViewRooms.Name = "listViewRooms";
             listViewRooms.Size = new System.Drawing.Size(1854, 833);
             listViewRooms.TabIndex = 1;
@@ -243,7 +495,7 @@ namespace SomerenUI
             label6.AutoSize = true;
             label6.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             label6.Location = new System.Drawing.Point(56, 94);
-            label6.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            label6.Margin = new Padding(5, 0, 5, 0);
             label6.Name = "label6";
             label6.Size = new System.Drawing.Size(216, 81);
             label6.TabIndex = 0;
@@ -264,7 +516,7 @@ namespace SomerenUI
             pnlRevenue.Controls.Add(listViewForRevenue);
             pnlRevenue.Controls.Add(label9);
             pnlRevenue.Location = new System.Drawing.Point(0, 0);
-            pnlRevenue.Margin = new System.Windows.Forms.Padding(8, 9, 8, 9);
+            pnlRevenue.Margin = new Padding(8, 9, 8, 9);
             pnlRevenue.Name = "pnlRevenue";
             pnlRevenue.Size = new System.Drawing.Size(2278, 1274);
             pnlRevenue.TabIndex = 17;
@@ -338,9 +590,21 @@ namespace SomerenUI
             label10.TabIndex = 5;
             label10.Text = "From :";
             // 
+            // dateTimePicker2
+            // 
+            dateTimePicker2.Location = new System.Drawing.Point(601, 454);
+            dateTimePicker2.MaxDate = DateTime.Today;
+            dateTimePicker2.Name = "dateTimePicker2";
+            dateTimePicker2.Size = new System.Drawing.Size(565, 47);
+            dateTimePicker2.TabIndex = 4;
+            dateTimePicker2.Value = new DateTime(2024, 3, 26, 0, 0, 0, 0);
+            dateTimePicker2.ValueChanged += dateTimePicker2_ValueChanged;
+            // 
             // dateTimePicker1
             // 
+            dateTimePicker1.CustomFormat = "";
             dateTimePicker1.Location = new System.Drawing.Point(599, 308);
+            dateTimePicker1.MaxDate = DateTime.Today;
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new System.Drawing.Size(567, 47);
             dateTimePicker1.TabIndex = 3;
@@ -349,7 +613,7 @@ namespace SomerenUI
             // listViewForRevenue
             // 
             listViewForRevenue.Location = new System.Drawing.Point(433, 547);
-            listViewForRevenue.Margin = new System.Windows.Forms.Padding(8, 9, 8, 9);
+            listViewForRevenue.Margin = new Padding(8, 9, 8, 9);
             listViewForRevenue.Name = "listViewForRevenue";
             listViewForRevenue.Size = new System.Drawing.Size(1517, 605);
             listViewForRevenue.TabIndex = 1;
@@ -360,7 +624,7 @@ namespace SomerenUI
             label9.AutoSize = true;
             label9.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             label9.Location = new System.Drawing.Point(56, 94);
-            label9.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            label9.Margin = new Padding(8, 0, 8, 0);
             label9.Name = "label9";
             label9.Size = new System.Drawing.Size(259, 81);
             label9.TabIndex = 0;
@@ -370,7 +634,7 @@ namespace SomerenUI
             // 
             lblDashboard.AutoSize = true;
             lblDashboard.Location = new System.Drawing.Point(39, 72);
-            lblDashboard.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            lblDashboard.Margin = new Padding(8, 0, 8, 0);
             lblDashboard.Name = "lblDashboard";
             lblDashboard.Size = new System.Drawing.Size(523, 41);
             lblDashboard.TabIndex = 0;
@@ -385,7 +649,7 @@ namespace SomerenUI
             pnlDrink.Controls.Add(listViewDrinks);
             pnlDrink.Controls.Add(label3);
             pnlDrink.Location = new System.Drawing.Point(0, 0);
-            pnlDrink.Margin = new System.Windows.Forms.Padding(8, 9, 8, 9);
+            pnlDrink.Margin = new Padding(8, 9, 8, 9);
             pnlDrink.Name = "pnlDrink";
             pnlDrink.Size = new System.Drawing.Size(2278, 1274);
             pnlDrink.TabIndex = 4;
@@ -393,7 +657,7 @@ namespace SomerenUI
             // refreshBtn
             // 
             refreshBtn.Location = new System.Drawing.Point(1955, 889);
-            refreshBtn.Margin = new System.Windows.Forms.Padding(5);
+            refreshBtn.Margin = new Padding(5);
             refreshBtn.Name = "refreshBtn";
             refreshBtn.Size = new System.Drawing.Size(257, 149);
             refreshBtn.TabIndex = 6;
@@ -404,7 +668,7 @@ namespace SomerenUI
             // EditDrinkButton
             // 
             EditDrinkButton.Location = new System.Drawing.Point(1955, 700);
-            EditDrinkButton.Margin = new System.Windows.Forms.Padding(5);
+            EditDrinkButton.Margin = new Padding(5);
             EditDrinkButton.Name = "EditDrinkButton";
             EditDrinkButton.Size = new System.Drawing.Size(257, 149);
             EditDrinkButton.TabIndex = 5;
@@ -415,7 +679,7 @@ namespace SomerenUI
             // AddDrinkButton
             // 
             AddDrinkButton.Location = new System.Drawing.Point(1955, 519);
-            AddDrinkButton.Margin = new System.Windows.Forms.Padding(5);
+            AddDrinkButton.Margin = new Padding(5);
             AddDrinkButton.Name = "AddDrinkButton";
             AddDrinkButton.Size = new System.Drawing.Size(257, 142);
             AddDrinkButton.TabIndex = 4;
@@ -426,7 +690,7 @@ namespace SomerenUI
             // DeleteDrinkButton
             // 
             DeleteDrinkButton.Location = new System.Drawing.Point(1955, 332);
-            DeleteDrinkButton.Margin = new System.Windows.Forms.Padding(5);
+            DeleteDrinkButton.Margin = new Padding(5);
             DeleteDrinkButton.Name = "DeleteDrinkButton";
             DeleteDrinkButton.Size = new System.Drawing.Size(257, 149);
             DeleteDrinkButton.TabIndex = 3;
@@ -437,7 +701,7 @@ namespace SomerenUI
             // listViewDrinks
             // 
             listViewDrinks.Location = new System.Drawing.Point(56, 205);
-            listViewDrinks.Margin = new System.Windows.Forms.Padding(8, 9, 8, 9);
+            listViewDrinks.Margin = new Padding(8, 9, 8, 9);
             listViewDrinks.Name = "listViewDrinks";
             listViewDrinks.Size = new System.Drawing.Size(1854, 833);
             listViewDrinks.TabIndex = 1;
@@ -448,7 +712,7 @@ namespace SomerenUI
             label3.AutoSize = true;
             label3.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             label3.Location = new System.Drawing.Point(56, 94);
-            label3.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            label3.Margin = new Padding(8, 0, 8, 0);
             label3.Name = "label3";
             label3.Size = new System.Drawing.Size(202, 81);
             label3.TabIndex = 0;
@@ -464,9 +728,9 @@ namespace SomerenUI
             pnlOrder.Controls.Add(label7);
             pnlOrder.Controls.Add(PriceOutput);
             pnlOrder.Controls.Add(label8);
-            pnlOrder.Dock = System.Windows.Forms.DockStyle.Top;
+            pnlOrder.Dock = DockStyle.Top;
             pnlOrder.Location = new System.Drawing.Point(0, 0);
-            pnlOrder.Margin = new System.Windows.Forms.Padding(8, 9, 8, 9);
+            pnlOrder.Margin = new Padding(8, 9, 8, 9);
             pnlOrder.Name = "pnlOrder";
             pnlOrder.Size = new System.Drawing.Size(2278, 1274);
             pnlOrder.TabIndex = 17;
@@ -476,7 +740,7 @@ namespace SomerenUI
             label5.AutoSize = true;
             label5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             label5.Location = new System.Drawing.Point(1799, 897);
-            label5.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            label5.Margin = new Padding(6, 0, 6, 0);
             label5.Name = "label5";
             label5.Size = new System.Drawing.Size(105, 41);
             label5.TabIndex = 8;
@@ -485,7 +749,7 @@ namespace SomerenUI
             // QuantityOfDrinks
             // 
             QuantityOfDrinks.Location = new System.Drawing.Point(1800, 803);
-            QuantityOfDrinks.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            QuantityOfDrinks.Margin = new Padding(6, 7, 6, 7);
             QuantityOfDrinks.Name = "QuantityOfDrinks";
             QuantityOfDrinks.Size = new System.Drawing.Size(397, 47);
             QuantityOfDrinks.TabIndex = 3;
@@ -494,7 +758,7 @@ namespace SomerenUI
             // buttonOrder
             // 
             buttonOrder.Location = new System.Drawing.Point(1800, 998);
-            buttonOrder.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            buttonOrder.Margin = new Padding(6, 7, 6, 7);
             buttonOrder.Name = "buttonOrder";
             buttonOrder.Size = new System.Drawing.Size(405, 154);
             buttonOrder.TabIndex = 3;
@@ -507,7 +771,7 @@ namespace SomerenUI
             listBoxStudentOrders.FormattingEnabled = true;
             listBoxStudentOrders.ItemHeight = 41;
             listBoxStudentOrders.Location = new System.Drawing.Point(56, 205);
-            listBoxStudentOrders.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            listBoxStudentOrders.Margin = new Padding(6, 7, 6, 7);
             listBoxStudentOrders.Name = "listBoxStudentOrders";
             listBoxStudentOrders.Size = new System.Drawing.Size(593, 947);
             listBoxStudentOrders.TabIndex = 3;
@@ -518,7 +782,7 @@ namespace SomerenUI
             listBoxDrinksOrders.FormattingEnabled = true;
             listBoxDrinksOrders.ItemHeight = 41;
             listBoxDrinksOrders.Location = new System.Drawing.Point(797, 205);
-            listBoxDrinksOrders.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            listBoxDrinksOrders.Margin = new Padding(6, 7, 6, 7);
             listBoxDrinksOrders.Name = "listBoxDrinksOrders";
             listBoxDrinksOrders.Size = new System.Drawing.Size(944, 947);
             listBoxDrinksOrders.TabIndex = 4;
@@ -529,7 +793,7 @@ namespace SomerenUI
             label7.AutoSize = true;
             label7.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             label7.Location = new System.Drawing.Point(56, 94);
-            label7.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            label7.Margin = new Padding(8, 0, 8, 0);
             label7.Name = "label7";
             label7.Size = new System.Drawing.Size(213, 81);
             label7.TabIndex = 0;
@@ -540,7 +804,7 @@ namespace SomerenUI
             PriceOutput.AutoSize = true;
             PriceOutput.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             PriceOutput.Location = new System.Drawing.Point(1907, 898);
-            PriceOutput.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            PriceOutput.Margin = new Padding(6, 0, 6, 0);
             PriceOutput.Name = "PriceOutput";
             PriceOutput.Size = new System.Drawing.Size(67, 47);
             PriceOutput.TabIndex = 7;
@@ -552,7 +816,7 @@ namespace SomerenUI
             label8.AutoSize = true;
             label8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             label8.Location = new System.Drawing.Point(1792, 728);
-            label8.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            label8.Margin = new Padding(6, 0, 6, 0);
             label8.Name = "label8";
             label8.Size = new System.Drawing.Size(420, 41);
             label8.TabIndex = 6;
@@ -563,7 +827,7 @@ namespace SomerenUI
             pnlActivity.Controls.Add(listViewActivities);
             pnlActivity.Controls.Add(label4);
             pnlActivity.Location = new System.Drawing.Point(0, 0);
-            pnlActivity.Margin = new System.Windows.Forms.Padding(8, 9, 8, 9);
+            pnlActivity.Margin = new Padding(8, 9, 8, 9);
             pnlActivity.Name = "pnlActivity";
             pnlActivity.Size = new System.Drawing.Size(2278, 1274);
             pnlActivity.TabIndex = 3;
@@ -571,7 +835,7 @@ namespace SomerenUI
             // listViewActivities
             // 
             listViewActivities.Location = new System.Drawing.Point(56, 205);
-            listViewActivities.Margin = new System.Windows.Forms.Padding(8, 9, 8, 9);
+            listViewActivities.Margin = new Padding(8, 9, 8, 9);
             listViewActivities.Name = "listViewActivities";
             listViewActivities.Size = new System.Drawing.Size(1854, 833);
             listViewActivities.TabIndex = 1;
@@ -582,7 +846,7 @@ namespace SomerenUI
             label4.AutoSize = true;
             label4.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             label4.Location = new System.Drawing.Point(56, 94);
-            label4.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            label4.Margin = new Padding(8, 0, 8, 0);
             label4.Name = "label4";
             label4.Size = new System.Drawing.Size(272, 81);
             label4.TabIndex = 0;
@@ -593,7 +857,7 @@ namespace SomerenUI
             pnlStudents.Controls.Add(listViewStudents);
             pnlStudents.Controls.Add(label1);
             pnlStudents.Location = new System.Drawing.Point(0, 0);
-            pnlStudents.Margin = new System.Windows.Forms.Padding(8, 9, 8, 9);
+            pnlStudents.Margin = new Padding(8, 9, 8, 9);
             pnlStudents.Name = "pnlStudents";
             pnlStudents.Size = new System.Drawing.Size(2278, 1274);
             pnlStudents.TabIndex = 2;
@@ -601,7 +865,7 @@ namespace SomerenUI
             // listViewStudents
             // 
             listViewStudents.Location = new System.Drawing.Point(56, 205);
-            listViewStudents.Margin = new System.Windows.Forms.Padding(8, 9, 8, 9);
+            listViewStudents.Margin = new Padding(8, 9, 8, 9);
             listViewStudents.Name = "listViewStudents";
             listViewStudents.Size = new System.Drawing.Size(1854, 833);
             listViewStudents.TabIndex = 1;
@@ -612,7 +876,7 @@ namespace SomerenUI
             label1.AutoSize = true;
             label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             label1.Location = new System.Drawing.Point(56, 94);
-            label1.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            label1.Margin = new Padding(8, 0, 8, 0);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(264, 81);
             label1.TabIndex = 0;
@@ -623,7 +887,7 @@ namespace SomerenUI
             pnlLecturer.Controls.Add(listViewLecturers);
             pnlLecturer.Controls.Add(label2);
             pnlLecturer.Location = new System.Drawing.Point(0, 0);
-            pnlLecturer.Margin = new System.Windows.Forms.Padding(8, 9, 8, 9);
+            pnlLecturer.Margin = new Padding(8, 9, 8, 9);
             pnlLecturer.Name = "pnlLecturer";
             pnlLecturer.Size = new System.Drawing.Size(2278, 1274);
             pnlLecturer.TabIndex = 3;
@@ -631,7 +895,7 @@ namespace SomerenUI
             // listViewLecturers
             // 
             listViewLecturers.Location = new System.Drawing.Point(56, 205);
-            listViewLecturers.Margin = new System.Windows.Forms.Padding(8, 9, 8, 9);
+            listViewLecturers.Margin = new Padding(8, 9, 8, 9);
             listViewLecturers.Name = "listViewLecturers";
             listViewLecturers.Size = new System.Drawing.Size(1854, 833);
             listViewLecturers.TabIndex = 1;
@@ -642,7 +906,7 @@ namespace SomerenUI
             label2.AutoSize = true;
             label2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             label2.Location = new System.Drawing.Point(56, 94);
-            label2.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            label2.Margin = new Padding(8, 0, 8, 0);
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(274, 81);
             label2.TabIndex = 0;
@@ -652,32 +916,22 @@ namespace SomerenUI
             // 
             pictureBox7.Image = (System.Drawing.Image)resources.GetObject("pictureBox7.Image");
             pictureBox7.Location = new System.Drawing.Point(2309, 1168);
-            pictureBox7.Margin = new System.Windows.Forms.Padding(8, 9, 8, 9);
+            pictureBox7.Margin = new Padding(8, 9, 8, 9);
             pictureBox7.Name = "pictureBox7";
             pictureBox7.Size = new System.Drawing.Size(137, 123);
             pictureBox7.TabIndex = 2;
             pictureBox7.TabStop = false;
             // 
-            // dateTimePicker2
-            // 
-            dateTimePicker2.Location = new System.Drawing.Point(601, 454);
-            dateTimePicker2.MaxDate = DateTime.Today;
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new System.Drawing.Size(565, 47);
-            dateTimePicker2.TabIndex = 4;
-            dateTimePicker2.Value = new System.DateTime(2024, 3, 26, 0, 0, 0, 0);
-            dateTimePicker2.ValueChanged += dateTimePicker2_ValueChanged;
-            // 
             // SomerenUI
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(17F, 41F);
-            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(2463, 1331);
             Controls.Add(menuStrip1);
             Controls.Add(pnlDashboard);
             Controls.Add(pictureBox7);
             MainMenuStrip = menuStrip1;
-            Margin = new System.Windows.Forms.Padding(8, 9, 8, 9);
+            Margin = new Padding(8, 9, 8, 9);
             Name = "SomerenUI";
             Text = "SomerenApp";
             Load += SomerenUI_Load;
@@ -685,6 +939,8 @@ namespace SomerenUI
             menuStrip1.PerformLayout();
             pnlDashboard.ResumeLayout(false);
             pnlDashboard.PerformLayout();
+            pnlVat.ResumeLayout(false);
+            pnlVat.PerformLayout();
             pnlRoom.ResumeLayout(false);
             pnlRoom.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -708,62 +964,81 @@ namespace SomerenUI
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem dashboardToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem dashboardToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem studentsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem lecturersToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem activitiesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem roomsToolStripMenuItem;
-        private System.Windows.Forms.Panel pnlDashboard;
-        private System.Windows.Forms.Label lblDashboard;
-        private System.Windows.Forms.Panel pnlStudents;
-        private System.Windows.Forms.ListView listViewStudents;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel pnlLecturer;
-        private System.Windows.Forms.ListView listViewLecturers;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Panel pnlRoom;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Panel pnlActivity;
-        private System.Windows.Forms.ListView listViewActivities;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ToolStripMenuItem drinksToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toolStripDrinksItem;
-        private System.Windows.Forms.ToolStripMenuItem orderToolStripMenuItem;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.ListView listViewRooms;
-        private System.Windows.Forms.ToolStripMenuItem revenueToolStripMenuItem;
-        private System.Windows.Forms.Panel pnlRevenue;
-        private System.Windows.Forms.PictureBox pictureBox7;
-        private System.Windows.Forms.ListView listViewForRevenue;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label Purchases;
-        private System.Windows.Forms.Label Profits;
-        private System.Windows.Forms.Label DrinksSold;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Panel pnlOrder;
-        private System.Windows.Forms.NumericUpDown QuantityOfDrinks;
-        private System.Windows.Forms.Button buttonOrder;
-        private System.Windows.Forms.ListBox listBoxStudentOrders;
-        private System.Windows.Forms.ListBox listBoxDrinksOrders;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label PriceOutput;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Panel pnlDrink;
-        private System.Windows.Forms.ListView listViewDrinks;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button EditDrinkButton;
-        private System.Windows.Forms.Button AddDrinkButton;
-        private System.Windows.Forms.Button DeleteDrinkButton;
-        private System.Windows.Forms.Button refreshBtn;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem dashboardToolStripMenuItem;
+        private ToolStripMenuItem dashboardToolStripMenuItem1;
+        private ToolStripMenuItem exitToolStripMenuItem;
+        private ToolStripMenuItem studentsToolStripMenuItem;
+        private ToolStripMenuItem lecturersToolStripMenuItem;
+        private ToolStripMenuItem activitiesToolStripMenuItem;
+        private ToolStripMenuItem roomsToolStripMenuItem;
+        private Panel pnlDashboard;
+        private Label lblDashboard;
+        private Panel pnlStudents;
+        private ListView listViewStudents;
+        private Label label1;
+        private Panel pnlLecturer;
+        private ListView listViewLecturers;
+        private Label label2;
+        private Panel pnlRoom;
+        private Label label6;
+        private Panel pnlActivity;
+        private ListView listViewActivities;
+        private Label label4;
+        private ToolStripMenuItem drinksToolStripMenuItem;
+        private ToolStripMenuItem toolStripDrinksItem;
+        private ToolStripMenuItem orderToolStripMenuItem;
+        private PictureBox pictureBox1;
+        private ListView listViewRooms;
+        private ToolStripMenuItem revenueToolStripMenuItem;
+        private Panel pnlRevenue;
+        private PictureBox pictureBox7;
+        private ListView listViewForRevenue;
+        private Label label9;
+        private Label Purchases;
+        private Label Profits;
+        private Label DrinksSold;
+        private Label label11;
+        private Label label10;
+        private DateTimePicker dateTimePicker1;
+        private Label label14;
+        private Label label13;
+        private Label label12;
+        private Panel pnlOrder;
+        private NumericUpDown QuantityOfDrinks;
+        private Button buttonOrder;
+        private ListBox listBoxStudentOrders;
+        private ListBox listBoxDrinksOrders;
+        private Label label7;
+        private Label PriceOutput;
+        private Label label8;
+        private Panel pnlDrink;
+        private ListView listViewDrinks;
+        private Label label3;
+        private Button EditDrinkButton;
+        private Button AddDrinkButton;
+        private Button DeleteDrinkButton;
+        private Button refreshBtn;
+        private Label label5;
+        private DateTimePicker dateTimePicker2;
+        private ToolStripMenuItem vatToolStripMenuItem;
+        private Panel pnlVat;
+        private Label label15;
+        private DateTimePicker dateTimePicker3;
+        private Label yearOnlySelect;
+        private Label label17;
+        private Label label16;
+        private Label label20;
+        private Label label19;
+        private Label label18;
+        private Label label23;
+        private Label label22;
+        private Label label21;
+        private Label label24;
+        private Label label25;
+        private Button button4;
+        private Button button3;
+        private Button button2;
+        private Button button1;
     }
 }
