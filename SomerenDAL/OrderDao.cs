@@ -11,7 +11,7 @@ namespace SomerenDAL
     {
         public List<Order> GetAllOrders()
         {
-            string query = "SELECT Orders.Amount, Orders.OrderDate,Orders.OrderTime, Student.*, Drink.* FROM Orders JOIN Student ON Orders.StudentNumber = Student.StudentNumber JOIN Drink ON Orders.DrinkId = Drink.DrinkId";
+            string query = "SELECT Orders.Amount,Orders.OrderDate,Orders.OrderTime, Student.*, Drink.* FROM Orders JOIN Student ON Orders.StudentNumber = Student.StudentNumber JOIN Drink ON Orders.DrinkId = Drink.DrinkId";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadOrder(ExecuteSelectQuery(query, sqlParameters));
         }
@@ -135,15 +135,5 @@ namespace SomerenDAL
             ExecuteEditQuery(query, parameters);
 
         }
-
-        //Leiths part:
-
-        // Fixed the sql script !
-
-        //this method to implement retrieve order within the date range => revenueReportService 
-
-        // Inside your OrderDao class
-
-
     }
 }

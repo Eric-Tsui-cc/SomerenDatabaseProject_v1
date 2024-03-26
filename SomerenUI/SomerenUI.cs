@@ -369,6 +369,8 @@ namespace SomerenUI
         private void DisplayStudents(List<Student> students)
         {
             ClearListViewStudent();
+            listViewStudents.View = View.Details;
+
 
             AddListViewColumnsStudent();
 
@@ -510,24 +512,25 @@ namespace SomerenUI
         // BUTTONS & SINGLE USE NON REPEATING METHODS
 
 
-        private void button1_Click(object sender, EventArgs e)
+
+        private void refreshBtn_Click(object sender, EventArgs e)
         {
-            ShowOrderPanel();
+            ShowDrinkPanel();
         }
 
-        private void listBoxStudentOrders_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-            DoingMyBestNotToRepeat();
-
-        }
-
-        private void listBoxDrinksOrders_SelectedIndexChanged(object sender, EventArgs e)
+        private void listBoxStudentOrders_SelectedIndexChanged(object sender, EventArgs e)
         {
             DoingMyBestNotToRepeat();
 
+        }
+
+        private void listBoxDrinksOrders_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            DoingMyBestNotToRepeat();
+
 
         }
-        private void QuantityOfDrinks_ValueChanged_1(object sender, EventArgs e)
+        private void QuantityOfDrinks_ValueChanged(object sender, EventArgs e)
         {
             DoingMyBestNotToRepeat();
         }
@@ -647,7 +650,7 @@ namespace SomerenUI
         }
 
 
-        public void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
             RevenueReportService revenueReportService = new();
             try
@@ -738,44 +741,46 @@ namespace SomerenUI
             listViewStudents.Items.Clear();
             listViewStudents.Columns.Clear();
         }
-
+        /// <summary>
+        /// /
+        /// </summary>
         private void AddListViewColumnsDrink()
         {
-            listViewDrinks.Columns.Add("Name", 200);
-            listViewDrinks.Columns.Add("Type", 150);
-            listViewDrinks.Columns.Add("Stock", 100);
-            listViewDrinks.Columns.Add("Stock Status", 200);
-            listViewDrinks.Columns.Add("Drink Id", 200);
-            listViewDrinks.Columns.Add("Price", 100);
+            listViewDrinks.Columns.Add("Name", 300);
+            listViewDrinks.Columns.Add("Type", 220);
+            listViewDrinks.Columns.Add("Stock", 150);
+            listViewDrinks.Columns.Add("Stock Status", 250);
+            listViewDrinks.Columns.Add("Drink Id", 180);
+            listViewDrinks.Columns.Add("Price", 150);
 
         }
         private void AddListViewColumnsActivity()
         {
-            listViewActivities.Columns.Add("Name", 200);
-            listViewActivities.Columns.Add("Date", 150);
-            listViewActivities.Columns.Add("Time", 100);
+            listViewActivities.Columns.Add("Name", 300);
+            listViewActivities.Columns.Add("Date", 250);
+            listViewActivities.Columns.Add("Time", 200);
         }
         private void AddListViewColumnsRoom()
         {
-            listViewRooms.Columns.Add("Room Number", 120);
+            listViewRooms.Columns.Add("Room Number", 220);
             listViewRooms.Columns.Add("Building", 200);
             listViewRooms.Columns.Add("Room Type", 200);
             listViewRooms.Columns.Add("Floor Number", 200);
         }
         private void AddListViewColumnsStudent()
         {
-            listViewStudents.Columns.Add("Name", 200);
-            listViewStudents.Columns.Add("Student Number", 200);
-            listViewStudents.Columns.Add("Telephone Number", 200);
-            listViewStudents.Columns.Add("Room Number", 200);
+            listViewStudents.Columns.Add("Name", 300);
+            listViewStudents.Columns.Add("Student Number", 300);
+            listViewStudents.Columns.Add("Telephone Number", 300);
+            listViewStudents.Columns.Add("Room Number", 250);
             listViewStudents.Columns.Add("Class", 150);
         }
         private void AddListViewColumnsLectuer()
         {
-            listViewLecturers.Columns.Add("Full Name", 200);
-            listViewLecturers.Columns.Add("Telephone Number", 200);
+            listViewLecturers.Columns.Add("Full Name", 300);
+            listViewLecturers.Columns.Add("Telephone Number", 300);
             listViewLecturers.Columns.Add("Age", 200);
-            listViewLecturers.Columns.Add("Room Number", 150);
+            listViewLecturers.Columns.Add("Room Number", 250);
         }
         /// <summary>
         /// ///////////////////////////////////////////////////////////////////////
@@ -819,7 +824,6 @@ namespace SomerenUI
 
             item.ImageIndex = imageIndex;
         }
-
 
     }
 
