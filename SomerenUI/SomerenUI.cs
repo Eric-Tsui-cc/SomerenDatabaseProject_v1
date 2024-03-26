@@ -865,7 +865,7 @@ namespace SomerenUI
         private void DisplayVatInfo()
         {
             PopulateComboBoxWithOrderYears();
-            comboBoxQuarter_SelectedIndexChanged();
+            PopulateComboBoxWithOrderYearsAndQuarters();
         }
         public void ShowVATPanel()
         {
@@ -907,9 +907,36 @@ namespace SomerenUI
                 }
             }
         }
-        private void comboBoxQuarter_SelectedIndexChanged()
+        private void PopulateComboBoxWithOrderYearsAndQuarters()
         {
-            // Get the selected quarter
+            comboBoxOfTaxYear.Items.Clear();
+            comboBoxOfQuarter.Items.Clear();
+
+            HashSet<int> addedYears = new HashSet<int>();
+
+            List<Order> orders = GetOrders();
+
+            foreach (Order order in orders)
+            {
+                int year = order.OrderDate.Year;
+                int quarter = (order.OrderDate.Month - 1) / 3 + 1; // Calculate the quarter based on the month
+
+                if (!addedYears.Contains(year))
+                {
+                    comboBoxOfTaxYear.Items.Add(year.ToString());
+                    addedYears.Add(year);
+                }
+
+                string quarterText = $"Q{quarter}";
+                if (!comboBoxOfQuarter.Items.Contains(quarterText))
+                {
+                    comboBoxOfQuarter.Items.Add(quarterText);
+                }
+            }
+        }
+        private void comboBoxOfQuarter_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            int selectedYear = int.Parse(comboBoxOfTaxYear.SelectedItem.ToString());
             int selectedQuarter = comboBoxOfQuarter.SelectedIndex + 1; // Since indexes start from 0, we add 1
 
             // Calculate the start and end dates of the quarter
@@ -918,20 +945,20 @@ namespace SomerenUI
             switch (selectedQuarter)
             {
                 case 1: // First quarter
-                    startDate = new DateTime(DateTime.Now.Year, 1, 1); // January 1st
-                    endDate = new DateTime(DateTime.Now.Year, 3, 31); // March 31st
+                    startDate = new DateTime(selectedYear, 1, 1);
+                    endDate = new DateTime(selectedYear, 3, 31);
                     break;
                 case 2: // Second quarter
-                    startDate = new DateTime(DateTime.Now.Year, 4, 1); // April 1st
-                    endDate = new DateTime(DateTime.Now.Year, 6, 30); // June 30th
+                    startDate = new DateTime(selectedYear, 4, 1);
+                    endDate = new DateTime(selectedYear, 6, 30);
                     break;
                 case 3: // Third quarter
-                    startDate = new DateTime(DateTime.Now.Year, 7, 1); // July 1st
-                    endDate = new DateTime(DateTime.Now.Year, 9, 30); // September 30th
+                    startDate = new DateTime(selectedYear, 7, 1);
+                    endDate = new DateTime(selectedYear, 9, 30);
                     break;
                 case 4: // Fourth quarter
-                    startDate = new DateTime(DateTime.Now.Year, 10, 1); // October 1st
-                    endDate = new DateTime(DateTime.Now.Year, 12, 31); // December 31st
+                    startDate = new DateTime(selectedYear, 10, 1);
+                    endDate = new DateTime(selectedYear, 12, 31);
                     break;
                 default:
                     startDate = DateTime.MinValue;
@@ -939,18 +966,9 @@ namespace SomerenUI
                     break;
             }
 
+            // Display the start and end dates in the labels
             labelVatStartDate.Text = startDate.ToShortDateString();
             labelVatEndDate.Text = endDate.ToShortDateString();
         }
-
-
-
-
-
-
-
-
     }
-
-
 }

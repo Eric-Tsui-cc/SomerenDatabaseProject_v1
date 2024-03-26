@@ -43,7 +43,6 @@
             revenueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             vATInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             pnlDashboard = new System.Windows.Forms.Panel();
-            pnlOrder = new System.Windows.Forms.Panel();
             pnlVat = new System.Windows.Forms.Panel();
             labelVatEndDate = new System.Windows.Forms.Label();
             label18 = new System.Windows.Forms.Label();
@@ -55,6 +54,7 @@
             LabelOfTaxYear = new System.Windows.Forms.Label();
             pictureBox8 = new System.Windows.Forms.PictureBox();
             label15 = new System.Windows.Forms.Label();
+            pnlOrder = new System.Windows.Forms.Panel();
             pictureBox5 = new System.Windows.Forms.PictureBox();
             labelOfTotalPrice = new System.Windows.Forms.Label();
             label5 = new System.Windows.Forms.Label();
@@ -105,9 +105,9 @@
             lblDashboard = new System.Windows.Forms.Label();
             menuStrip1.SuspendLayout();
             pnlDashboard.SuspendLayout();
-            pnlOrder.SuspendLayout();
             pnlVat.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
+            pnlOrder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)QuantityOfDrinks).BeginInit();
             pnlActivity.SuspendLayout();
@@ -236,24 +236,6 @@
             pnlDashboard.Size = new System.Drawing.Size(1474, 746);
             pnlDashboard.TabIndex = 1;
             // 
-            // pnlOrder
-            // 
-            pnlOrder.Controls.Add(pictureBox5);
-            pnlOrder.Controls.Add(labelOfTotalPrice);
-            pnlOrder.Controls.Add(label5);
-            pnlOrder.Controls.Add(QuantityOfDrinks);
-            pnlOrder.Controls.Add(buttonOrder);
-            pnlOrder.Controls.Add(listBoxStudentOrders);
-            pnlOrder.Controls.Add(listBoxDrinksOrders);
-            pnlOrder.Controls.Add(label7);
-            pnlOrder.Controls.Add(PriceOutput);
-            pnlOrder.Controls.Add(label8);
-            pnlOrder.Location = new System.Drawing.Point(0, 0);
-            pnlOrder.Margin = new System.Windows.Forms.Padding(5);
-            pnlOrder.Name = "pnlOrder";
-            pnlOrder.Size = new System.Drawing.Size(1474, 780);
-            pnlOrder.TabIndex = 17;
-            // 
             // pnlVat
             // 
             pnlVat.Controls.Add(labelVatEndDate);
@@ -277,9 +259,8 @@
             labelVatEndDate.AutoSize = true;
             labelVatEndDate.Location = new System.Drawing.Point(442, 336);
             labelVatEndDate.Name = "labelVatEndDate";
-            labelVatEndDate.Size = new System.Drawing.Size(74, 24);
+            labelVatEndDate.Size = new System.Drawing.Size(0, 24);
             labelVatEndDate.TabIndex = 10;
-            labelVatEndDate.Text = "label19";
             // 
             // label18
             // 
@@ -295,9 +276,8 @@
             labelVatStartDate.AutoSize = true;
             labelVatStartDate.Location = new System.Drawing.Point(248, 336);
             labelVatStartDate.Name = "labelVatStartDate";
-            labelVatStartDate.Size = new System.Drawing.Size(74, 24);
+            labelVatStartDate.Size = new System.Drawing.Size(0, 24);
             labelVatStartDate.TabIndex = 8;
-            labelVatStartDate.Text = "label18";
             // 
             // label17
             // 
@@ -315,6 +295,7 @@
             comboBoxOfQuarter.Name = "comboBoxOfQuarter";
             comboBoxOfQuarter.Size = new System.Drawing.Size(182, 32);
             comboBoxOfQuarter.TabIndex = 6;
+            comboBoxOfQuarter.SelectedIndexChanged += comboBoxOfQuarter_SelectedIndexChanged_1;
             // 
             // label16
             // 
@@ -364,6 +345,24 @@
             label15.Size = new System.Drawing.Size(148, 48);
             label15.TabIndex = 0;
             label15.Text = "VaT Info";
+            // 
+            // pnlOrder
+            // 
+            pnlOrder.Controls.Add(pictureBox5);
+            pnlOrder.Controls.Add(labelOfTotalPrice);
+            pnlOrder.Controls.Add(label5);
+            pnlOrder.Controls.Add(QuantityOfDrinks);
+            pnlOrder.Controls.Add(buttonOrder);
+            pnlOrder.Controls.Add(listBoxStudentOrders);
+            pnlOrder.Controls.Add(listBoxDrinksOrders);
+            pnlOrder.Controls.Add(label7);
+            pnlOrder.Controls.Add(PriceOutput);
+            pnlOrder.Controls.Add(label8);
+            pnlOrder.Location = new System.Drawing.Point(0, 0);
+            pnlOrder.Margin = new System.Windows.Forms.Padding(5);
+            pnlOrder.Name = "pnlOrder";
+            pnlOrder.Size = new System.Drawing.Size(1474, 780);
+            pnlOrder.TabIndex = 17;
             // 
             // pictureBox5
             // 
@@ -872,11 +871,11 @@
             menuStrip1.PerformLayout();
             pnlDashboard.ResumeLayout(false);
             pnlDashboard.PerformLayout();
-            pnlOrder.ResumeLayout(false);
-            pnlOrder.PerformLayout();
             pnlVat.ResumeLayout(false);
             pnlVat.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
+            pnlOrder.ResumeLayout(false);
+            pnlOrder.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ((System.ComponentModel.ISupportInitialize)QuantityOfDrinks).EndInit();
             pnlActivity.ResumeLayout(false);
