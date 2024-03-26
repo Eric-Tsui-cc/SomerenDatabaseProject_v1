@@ -1,4 +1,7 @@
-﻿namespace SomerenUI
+﻿using System.Windows.Forms;
+using System;
+
+namespace SomerenUI
 {
     partial class SomerenUI
     {
@@ -55,7 +58,6 @@
             DrinksSold = new System.Windows.Forms.Label();
             label11 = new System.Windows.Forms.Label();
             label10 = new System.Windows.Forms.Label();
-            dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             listViewForRevenue = new System.Windows.Forms.ListView();
             label9 = new System.Windows.Forms.Label();
@@ -86,6 +88,7 @@
             listViewLecturers = new System.Windows.Forms.ListView();
             label2 = new System.Windows.Forms.Label();
             pictureBox7 = new System.Windows.Forms.PictureBox();
+            dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             menuStrip1.SuspendLayout();
             pnlDashboard.SuspendLayout();
             pnlRoom.SuspendLayout();
@@ -334,14 +337,6 @@
             label10.Size = new System.Drawing.Size(102, 41);
             label10.TabIndex = 5;
             label10.Text = "From :";
-            // 
-            // dateTimePicker2
-            // 
-            dateTimePicker2.Location = new System.Drawing.Point(601, 454);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new System.Drawing.Size(565, 47);
-            dateTimePicker2.TabIndex = 4;
-            dateTimePicker2.ValueChanged += dateTimePicker2_ValueChanged;
             // 
             // dateTimePicker1
             // 
@@ -663,6 +658,16 @@
             pictureBox7.TabIndex = 2;
             pictureBox7.TabStop = false;
             // 
+            // dateTimePicker2
+            // 
+            dateTimePicker2.Location = new System.Drawing.Point(601, 454);
+            dateTimePicker2.MaxDate = DateTime.Today;
+            dateTimePicker2.Name = "dateTimePicker2";
+            dateTimePicker2.Size = new System.Drawing.Size(565, 47);
+            dateTimePicker2.TabIndex = 4;
+            dateTimePicker2.Value = new System.DateTime(2024, 3, 26, 0, 0, 0, 0);
+            dateTimePicker2.ValueChanged += dateTimePicker2_ValueChanged;
+            // 
             // SomerenUI
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(17F, 41F);
@@ -739,7 +744,6 @@
         private System.Windows.Forms.Label DrinksSold;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
@@ -760,5 +764,6 @@
         private System.Windows.Forms.Button DeleteDrinkButton;
         private System.Windows.Forms.Button refreshBtn;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
     }
 }

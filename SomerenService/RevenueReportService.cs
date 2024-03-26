@@ -25,7 +25,7 @@ namespace SomerenService
 
         public bool CheckDates(DateTime startDate, DateTime endDate)
         {
-            if (startDate > endDate)
+            if (startDate > endDate && endDate > DateTime.Today)
             {
                 return false;
             }
