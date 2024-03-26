@@ -27,8 +27,8 @@ namespace SomerenService
 
         public void CreateOrder(Student student, Drink drink, int Amount, DateTime dateOfOrder, TimeSpan timeOfOrder)
         {
- 
-            if(orderDb.OrderExists( student.Number, drink.DrinkId) )
+
+            if (orderDb.OrderExists(student.Number, drink.DrinkId))
             {
                 orderDb.ifOrderExists(drink, Amount, student);
 
@@ -37,7 +37,7 @@ namespace SomerenService
             {
                 orderDb.CreateOrder(student, drink, Amount, dateOfOrder, timeOfOrder);
 
-            }            
+            }
 
         }
         public void FillTheOrder(int studentSelectedIndex, int drinkSelectedIndex, Student student, Drink drink, int Amount)
@@ -49,6 +49,10 @@ namespace SomerenService
             else if (drinkSelectedIndex == -1)
             {
                 throw new Exception("Select one drink !");
+            }
+            else if (Amount < 1)
+            {
+                throw new Exception("Select at least one drink ! (in the amount picker)");
             }
             else
             {
