@@ -75,6 +75,12 @@ namespace SomerenService
 
             finalPrice = $"{price}";
         }
+        public bool OrderExists(int studentNumber, int drinkId)
+        {
+            bool Status = orderDb.OrderExists(studentNumber, drinkId);
+            if (Status) { return true; }
+            return false;
+        }
 
     }
 }

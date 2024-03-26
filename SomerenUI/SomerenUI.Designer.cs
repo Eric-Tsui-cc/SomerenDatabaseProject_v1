@@ -44,6 +44,18 @@
             vATInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             pnlDashboard = new System.Windows.Forms.Panel();
             pnlOrder = new System.Windows.Forms.Panel();
+            pnlVat = new System.Windows.Forms.Panel();
+            labelVatEndDate = new System.Windows.Forms.Label();
+            label18 = new System.Windows.Forms.Label();
+            labelVatStartDate = new System.Windows.Forms.Label();
+            label17 = new System.Windows.Forms.Label();
+            comboBoxOfQuarter = new System.Windows.Forms.ComboBox();
+            label16 = new System.Windows.Forms.Label();
+            comboBoxOfTaxYear = new System.Windows.Forms.ComboBox();
+            LabelOfTaxYear = new System.Windows.Forms.Label();
+            pictureBox8 = new System.Windows.Forms.PictureBox();
+            label15 = new System.Windows.Forms.Label();
+            pictureBox5 = new System.Windows.Forms.PictureBox();
             labelOfTotalPrice = new System.Windows.Forms.Label();
             label5 = new System.Windows.Forms.Label();
             QuantityOfDrinks = new System.Windows.Forms.NumericUpDown();
@@ -53,7 +65,6 @@
             label7 = new System.Windows.Forms.Label();
             PriceOutput = new System.Windows.Forms.Label();
             label8 = new System.Windows.Forms.Label();
-            lblDashboard = new System.Windows.Forms.Label();
             pnlActivity = new System.Windows.Forms.Panel();
             pictureBox4 = new System.Windows.Forms.PictureBox();
             listViewActivities = new System.Windows.Forms.ListView();
@@ -91,10 +102,13 @@
             pictureBox3 = new System.Windows.Forms.PictureBox();
             listViewDrinks = new System.Windows.Forms.ListView();
             label3 = new System.Windows.Forms.Label();
-            pictureBox5 = new System.Windows.Forms.PictureBox();
+            lblDashboard = new System.Windows.Forms.Label();
             menuStrip1.SuspendLayout();
             pnlDashboard.SuspendLayout();
             pnlOrder.SuspendLayout();
+            pnlVat.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)QuantityOfDrinks).BeginInit();
             pnlActivity.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
@@ -108,7 +122,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             pnlDrink.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             SuspendLayout();
             // 
             // menuStrip1
@@ -208,14 +221,15 @@
             // 
             // pnlDashboard
             // 
+            pnlDashboard.Controls.Add(pnlVat);
             pnlDashboard.Controls.Add(pnlOrder);
-            pnlDashboard.Controls.Add(lblDashboard);
             pnlDashboard.Controls.Add(pnlActivity);
             pnlDashboard.Controls.Add(pnlStudents);
             pnlDashboard.Controls.Add(pnlRoom);
             pnlDashboard.Controls.Add(pnlLecturer);
             pnlDashboard.Controls.Add(pnlRevenue);
             pnlDashboard.Controls.Add(pnlDrink);
+            pnlDashboard.Controls.Add(lblDashboard);
             pnlDashboard.Location = new System.Drawing.Point(0, 0);
             pnlDashboard.Margin = new System.Windows.Forms.Padding(5);
             pnlDashboard.Name = "pnlDashboard";
@@ -224,6 +238,7 @@
             // 
             // pnlOrder
             // 
+            pnlOrder.Controls.Add(pictureBox5);
             pnlOrder.Controls.Add(labelOfTotalPrice);
             pnlOrder.Controls.Add(label5);
             pnlOrder.Controls.Add(QuantityOfDrinks);
@@ -238,6 +253,126 @@
             pnlOrder.Name = "pnlOrder";
             pnlOrder.Size = new System.Drawing.Size(1474, 780);
             pnlOrder.TabIndex = 17;
+            // 
+            // pnlVat
+            // 
+            pnlVat.Controls.Add(labelVatEndDate);
+            pnlVat.Controls.Add(label18);
+            pnlVat.Controls.Add(labelVatStartDate);
+            pnlVat.Controls.Add(label17);
+            pnlVat.Controls.Add(comboBoxOfQuarter);
+            pnlVat.Controls.Add(label16);
+            pnlVat.Controls.Add(comboBoxOfTaxYear);
+            pnlVat.Controls.Add(LabelOfTaxYear);
+            pnlVat.Controls.Add(pictureBox8);
+            pnlVat.Controls.Add(label15);
+            pnlVat.Location = new System.Drawing.Point(0, 0);
+            pnlVat.Margin = new System.Windows.Forms.Padding(5);
+            pnlVat.Name = "pnlVat";
+            pnlVat.Size = new System.Drawing.Size(1474, 747);
+            pnlVat.TabIndex = 10;
+            // 
+            // labelVatEndDate
+            // 
+            labelVatEndDate.AutoSize = true;
+            labelVatEndDate.Location = new System.Drawing.Point(442, 336);
+            labelVatEndDate.Name = "labelVatEndDate";
+            labelVatEndDate.Size = new System.Drawing.Size(74, 24);
+            labelVatEndDate.TabIndex = 10;
+            labelVatEndDate.Text = "label19";
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Location = new System.Drawing.Point(367, 336);
+            label18.Name = "label18";
+            label18.Size = new System.Drawing.Size(28, 24);
+            label18.TabIndex = 9;
+            label18.Text = "to";
+            // 
+            // labelVatStartDate
+            // 
+            labelVatStartDate.AutoSize = true;
+            labelVatStartDate.Location = new System.Drawing.Point(248, 336);
+            labelVatStartDate.Name = "labelVatStartDate";
+            labelVatStartDate.Size = new System.Drawing.Size(74, 24);
+            labelVatStartDate.TabIndex = 8;
+            labelVatStartDate.Text = "label18";
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Location = new System.Drawing.Point(42, 336);
+            label17.Name = "label17";
+            label17.Size = new System.Drawing.Size(165, 24);
+            label17.TabIndex = 7;
+            label17.Text = "Quarter runs from";
+            // 
+            // comboBoxOfQuarter
+            // 
+            comboBoxOfQuarter.FormattingEnabled = true;
+            comboBoxOfQuarter.Location = new System.Drawing.Point(172, 215);
+            comboBoxOfQuarter.Name = "comboBoxOfQuarter";
+            comboBoxOfQuarter.Size = new System.Drawing.Size(182, 32);
+            comboBoxOfQuarter.TabIndex = 6;
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Font = new System.Drawing.Font("Microsoft YaHei UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label16.Location = new System.Drawing.Point(36, 215);
+            label16.Name = "label16";
+            label16.Size = new System.Drawing.Size(118, 36);
+            label16.TabIndex = 5;
+            label16.Text = "Quarter";
+            // 
+            // comboBoxOfTaxYear
+            // 
+            comboBoxOfTaxYear.FormattingEnabled = true;
+            comboBoxOfTaxYear.Location = new System.Drawing.Point(172, 142);
+            comboBoxOfTaxYear.Name = "comboBoxOfTaxYear";
+            comboBoxOfTaxYear.Size = new System.Drawing.Size(182, 32);
+            comboBoxOfTaxYear.TabIndex = 4;
+            // 
+            // LabelOfTaxYear
+            // 
+            LabelOfTaxYear.AutoSize = true;
+            LabelOfTaxYear.Font = new System.Drawing.Font("Microsoft YaHei UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            LabelOfTaxYear.Location = new System.Drawing.Point(58, 138);
+            LabelOfTaxYear.Name = "LabelOfTaxYear";
+            LabelOfTaxYear.Size = new System.Drawing.Size(74, 36);
+            LabelOfTaxYear.TabIndex = 3;
+            LabelOfTaxYear.Text = "Year";
+            // 
+            // pictureBox8
+            // 
+            pictureBox8.Image = (System.Drawing.Image)resources.GetObject("pictureBox8.Image");
+            pictureBox8.Location = new System.Drawing.Point(1356, 113);
+            pictureBox8.Margin = new System.Windows.Forms.Padding(5);
+            pictureBox8.Name = "pictureBox8";
+            pictureBox8.Size = new System.Drawing.Size(192, 206);
+            pictureBox8.TabIndex = 2;
+            pictureBox8.TabStop = false;
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label15.Location = new System.Drawing.Point(38, 43);
+            label15.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            label15.Name = "label15";
+            label15.Size = new System.Drawing.Size(148, 48);
+            label15.TabIndex = 0;
+            label15.Text = "VaT Info";
+            // 
+            // pictureBox5
+            // 
+            pictureBox5.Location = new System.Drawing.Point(1426, 55);
+            pictureBox5.Margin = new System.Windows.Forms.Padding(5);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new System.Drawing.Size(138, 122);
+            pictureBox5.TabIndex = 2;
+            pictureBox5.TabStop = false;
             // 
             // labelOfTotalPrice
             // 
@@ -329,16 +464,6 @@
             label8.Size = new System.Drawing.Size(244, 25);
             label8.TabIndex = 6;
             label8.Text = "Choose the number of drinks";
-            // 
-            // lblDashboard
-            // 
-            lblDashboard.AutoSize = true;
-            lblDashboard.Location = new System.Drawing.Point(25, 42);
-            lblDashboard.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            lblDashboard.Name = "lblDashboard";
-            lblDashboard.Size = new System.Drawing.Size(338, 24);
-            lblDashboard.TabIndex = 0;
-            lblDashboard.Text = "Welcome to the Someren Application!";
             // 
             // pnlActivity
             // 
@@ -721,14 +846,15 @@
             label3.TabIndex = 0;
             label3.Text = "Drinks";
             // 
-            // pictureBox5
+            // lblDashboard
             // 
-            pictureBox5.Location = new System.Drawing.Point(1426, 55);
-            pictureBox5.Margin = new System.Windows.Forms.Padding(5);
-            pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new System.Drawing.Size(138, 122);
-            pictureBox5.TabIndex = 2;
-            pictureBox5.TabStop = false;
+            lblDashboard.AutoSize = true;
+            lblDashboard.Location = new System.Drawing.Point(25, 42);
+            lblDashboard.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            lblDashboard.Name = "lblDashboard";
+            lblDashboard.Size = new System.Drawing.Size(338, 24);
+            lblDashboard.TabIndex = 0;
+            lblDashboard.Text = "Welcome to the Someren Application!";
             // 
             // SomerenUI
             // 
@@ -737,7 +863,6 @@
             ClientSize = new System.Drawing.Size(1594, 779);
             Controls.Add(menuStrip1);
             Controls.Add(pnlDashboard);
-            Controls.Add(pictureBox5);
             MainMenuStrip = menuStrip1;
             Margin = new System.Windows.Forms.Padding(5);
             Name = "SomerenUI";
@@ -749,6 +874,10 @@
             pnlDashboard.PerformLayout();
             pnlOrder.ResumeLayout(false);
             pnlOrder.PerformLayout();
+            pnlVat.ResumeLayout(false);
+            pnlVat.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ((System.ComponentModel.ISupportInitialize)QuantityOfDrinks).EndInit();
             pnlActivity.ResumeLayout(false);
             pnlActivity.PerformLayout();
@@ -768,7 +897,6 @@
             pnlDrink.ResumeLayout(false);
             pnlDrink.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -838,5 +966,16 @@
         private System.Windows.Forms.ToolStripMenuItem vATInfoToolStripMenuItem;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label labelOfTotalPrice;
+        private System.Windows.Forms.Panel pnlVat;
+        private System.Windows.Forms.PictureBox pictureBox8;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label labelVatEndDate;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label labelVatStartDate;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.ComboBox comboBoxOfQuarter;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.ComboBox comboBoxOfTaxYear;
+        private System.Windows.Forms.Label LabelOfTaxYear;
     }
 }

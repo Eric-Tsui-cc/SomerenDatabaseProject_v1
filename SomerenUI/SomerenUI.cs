@@ -302,10 +302,10 @@ namespace SomerenUI
         {
             // Show the dashboard panel by default when the form is loaded
             ShowDashboardPanel();
-            
+
             listBoxDrinksOrders.SelectedIndexChanged += QuantityOfDrinks_ValueChanged;
 
-            
+
             QuantityOfDrinks.TextChanged += listBoxDrinksOrders_SelectedIndexChanged_1;
         }
 
@@ -577,6 +577,7 @@ namespace SomerenUI
             pnlDrink.Hide();
             pnlOrder.Hide();
             pnlRevenue.Hide();
+            pnlVat.Hide();
         }
         private void DoingMyBestNotToRepeat()
         {
@@ -859,8 +860,94 @@ namespace SomerenUI
 
         private void vATInfoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            ShowVATPanel();
         }
+        private void DisplayVatInfo()
+        {
+            PopulateComboBoxWithOrderYears();
+            comboBoxQuarter_SelectedIndexChanged();
+        }
+        public void ShowVATPanel()
+        {
+            // Hide the dashboard label
+            lblDashboard.Hide();
+
+            // Hide the room panel
+            hideAll();
+
+            try
+            {
+                // Show the Order panel
+                pnlVat.Visible = true;
+                DisplayVatInfo();
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Something went wrong while loading the Vat Info: " + e.Message);
+            }
+        }
+        private void PopulateComboBoxWithOrderYears()
+        {
+            comboBoxOfTaxYear.Items.Clear();
+
+            HashSet<int> addedYears = new HashSet<int>();
+
+            List<Order> orders = GetOrders();
+
+            foreach (Order order in orders)
+            {
+                int year = order.OrderDate.Year;
+
+                if (!addedYears.Contains(year))
+                {
+                    comboBoxOfTaxYear.Items.Add(year.ToString());
+
+                    addedYears.Add(year);
+                }
+            }
+        }
+        private void comboBoxQuarter_SelectedIndexChanged()
+        {
+            // Get the selected quarter
+            int selectedQuarter = comboBoxOfQuarter.SelectedIndex + 1; // Since indexes start from 0, we add 1
+
+            // Calculate the start and end dates of the quarter
+            DateTime startDate, endDate;
+
+            switch (selectedQuarter)
+            {
+                case 1: // First quarter
+                    startDate = new DateTime(DateTime.Now.Year, 1, 1); // January 1st
+                    endDate = new DateTime(DateTime.Now.Year, 3, 31); // March 31st
+                    break;
+                case 2: // Second quarter
+                    startDate = new DateTime(DateTime.Now.Year, 4, 1); // April 1st
+                    endDate = new DateTime(DateTime.Now.Year, 6, 30); // June 30th
+                    break;
+                case 3: // Third quarter
+                    startDate = new DateTime(DateTime.Now.Year, 7, 1); // July 1st
+                    endDate = new DateTime(DateTime.Now.Year, 9, 30); // September 30th
+                    break;
+                case 4: // Fourth quarter
+                    startDate = new DateTime(DateTime.Now.Year, 10, 1); // October 1st
+                    endDate = new DateTime(DateTime.Now.Year, 12, 31); // December 31st
+                    break;
+                default:
+                    startDate = DateTime.MinValue;
+                    endDate = DateTime.MinValue;
+                    break;
+            }
+
+            labelVatStartDate.Text = startDate.ToShortDateString();
+            labelVatEndDate.Text = endDate.ToShortDateString();
+        }
+
+
+
+
+
+
 
 
     }
