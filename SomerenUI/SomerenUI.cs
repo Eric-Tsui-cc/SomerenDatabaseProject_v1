@@ -322,10 +322,31 @@ namespace SomerenUI
             ShowDrinkPanel();
         }
 
-        private void orderToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            /*Order panel*/
 
+        /*Order panel*/
+        private void drinksToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowOrderPanel();
+
+        }
+        private void button5_Click(object sender, EventArgs e)
+        {
+            ShowRevenuePanel();
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            ShowVatPanel();
+
+        }
+        private void button7_Click(object sender, EventArgs e)
+        {
+            ShowOrderPanel();
+
+        }
+        private void button8_Click_1(object sender, EventArgs e)
+        {
             ShowOrderPanel();
 
         }
@@ -590,11 +611,7 @@ namespace SomerenUI
 
         //Revenue panel
 
-        // Button Revenue in Financials =>
-        private void revenueToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ShowRevenuePanel(); //After you press the button this method will be called
-        }
+        // Button Revenue  =>
 
 
         //  when the method is called it displays your revenue panel
@@ -832,10 +849,7 @@ namespace SomerenUI
 
 
 
-        private void vatToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ShowVatPanel();
-        }
+
         /*Vat panel*/
 
         private void ShowVatPanel()
@@ -912,8 +926,8 @@ namespace SomerenUI
         {
             label24.Text = startDate.ToLongDateString();
             label25.Text = endDate.ToLongDateString();
-            label21.Text = "€" + vat9Percent.ToString("0.00") ;
-            label22.Text = "€" + vat21Percent.ToString("0.00") ;
+            label21.Text = "€" + vat9Percent.ToString("0.00");
+            label22.Text = "€" + vat21Percent.ToString("0.00");
             label23.Text = "€" + vatTotal.ToString("0.00");
         }
 
