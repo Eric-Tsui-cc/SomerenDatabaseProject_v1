@@ -46,9 +46,9 @@
             label1.AutoSize = true;
             label1.Location = new System.Drawing.Point(53, 31);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(29, 24);
+            label1.Size = new System.Drawing.Size(62, 24);
             label1.TabIndex = 0;
-            label1.Text = "ID";
+            label1.Text = "Name";
             // 
             // label2
             // 

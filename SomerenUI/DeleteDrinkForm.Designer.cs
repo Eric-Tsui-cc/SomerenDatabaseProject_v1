@@ -36,7 +36,7 @@
             // comboBoxDrinks
             // 
             comboBoxDrinks.FormattingEnabled = true;
-            comboBoxDrinks.Location = new System.Drawing.Point(160, 65);
+            comboBoxDrinks.Location = new System.Drawing.Point(176, 68);
             comboBoxDrinks.Name = "comboBoxDrinks";
             comboBoxDrinks.Size = new System.Drawing.Size(258, 32);
             comboBoxDrinks.TabIndex = 0;
@@ -56,9 +56,9 @@
             label1.AutoSize = true;
             label1.Location = new System.Drawing.Point(52, 68);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(85, 24);
+            label1.Size = new System.Drawing.Size(118, 24);
             label1.TabIndex = 2;
-            label1.Text = "Drink ID:";
+            label1.Text = "Drink Name:";
             // 
             // DeleteDrinkForm
             // 

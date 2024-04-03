@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using SomerenModel;
 using SomerenService;
+using static System.Windows.Forms.LinkLabel;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace SomerenUI
@@ -30,35 +31,45 @@ namespace SomerenUI
             List<Drink> drinks = DrinkService.GetDrinks();
             foreach (Drink drink in drinks)
             {
-                comBoxDrinkName.Items.Add(drink.id);
+                comBoxDrinkName.Items.Add(drink.name);
             }
         }
 
         private void UpdateButton_Click(object sender, EventArgs e)
         {
-            Drink updateddrink = new Drink(
-                (int)comBoxDrinkName.SelectedItem,
-                textBoxNewName.Text,
-                decimal.Parse(textBoxPrice.Text),
-                comboBoxType.SelectedItem.ToString(),
-                int.Parse(textBoxStock.Text)
-                
-            );
-            DrinkService.Update(updateddrink);
-            MessageBox.Show("Drink updated!");
-            RefreshDrinks();
+            object selectedItem = comBoxDrinkName.SelectedItem;
 
+            if (selectedItem != null)
+            {
+                Drink updateddrink = new Drink(
+                    DrinkService.GetByName(selectedItem.ToString()).id,
+                    textBoxNewName.Text,
+                    decimal.Parse(textBoxPrice.Text),
+                    comboBoxType.SelectedItem.ToString(),
+                    int.Parse(textBoxStock.Text)
+                );
+
+                DrinkService.Update(updateddrink);
+                MessageBox.Show("Drink updated!");
+                RefreshDrinks();
+            }
+            else
+            {
+                MessageBox.Show("No drink selected!");
+            }
+
+            comBoxDrinkName.SelectedItem = selectedItem;
         }
+
 
         private void comBoxDrinkID_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int drinkId = (int)comBoxDrinkName.SelectedItem;
-            Drink drink = DrinkService.GetByID(drinkId);
-
+            string drinkname = (string)comBoxDrinkName.SelectedItem;
+            Drink drink = DrinkService.GetByName(drinkname);
             textBoxNewName.Text = drink.name;
             comboBoxType.SelectedItem = drink.type;
             textBoxStock.Text = drink.stock.ToString();
-            textBoxPrice.Text = drink.price.ToString();
+            textBoxPrice.Text = Convert.ToString(drink.price);
         }
     }
 }

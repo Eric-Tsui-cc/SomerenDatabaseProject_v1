@@ -788,10 +788,10 @@ namespace SomerenUI
         }
         private void AddListViewColumnsStudent()
         {
-            listViewStudents.Columns.Add("Name", 300);
-            listViewStudents.Columns.Add("Student Number", 300);
-            listViewStudents.Columns.Add("Telephone Number", 300);
-            listViewStudents.Columns.Add("Room Number", 250);
+            listViewStudents.Columns.Add("Name", 200);
+            listViewStudents.Columns.Add("Student Number", 200);
+            listViewStudents.Columns.Add("Telephone Number", 200);
+            listViewStudents.Columns.Add("Room Number", 100);
             listViewStudents.Columns.Add("Class", 150);
         }
         private void AddListViewColumnsLectuer()
@@ -932,7 +932,28 @@ namespace SomerenUI
             label23.Text = "€" + vatTotal.ToString("0.00");
         }
 
+        private void button10_Click(object sender, EventArgs e)
+        {
+            DeleteStudentForm DeleteStudentForm = new DeleteStudentForm();
+            DeleteStudentForm.ShowDialog();
+        }
 
+        private void button11_Click(object sender, EventArgs e)
+        {
+            AddStudentForm AddStudentForm = new AddStudentForm();
+            AddStudentForm.ShowDialog();
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            UpdateStudentForm UpdateStudentForm = new UpdateStudentForm();
+            UpdateStudentForm.ShowDialog();
+        }
+
+        private void buttonRefreshStudent_Click(object sender, EventArgs e)
+        {
+            ShowStudentsPanel();
+        }
     }
 
 

@@ -10,6 +10,17 @@ namespace SomerenModel
         public string RoomNumber { get; set; }
         public string TelePhoneNumber { get; set; }
         public string Class { get; set; }
+        public Student() { }
+        public Student(int number, string firstName, string lastName, string telePhoneNumber, string @class ,string roomNumber)
+        {
+            Number = number;
+            FirstName = firstName;
+            LastName = lastName;
+            RoomNumber = roomNumber;
+            TelePhoneNumber = telePhoneNumber;
+            Class = @class;
+        }
+
         public string FullName
         {
             get

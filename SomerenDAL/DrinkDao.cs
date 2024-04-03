@@ -89,7 +89,7 @@ public class DrinkDao : BaseDao
             DataRow row = dataTable.Rows[0];
             drink = new Drink
             {
-                //id = Convert.ToInt32(row["DrinkId"]),
+                id = Convert.ToInt32(row["DrinkId"]),
                 name = row["Name"].ToString(),
                 type = row["Type"].ToString(),
                 stock = Convert.ToInt32(row["stock"]),
