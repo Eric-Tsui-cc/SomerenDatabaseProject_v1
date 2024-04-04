@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SomerenModel;
+using Azure;
 
 namespace SomerenDAL
 {
@@ -13,7 +14,7 @@ namespace SomerenDAL
     {
         public List<Activity> GetAllActivities()
         {
-            string query = "SELECT Name, CONVERT(date, Date) AS ActivityDate, CONVERT(time, Time) AS ActivityTime FROM ACTIVITY";
+            string query = "SELECT Name,activityid, CONVERT(date, Date) AS ActivityDate, CONVERT(time, Time) AS ActivityTime FROM ACTIVITY";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
@@ -26,6 +27,7 @@ namespace SomerenDAL
             {
                 Activity activity = new Activity()
                 {
+                    id = Convert.ToInt32(dr["activityid"]),
                     Name = dr["Name"].ToString(),
                     Date = Convert.ToDateTime(dr["ActivityDate"]),
                     Time = dr["ActivityTime"].ToString()

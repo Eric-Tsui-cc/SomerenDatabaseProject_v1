@@ -729,6 +729,34 @@ namespace SomerenUI
             updateDrinkForm.ShowDialog();
 
         }
+        private void button10_Click(object sender, EventArgs e)
+        {
+            DeleteStudentForm DeleteStudentForm = new DeleteStudentForm();
+            DeleteStudentForm.ShowDialog();
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            AddStudentForm AddStudentForm = new AddStudentForm();
+            AddStudentForm.ShowDialog();
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            UpdateStudentForm UpdateStudentForm = new UpdateStudentForm();
+            UpdateStudentForm.ShowDialog();
+        }
+
+        private void buttonRefreshStudent_Click(object sender, EventArgs e)
+        {
+            ShowStudentsPanel();
+        }
+
+        private void button10_Click_1(object sender, EventArgs e)
+        {
+            SuperviseForm superviseForm = new SuperviseForm();
+            superviseForm.ShowDialog();
+        }
 
         /// /////////////////////////////////////////////////////////////////
 
@@ -930,29 +958,6 @@ namespace SomerenUI
             label21.Text = "€" + vat9Percent.ToString("0.00");
             label22.Text = "€" + vat21Percent.ToString("0.00");
             label23.Text = "€" + vatTotal.ToString("0.00");
-        }
-
-        private void button10_Click(object sender, EventArgs e)
-        {
-            DeleteStudentForm DeleteStudentForm = new DeleteStudentForm();
-            DeleteStudentForm.ShowDialog();
-        }
-
-        private void button11_Click(object sender, EventArgs e)
-        {
-            AddStudentForm AddStudentForm = new AddStudentForm();
-            AddStudentForm.ShowDialog();
-        }
-
-        private void button12_Click(object sender, EventArgs e)
-        {
-            UpdateStudentForm UpdateStudentForm = new UpdateStudentForm();
-            UpdateStudentForm.ShowDialog();
-        }
-
-        private void buttonRefreshStudent_Click(object sender, EventArgs e)
-        {
-            ShowStudentsPanel();
         }
     }
 

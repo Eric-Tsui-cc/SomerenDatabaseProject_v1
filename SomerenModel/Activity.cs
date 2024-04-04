@@ -11,6 +11,7 @@ namespace SomerenModel
         public DateTime Date { get; set; }
         public string Name { get; set; }
         public string Time { get; set; }
+        public int id {  get; set; }
 
     }
 }

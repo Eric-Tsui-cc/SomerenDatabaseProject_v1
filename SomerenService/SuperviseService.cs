@@ -16,10 +16,26 @@ namespace SomerenService
         {
             supervisedb = new SuperviseDao();
         }
-        public Lecturer GetLectureName(string name)
+        public List<Lecturer> GetLecturersIdByActivity(Activity activity)
         {
-            Lecturer lecturer = supervisedb.GetLecturerNameById(name);
-            return lecturer;
+            List<Lecturer> lecturers = supervisedb.GetLecturersIdByActivity(activity);
+            return lecturers;
+        }
+        public Activity GetByName(string name)
+        {
+            return supervisedb.GetByName(name);
+        }
+        public Lecturer GetLecturerByid(int Id)
+        {
+            return supervisedb.GetLecturerByid(Id);
+        }
+        public void DeleteSupervisor(Lecturer lecturer,Activity activity)
+        {
+            supervisedb.DeleteSupervisor(lecturer,activity);
+        }
+        public void AddSupervisor(Lecturer lecturer, Activity activity)
+        {
+            supervisedb.AddSupervisor(lecturer, activity);
         }
     }
 }

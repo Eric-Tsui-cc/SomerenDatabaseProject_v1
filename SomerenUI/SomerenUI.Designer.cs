@@ -48,7 +48,13 @@ namespace SomerenUI
             listViewRooms = new ListView();
             label6 = new Label();
             lblDashboard = new Label();
+            pnlActivity = new Panel();
+            button10 = new Button();
+            button9 = new Button();
+            listViewActivities = new ListView();
+            label4 = new Label();
             pnlStudents = new Panel();
+            buttonRefreshStudent = new Button();
             buttonUpdateStudent = new Button();
             buttonAddStudent = new Button();
             buttonDeleteStudent = new Button();
@@ -111,16 +117,12 @@ namespace SomerenUI
             label7 = new Label();
             PriceOutput = new Label();
             label8 = new Label();
-            pnlActivity = new Panel();
-            button9 = new Button();
-            listViewActivities = new ListView();
-            label4 = new Label();
             pictureBox7 = new PictureBox();
-            buttonRefreshStudent = new Button();
             menuStrip1.SuspendLayout();
             pnlDashboard.SuspendLayout();
             pnlRoom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            pnlActivity.SuspendLayout();
             pnlStudents.SuspendLayout();
             pnlLecturer.SuspendLayout();
             pnlVat.SuspendLayout();
@@ -128,7 +130,6 @@ namespace SomerenUI
             pnlDrink.SuspendLayout();
             pnlOrder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)QuantityOfDrinks).BeginInit();
-            pnlActivity.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             SuspendLayout();
             // 
@@ -210,13 +211,13 @@ namespace SomerenUI
             // 
             pnlDashboard.Controls.Add(pnlRoom);
             pnlDashboard.Controls.Add(lblDashboard);
+            pnlDashboard.Controls.Add(pnlActivity);
             pnlDashboard.Controls.Add(pnlStudents);
             pnlDashboard.Controls.Add(pnlLecturer);
             pnlDashboard.Controls.Add(pnlVat);
             pnlDashboard.Controls.Add(pnlRevenue);
             pnlDashboard.Controls.Add(pnlDrink);
             pnlDashboard.Controls.Add(pnlOrder);
-            pnlDashboard.Controls.Add(pnlActivity);
             pnlDashboard.Location = new System.Drawing.Point(0, 0);
             pnlDashboard.Margin = new Padding(5);
             pnlDashboard.Name = "pnlDashboard";
@@ -273,6 +274,57 @@ namespace SomerenUI
             lblDashboard.TabIndex = 0;
             lblDashboard.Text = "Welcome to the Someren Application!";
             // 
+            // pnlActivity
+            // 
+            pnlActivity.Controls.Add(button10);
+            pnlActivity.Controls.Add(button9);
+            pnlActivity.Controls.Add(listViewActivities);
+            pnlActivity.Controls.Add(label4);
+            pnlActivity.Location = new System.Drawing.Point(0, 0);
+            pnlActivity.Margin = new Padding(5);
+            pnlActivity.Name = "pnlActivity";
+            pnlActivity.Size = new System.Drawing.Size(1474, 746);
+            pnlActivity.TabIndex = 3;
+            // 
+            // button10
+            // 
+            button10.Location = new System.Drawing.Point(1259, 123);
+            button10.Name = "button10";
+            button10.Size = new System.Drawing.Size(196, 138);
+            button10.TabIndex = 3;
+            button10.Text = "Supervisor Options";
+            button10.UseVisualStyleBackColor = true;
+            button10.Click += button10_Click_1;
+            // 
+            // button9
+            // 
+            button9.Location = new System.Drawing.Point(0, 0);
+            button9.Name = "button9";
+            button9.Size = new System.Drawing.Size(112, 34);
+            button9.TabIndex = 2;
+            button9.Text = "button9";
+            button9.UseVisualStyleBackColor = true;
+            // 
+            // listViewActivities
+            // 
+            listViewActivities.Location = new System.Drawing.Point(36, 120);
+            listViewActivities.Margin = new Padding(5);
+            listViewActivities.Name = "listViewActivities";
+            listViewActivities.Size = new System.Drawing.Size(1201, 489);
+            listViewActivities.TabIndex = 1;
+            listViewActivities.UseCompatibleStateImageBehavior = false;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label4.Location = new System.Drawing.Point(36, 55);
+            label4.Margin = new Padding(5, 0, 5, 0);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(162, 48);
+            label4.TabIndex = 0;
+            label4.Text = "Activities";
+            // 
             // pnlStudents
             // 
             pnlStudents.Controls.Add(buttonRefreshStudent);
@@ -286,6 +338,16 @@ namespace SomerenUI
             pnlStudents.Name = "pnlStudents";
             pnlStudents.Size = new System.Drawing.Size(1474, 746);
             pnlStudents.TabIndex = 2;
+            // 
+            // buttonRefreshStudent
+            // 
+            buttonRefreshStudent.Location = new System.Drawing.Point(1284, 520);
+            buttonRefreshStudent.Name = "buttonRefreshStudent";
+            buttonRefreshStudent.Size = new System.Drawing.Size(147, 87);
+            buttonRefreshStudent.TabIndex = 5;
+            buttonRefreshStudent.Text = "Refresh";
+            buttonRefreshStudent.UseVisualStyleBackColor = true;
+            buttonRefreshStudent.Click += buttonRefreshStudent_Click;
             // 
             // buttonUpdateStudent
             // 
@@ -999,46 +1061,6 @@ namespace SomerenUI
             label8.TabIndex = 6;
             label8.Text = "Choose the number of drinks :";
             // 
-            // pnlActivity
-            // 
-            pnlActivity.Controls.Add(button9);
-            pnlActivity.Controls.Add(listViewActivities);
-            pnlActivity.Controls.Add(label4);
-            pnlActivity.Location = new System.Drawing.Point(0, 0);
-            pnlActivity.Margin = new Padding(5);
-            pnlActivity.Name = "pnlActivity";
-            pnlActivity.Size = new System.Drawing.Size(1474, 746);
-            pnlActivity.TabIndex = 3;
-            // 
-            // button9
-            // 
-            button9.Location = new System.Drawing.Point(0, 0);
-            button9.Name = "button9";
-            button9.Size = new System.Drawing.Size(112, 34);
-            button9.TabIndex = 2;
-            button9.Text = "button9";
-            button9.UseVisualStyleBackColor = true;
-            // 
-            // listViewActivities
-            // 
-            listViewActivities.Location = new System.Drawing.Point(36, 120);
-            listViewActivities.Margin = new Padding(5);
-            listViewActivities.Name = "listViewActivities";
-            listViewActivities.Size = new System.Drawing.Size(1201, 489);
-            listViewActivities.TabIndex = 1;
-            listViewActivities.UseCompatibleStateImageBehavior = false;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label4.Location = new System.Drawing.Point(36, 55);
-            label4.Margin = new Padding(5, 0, 5, 0);
-            label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(162, 48);
-            label4.TabIndex = 0;
-            label4.Text = "Activities";
-            // 
             // pictureBox7
             // 
             pictureBox7.Image = (System.Drawing.Image)resources.GetObject("pictureBox7.Image");
@@ -1048,16 +1070,6 @@ namespace SomerenUI
             pictureBox7.Size = new System.Drawing.Size(89, 72);
             pictureBox7.TabIndex = 2;
             pictureBox7.TabStop = false;
-            // 
-            // buttonRefreshStudent
-            // 
-            buttonRefreshStudent.Location = new System.Drawing.Point(1284, 520);
-            buttonRefreshStudent.Name = "buttonRefreshStudent";
-            buttonRefreshStudent.Size = new System.Drawing.Size(147, 87);
-            buttonRefreshStudent.TabIndex = 5;
-            buttonRefreshStudent.Text = "Refresh";
-            buttonRefreshStudent.UseVisualStyleBackColor = true;
-            buttonRefreshStudent.Click += buttonRefreshStudent_Click;
             // 
             // SomerenUI
             // 
@@ -1079,6 +1091,8 @@ namespace SomerenUI
             pnlRoom.ResumeLayout(false);
             pnlRoom.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            pnlActivity.ResumeLayout(false);
+            pnlActivity.PerformLayout();
             pnlStudents.ResumeLayout(false);
             pnlStudents.PerformLayout();
             pnlLecturer.ResumeLayout(false);
@@ -1092,8 +1106,6 @@ namespace SomerenUI
             pnlOrder.ResumeLayout(false);
             pnlOrder.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)QuantityOfDrinks).EndInit();
-            pnlActivity.ResumeLayout(false);
-            pnlActivity.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -1187,5 +1199,6 @@ namespace SomerenUI
         private Button buttonAddStudent;
         private Button buttonDeleteStudent;
         private Button buttonRefreshStudent;
+        private Button button10;
     }
 }
