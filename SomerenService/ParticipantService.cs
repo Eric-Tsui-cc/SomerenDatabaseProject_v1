@@ -16,28 +16,20 @@ namespace SomerenService
             participantDb = new ParticipantsDao();
         }
 
-        // Method to retrieve all participants
         public List<Participant> GetParticipants()
         {
-            // Retrieve all participants from the database via the DAO
             List<Participant> participants = participantDb.GetAllParticipants();
             return participants;
         }
 
         public List<Participant> FilterParticipantsByActivity(int activityId)
         {
-           List<Participant> participants = GetParticipants();
+            List<Participant> participants = GetParticipants();
 
-           foreach (Participant participant in participants)
-            {
-                if (!(participant.ActivityID == activityId))
-                {
-                    participants.Remove(participant);
-                }
-            }
-
-          return participants;
+            participants.RemoveAll(participant => participant.ActivityID != activityId); // Use RemoveAll
+            return participants;
         }
+
         public List<string> GetStudentsByParticipantId(List<Participant> participants, List<Student> students)
         {
             List<string> participantNames = new List<string>();
@@ -77,6 +69,7 @@ namespace SomerenService
             return nonParticipantNames;
 
         }
+
         public int GetParticipantNumberByName(string name, List<Student> students)
         {
             foreach (Student student in students)

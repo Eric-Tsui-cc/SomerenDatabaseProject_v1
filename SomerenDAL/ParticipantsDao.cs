@@ -14,7 +14,7 @@ namespace SomerenDAL
         public List<Participant> GetAllParticipants()
         {
 
-            string query = "SELECT Studentnumber ,ActivityID FROM Participate";
+            string query = "SELECT StudentNumber,ActivityID FROM Participate";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
@@ -27,7 +27,7 @@ namespace SomerenDAL
             {
                 Participant participant = new Participant()
                 {
-                    Number = (int)dr["Studentnumber"],
+                    Number = (int)dr["StudentNumber"],
                     ActivityID = (int)dr["ActivityID"],
 
                 };

@@ -1058,23 +1058,27 @@ namespace SomerenUI
         }
         private void listViewActivities4Participants_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Activity selectedActivity = (Activity)listViewActivities4Participants.SelectedItems[0].Tag;
-            ParticipantService participantService = new ParticipantService();
+            if (listViewActivities4Participants.SelectedItems.Count > 0) 
+            {
+                Activity selectedActivity = (Activity)listViewActivities4Participants.SelectedItems[0].Tag;
+                ParticipantService participantService = new ParticipantService();
 
-            List<Participant> participants = participantService.FilterParticipantsByActivity(selectedActivity.id);
+                List<Participant> participants = participantService.FilterParticipantsByActivity(selectedActivity.id);
 
 
-            List<Student> students = new List<Student>();
-            students = GetStudents();
-            List<string> participantNames = new List<string>();
-            participantNames = participantService.GetStudentsByParticipantId(participants, students);
+                List<Student> students = new List<Student>();
+                students = GetStudents();
+                List<string> participantNames = new List<string>();
+                participantNames = participantService.GetStudentsByParticipantId(participants, students);
 
-            List<string> nonParticipantNames = new List<string>();
-            nonParticipantNames = participantService.FilterParticipantsByParticipantNames(participants, students);
+                List<string> nonParticipantNames = new List<string>();
+                nonParticipantNames = participantService.FilterParticipantsByParticipantNames(participants, students);
 
-            DisplayParticipants(participantNames);
-            DisplayNonParticipants(nonParticipantNames);
+                DisplayParticipants(participantNames);
+                DisplayNonParticipants(nonParticipantNames);
+            }
         }
+
         private void DisplayParticipants(List<string> participantNames)
         {
 
@@ -1143,7 +1147,7 @@ namespace SomerenUI
             try
             {
                 participantService.RemoveParticipant(selectedName, selectedActivity, students);
-                MessageBox.Show("Participant added successfully!");
+                MessageBox.Show("Participant removed successfully!");
                 ShowActivityParticipantsPnl();
 
             }
