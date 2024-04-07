@@ -128,6 +128,7 @@ namespace SomerenUI
             listViewStudents = new ListView();
             label1 = new Label();
             pictureBox7 = new PictureBox();
+            button13 = new Button();
             menuStrip1.SuspendLayout();
             pnlDashboard.SuspendLayout();
             pnlRoom.SuspendLayout();
@@ -288,6 +289,7 @@ namespace SomerenUI
             // 
             // pnlLecturer
             // 
+            pnlLecturer.Controls.Add(button13);
             pnlLecturer.Controls.Add(lblAddLecturer);
             pnlLecturer.Controls.Add(lblEditLecturer);
             pnlLecturer.Controls.Add(lblDeleteLecturer);
@@ -1206,6 +1208,16 @@ namespace SomerenUI
             pictureBox7.TabIndex = 2;
             pictureBox7.TabStop = false;
             // 
+            // button13
+            // 
+            button13.Location = new System.Drawing.Point(1284, 494);
+            button13.Name = "button13";
+            button13.Size = new System.Drawing.Size(112, 78);
+            button13.TabIndex = 5;
+            button13.Text = "Refresh";
+            button13.UseVisualStyleBackColor = true;
+            button13.Click += button13_Click;
+            // 
             // SomerenUI
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
@@ -1347,5 +1359,6 @@ namespace SomerenUI
         private Label label29;
         private Label label28;
         private Button button12;
+        private Button button13;
     }
 }

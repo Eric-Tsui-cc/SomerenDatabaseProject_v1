@@ -1191,6 +1191,11 @@ namespace SomerenUI
             AddLecturerForm addLecturerForm = new AddLecturerForm();
             addLecturerForm.ShowDialog();
         }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            ShowLectueresPanel();
+        }
     }
 
 
