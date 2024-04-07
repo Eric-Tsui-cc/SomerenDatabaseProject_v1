@@ -427,6 +427,7 @@ namespace SomerenUI
             foreach (Lecturer lecturer in lecturers)
             {
                 ListViewItem li = new ListViewItem(lecturer.FullName);
+                li.SubItems.Add(lecturer.Number.ToString());
                 li.SubItems.Add(lecturer.PhoneNumber);
                 li.SubItems.Add(lecturer.Age.ToString());
                 li.SubItems.Add(lecturer.RoomNumber.ToString());
@@ -863,6 +864,7 @@ namespace SomerenUI
         private void AddListViewColumnsLectuer()
         {
             listViewLecturers.Columns.Add("Full Name", 300);
+            listViewLecturers.Columns.Add("ID", 200);
             listViewLecturers.Columns.Add("Telephone Number", 300);
             listViewLecturers.Columns.Add("Age", 200);
             listViewLecturers.Columns.Add("Room Number", 250);
@@ -1058,7 +1060,7 @@ namespace SomerenUI
         }
         private void listViewActivities4Participants_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (listViewActivities4Participants.SelectedItems.Count > 0) 
+            if (listViewActivities4Participants.SelectedItems.Count > 0)
             {
                 Activity selectedActivity = (Activity)listViewActivities4Participants.SelectedItems[0].Tag;
                 ParticipantService participantService = new ParticipantService();
@@ -1120,10 +1122,10 @@ namespace SomerenUI
             try
             {
                 string selectedName = (string)listViewNonParticipants.SelectedItems[0].Tag;
-            Activity selectedActivity = (Activity)listViewActivities4Participants.SelectedItems[0].Tag;
-            ParticipantService participantService = new ParticipantService();
-            List<Student> students = new List<Student>();
-            students = GetStudents();
+                Activity selectedActivity = (Activity)listViewActivities4Participants.SelectedItems[0].Tag;
+                ParticipantService participantService = new ParticipantService();
+                List<Student> students = new List<Student>();
+                students = GetStudents();
 
                 participantService.CreateNewParticipant(selectedName, selectedActivity, students);
                 MessageBox.Show("Participant added successfully!");
@@ -1170,6 +1172,24 @@ namespace SomerenUI
                 MessageBox.Show("Select Participant/NonParticipant and an Activity" + "\n (" + ex.Message + ")");
 
             }
+        }
+
+        private void lblDeleteLecturer_Click(object sender, EventArgs e)
+        {
+            DeleteTeacherForm deleteTeacherForm = new DeleteTeacherForm();
+            deleteTeacherForm.ShowDialog();
+        }
+
+        private void lblEditLecturer_Click(object sender, EventArgs e)
+        {
+            UpdateTeacherForm update = new UpdateTeacherForm();
+            update.ShowDialog();
+        }
+
+        private void lblAddLecturer_Click(object sender, EventArgs e)
+        {
+            AddLecturerForm addLecturerForm = new AddLecturerForm();
+            addLecturerForm.ShowDialog();
         }
     }
 

@@ -45,7 +45,7 @@ namespace SomerenDAL
             string query = "INSERT INTO Lecturer (LecturerID, FirstName, LastName, TelephoneNumber, Age, RoomNumber) VALUES (@LaecturerID, @FirstName, @LastName, @TelephoneNumber, @Age, @RoomNumber)";
             SqlParameter[] sqlParameters =
             {
-            new SqlParameter("@LecturerID", lecturer.Number),
+            new SqlParameter("@LaecturerID", lecturer.Number),
             new SqlParameter("@FirstName", lecturer.FirstName),
             new SqlParameter("@LastName", lecturer.LastName),
             new SqlParameter("@TelephoneNumber", lecturer.PhoneNumber),
@@ -63,11 +63,11 @@ namespace SomerenDAL
                            "WHERE LecturerID=@LecturerID;";
             SqlParameter[] sqlParameters =
             {
-            new SqlParameter("@StudentNumber", lecturer.Number),
+            new SqlParameter("@LecturerID", lecturer.Number),
             new SqlParameter("@FirstName", lecturer.FirstName),
             new SqlParameter("@LastName", lecturer.LastName),
             new SqlParameter("@TelephoneNumber", lecturer.PhoneNumber),
-            new SqlParameter("@Class", lecturer.Age),
+            new SqlParameter("@Age", lecturer.Age),
             new SqlParameter("@RoomNumber", lecturer.RoomNumber)
         };
             ExecuteEditQuery(query, sqlParameters);
@@ -87,10 +87,10 @@ namespace SomerenDAL
         public Lecturer GetByLecturerID(int lecturerID)
         {
             Lecturer lecturer = null;
-            string query = "SELECT * FROM Lecturer WHERE LecturerID = @LectureID;";
+            string query = "SELECT * FROM Lecturer WHERE LecturerID=@LectureID;";
             SqlParameter[] sqlParameters = new SqlParameter[]
             {
-                 new SqlParameter("@LecturerID", lecturerID)
+                 new SqlParameter("@LectureID", lecturerID)
             };
 
             DataTable dataTable = ExecuteSelectQuery(query, sqlParameters);
