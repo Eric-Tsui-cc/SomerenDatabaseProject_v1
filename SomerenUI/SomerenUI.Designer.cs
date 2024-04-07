@@ -48,6 +48,17 @@ namespace SomerenUI
             listViewRooms = new ListView();
             label6 = new Label();
             lblDashboard = new Label();
+            pnlOrder = new Panel();
+            button6 = new Button();
+            button5 = new Button();
+            label5 = new Label();
+            QuantityOfDrinks = new NumericUpDown();
+            buttonOrder = new Button();
+            listBoxStudentOrders = new ListBox();
+            listBoxDrinksOrders = new ListBox();
+            label7 = new Label();
+            PriceOutput = new Label();
+            label8 = new Label();
             pnlActivityParticipants = new Panel();
             button11 = new Button();
             button9 = new Button();
@@ -116,22 +127,13 @@ namespace SomerenUI
             DeleteDrinkButton = new Button();
             listViewDrinks = new ListView();
             label3 = new Label();
-            pnlOrder = new Panel();
-            button6 = new Button();
-            button5 = new Button();
-            label5 = new Label();
-            QuantityOfDrinks = new NumericUpDown();
-            buttonOrder = new Button();
-            listBoxStudentOrders = new ListBox();
-            listBoxDrinksOrders = new ListBox();
-            label7 = new Label();
-            PriceOutput = new Label();
-            label8 = new Label();
             pictureBox7 = new PictureBox();
             menuStrip1.SuspendLayout();
             pnlDashboard.SuspendLayout();
             pnlRoom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            pnlOrder.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)QuantityOfDrinks).BeginInit();
             pnlActivityParticipants.SuspendLayout();
             pnlActivity.SuspendLayout();
             pnlStudents.SuspendLayout();
@@ -139,8 +141,6 @@ namespace SomerenUI
             pnlVat.SuspendLayout();
             pnlRevenue.SuspendLayout();
             pnlDrink.SuspendLayout();
-            pnlOrder.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)QuantityOfDrinks).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             SuspendLayout();
             // 
@@ -287,6 +287,134 @@ namespace SomerenUI
             lblDashboard.Size = new System.Drawing.Size(523, 41);
             lblDashboard.TabIndex = 0;
             lblDashboard.Text = "Welcome to the Someren Application!";
+            // 
+            // pnlOrder
+            // 
+            pnlOrder.Controls.Add(button6);
+            pnlOrder.Controls.Add(button5);
+            pnlOrder.Controls.Add(label5);
+            pnlOrder.Controls.Add(QuantityOfDrinks);
+            pnlOrder.Controls.Add(buttonOrder);
+            pnlOrder.Controls.Add(listBoxStudentOrders);
+            pnlOrder.Controls.Add(listBoxDrinksOrders);
+            pnlOrder.Controls.Add(label7);
+            pnlOrder.Controls.Add(PriceOutput);
+            pnlOrder.Controls.Add(label8);
+            pnlOrder.Dock = DockStyle.Top;
+            pnlOrder.Location = new System.Drawing.Point(0, 0);
+            pnlOrder.Margin = new Padding(8, 9, 8, 9);
+            pnlOrder.Name = "pnlOrder";
+            pnlOrder.Size = new System.Drawing.Size(2278, 1274);
+            pnlOrder.TabIndex = 17;
+            // 
+            // button6
+            // 
+            button6.Location = new System.Drawing.Point(1861, 998);
+            button6.Margin = new Padding(6, 7, 6, 7);
+            button6.Name = "button6";
+            button6.Size = new System.Drawing.Size(405, 154);
+            button6.TabIndex = 10;
+            button6.Text = "Vat Report";
+            button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
+            // 
+            // button5
+            // 
+            button5.Location = new System.Drawing.Point(1853, 740);
+            button5.Margin = new Padding(6, 7, 6, 7);
+            button5.Name = "button5";
+            button5.Size = new System.Drawing.Size(405, 154);
+            button5.TabIndex = 9;
+            button5.Text = "Revenue report";
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label5.Location = new System.Drawing.Point(1851, 374);
+            label5.Margin = new Padding(6, 0, 6, 0);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(105, 41);
+            label5.TabIndex = 8;
+            label5.Text = "Price : ";
+            // 
+            // QuantityOfDrinks
+            // 
+            QuantityOfDrinks.Location = new System.Drawing.Point(1853, 280);
+            QuantityOfDrinks.Margin = new Padding(6, 7, 6, 7);
+            QuantityOfDrinks.Name = "QuantityOfDrinks";
+            QuantityOfDrinks.Size = new System.Drawing.Size(397, 47);
+            QuantityOfDrinks.TabIndex = 3;
+            QuantityOfDrinks.ValueChanged += QuantityOfDrinks_ValueChanged;
+            // 
+            // buttonOrder
+            // 
+            buttonOrder.Location = new System.Drawing.Point(1853, 475);
+            buttonOrder.Margin = new Padding(6, 7, 6, 7);
+            buttonOrder.Name = "buttonOrder";
+            buttonOrder.Size = new System.Drawing.Size(405, 154);
+            buttonOrder.TabIndex = 3;
+            buttonOrder.Text = "Place Order";
+            buttonOrder.UseVisualStyleBackColor = true;
+            buttonOrder.Click += buttonOrder_Click;
+            // 
+            // listBoxStudentOrders
+            // 
+            listBoxStudentOrders.FormattingEnabled = true;
+            listBoxStudentOrders.ItemHeight = 41;
+            listBoxStudentOrders.Location = new System.Drawing.Point(56, 205);
+            listBoxStudentOrders.Margin = new Padding(6, 7, 6, 7);
+            listBoxStudentOrders.Name = "listBoxStudentOrders";
+            listBoxStudentOrders.Size = new System.Drawing.Size(593, 947);
+            listBoxStudentOrders.TabIndex = 3;
+            listBoxStudentOrders.SelectedIndexChanged += listBoxStudentOrders_SelectedIndexChanged;
+            // 
+            // listBoxDrinksOrders
+            // 
+            listBoxDrinksOrders.FormattingEnabled = true;
+            listBoxDrinksOrders.ItemHeight = 41;
+            listBoxDrinksOrders.Location = new System.Drawing.Point(797, 205);
+            listBoxDrinksOrders.Margin = new Padding(6, 7, 6, 7);
+            listBoxDrinksOrders.Name = "listBoxDrinksOrders";
+            listBoxDrinksOrders.Size = new System.Drawing.Size(944, 947);
+            listBoxDrinksOrders.TabIndex = 4;
+            listBoxDrinksOrders.SelectedIndexChanged += listBoxDrinksOrders_SelectedIndexChanged_1;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label7.Location = new System.Drawing.Point(56, 94);
+            label7.Margin = new Padding(8, 0, 8, 0);
+            label7.Name = "label7";
+            label7.Size = new System.Drawing.Size(213, 81);
+            label7.TabIndex = 0;
+            label7.Text = "Orders";
+            // 
+            // PriceOutput
+            // 
+            PriceOutput.AutoSize = true;
+            PriceOutput.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            PriceOutput.Location = new System.Drawing.Point(1960, 376);
+            PriceOutput.Margin = new Padding(6, 0, 6, 0);
+            PriceOutput.Name = "PriceOutput";
+            PriceOutput.Size = new System.Drawing.Size(67, 47);
+            PriceOutput.TabIndex = 7;
+            PriceOutput.Text = "0.00";
+            PriceOutput.UseCompatibleTextRendering = true;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label8.Location = new System.Drawing.Point(1845, 205);
+            label8.Margin = new Padding(6, 0, 6, 0);
+            label8.Name = "label8";
+            label8.Size = new System.Drawing.Size(420, 41);
+            label8.TabIndex = 6;
+            label8.Text = "Choose the number of drinks :";
             // 
             // pnlActivityParticipants
             // 
@@ -516,7 +644,6 @@ namespace SomerenUI
             // 
             // listViewStudents
             // 
-            listViewStudents.FullRowSelect = true;
             listViewStudents.Location = new System.Drawing.Point(56, 205);
             listViewStudents.Margin = new Padding(8, 9, 8, 9);
             listViewStudents.MultiSelect = false;
@@ -578,7 +705,6 @@ namespace SomerenUI
             // 
             // listViewLecturers
             // 
-            listViewLecturers.FullRowSelect = true;
             listViewLecturers.Location = new System.Drawing.Point(56, 205);
             listViewLecturers.Margin = new Padding(8, 9, 8, 9);
             listViewLecturers.MultiSelect = false;
@@ -1038,7 +1164,6 @@ namespace SomerenUI
             // 
             // listViewDrinks
             // 
-            listViewDrinks.FullRowSelect = true;
             listViewDrinks.Location = new System.Drawing.Point(56, 205);
             listViewDrinks.Margin = new Padding(8, 9, 8, 9);
             listViewDrinks.MultiSelect = false;
@@ -1057,134 +1182,6 @@ namespace SomerenUI
             label3.Size = new System.Drawing.Size(202, 81);
             label3.TabIndex = 0;
             label3.Text = "Drinks";
-            // 
-            // pnlOrder
-            // 
-            pnlOrder.Controls.Add(button6);
-            pnlOrder.Controls.Add(button5);
-            pnlOrder.Controls.Add(label5);
-            pnlOrder.Controls.Add(QuantityOfDrinks);
-            pnlOrder.Controls.Add(buttonOrder);
-            pnlOrder.Controls.Add(listBoxStudentOrders);
-            pnlOrder.Controls.Add(listBoxDrinksOrders);
-            pnlOrder.Controls.Add(label7);
-            pnlOrder.Controls.Add(PriceOutput);
-            pnlOrder.Controls.Add(label8);
-            pnlOrder.Dock = DockStyle.Top;
-            pnlOrder.Location = new System.Drawing.Point(0, 0);
-            pnlOrder.Margin = new Padding(8, 9, 8, 9);
-            pnlOrder.Name = "pnlOrder";
-            pnlOrder.Size = new System.Drawing.Size(2278, 1274);
-            pnlOrder.TabIndex = 17;
-            // 
-            // button6
-            // 
-            button6.Location = new System.Drawing.Point(1861, 998);
-            button6.Margin = new Padding(6, 7, 6, 7);
-            button6.Name = "button6";
-            button6.Size = new System.Drawing.Size(405, 154);
-            button6.TabIndex = 10;
-            button6.Text = "Vat Report";
-            button6.UseVisualStyleBackColor = true;
-            button6.Click += button6_Click;
-            // 
-            // button5
-            // 
-            button5.Location = new System.Drawing.Point(1853, 740);
-            button5.Margin = new Padding(6, 7, 6, 7);
-            button5.Name = "button5";
-            button5.Size = new System.Drawing.Size(405, 154);
-            button5.TabIndex = 9;
-            button5.Text = "Revenue report";
-            button5.UseVisualStyleBackColor = true;
-            button5.Click += button5_Click;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label5.Location = new System.Drawing.Point(1851, 374);
-            label5.Margin = new Padding(6, 0, 6, 0);
-            label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(105, 41);
-            label5.TabIndex = 8;
-            label5.Text = "Price : ";
-            // 
-            // QuantityOfDrinks
-            // 
-            QuantityOfDrinks.Location = new System.Drawing.Point(1853, 280);
-            QuantityOfDrinks.Margin = new Padding(6, 7, 6, 7);
-            QuantityOfDrinks.Name = "QuantityOfDrinks";
-            QuantityOfDrinks.Size = new System.Drawing.Size(397, 47);
-            QuantityOfDrinks.TabIndex = 3;
-            QuantityOfDrinks.ValueChanged += QuantityOfDrinks_ValueChanged;
-            // 
-            // buttonOrder
-            // 
-            buttonOrder.Location = new System.Drawing.Point(1853, 475);
-            buttonOrder.Margin = new Padding(6, 7, 6, 7);
-            buttonOrder.Name = "buttonOrder";
-            buttonOrder.Size = new System.Drawing.Size(405, 154);
-            buttonOrder.TabIndex = 3;
-            buttonOrder.Text = "Place Order";
-            buttonOrder.UseVisualStyleBackColor = true;
-            buttonOrder.Click += buttonOrder_Click;
-            // 
-            // listBoxStudentOrders
-            // 
-            listBoxStudentOrders.FormattingEnabled = true;
-            listBoxStudentOrders.ItemHeight = 41;
-            listBoxStudentOrders.Location = new System.Drawing.Point(56, 205);
-            listBoxStudentOrders.Margin = new Padding(6, 7, 6, 7);
-            listBoxStudentOrders.Name = "listBoxStudentOrders";
-            listBoxStudentOrders.Size = new System.Drawing.Size(593, 947);
-            listBoxStudentOrders.TabIndex = 3;
-            listBoxStudentOrders.SelectedIndexChanged += listBoxStudentOrders_SelectedIndexChanged;
-            // 
-            // listBoxDrinksOrders
-            // 
-            listBoxDrinksOrders.FormattingEnabled = true;
-            listBoxDrinksOrders.ItemHeight = 41;
-            listBoxDrinksOrders.Location = new System.Drawing.Point(797, 205);
-            listBoxDrinksOrders.Margin = new Padding(6, 7, 6, 7);
-            listBoxDrinksOrders.Name = "listBoxDrinksOrders";
-            listBoxDrinksOrders.Size = new System.Drawing.Size(944, 947);
-            listBoxDrinksOrders.TabIndex = 4;
-            listBoxDrinksOrders.SelectedIndexChanged += listBoxDrinksOrders_SelectedIndexChanged_1;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label7.Location = new System.Drawing.Point(56, 94);
-            label7.Margin = new Padding(8, 0, 8, 0);
-            label7.Name = "label7";
-            label7.Size = new System.Drawing.Size(213, 81);
-            label7.TabIndex = 0;
-            label7.Text = "Orders";
-            // 
-            // PriceOutput
-            // 
-            PriceOutput.AutoSize = true;
-            PriceOutput.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            PriceOutput.Location = new System.Drawing.Point(1960, 376);
-            PriceOutput.Margin = new Padding(6, 0, 6, 0);
-            PriceOutput.Name = "PriceOutput";
-            PriceOutput.Size = new System.Drawing.Size(67, 47);
-            PriceOutput.TabIndex = 7;
-            PriceOutput.Text = "0.00";
-            PriceOutput.UseCompatibleTextRendering = true;
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label8.Location = new System.Drawing.Point(1845, 205);
-            label8.Margin = new Padding(6, 0, 6, 0);
-            label8.Name = "label8";
-            label8.Size = new System.Drawing.Size(420, 41);
-            label8.TabIndex = 6;
-            label8.Text = "Choose the number of drinks :";
             // 
             // pictureBox7
             // 
@@ -1216,6 +1213,9 @@ namespace SomerenUI
             pnlRoom.ResumeLayout(false);
             pnlRoom.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            pnlOrder.ResumeLayout(false);
+            pnlOrder.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)QuantityOfDrinks).EndInit();
             pnlActivityParticipants.ResumeLayout(false);
             pnlActivityParticipants.PerformLayout();
             pnlActivity.ResumeLayout(false);
@@ -1230,9 +1230,6 @@ namespace SomerenUI
             pnlRevenue.PerformLayout();
             pnlDrink.ResumeLayout(false);
             pnlDrink.PerformLayout();
-            pnlOrder.ResumeLayout(false);
-            pnlOrder.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)QuantityOfDrinks).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
             ResumeLayout(false);
             PerformLayout();
