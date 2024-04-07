@@ -7,6 +7,8 @@ using System;
 using System.Drawing;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Reflection.Emit;
+using System.Diagnostics;
+using Activity = SomerenModel.Activity;
 
 namespace SomerenUI
 {
@@ -240,6 +242,12 @@ namespace SomerenUI
             ActivityService activityService = new ActivityService();
             List<Activity> activities = activityService.GetActivities();
             return activities;
+        }
+        private List<Participant> GetParticipants()
+        {
+            ParticipantService participantService = new ParticipantService();
+            List<Participant> participants = participantService.GetParticipants();
+            return participants;
         }
         // Get drinks from the service
         private List<Drink> GetDrinks()
@@ -588,6 +596,7 @@ namespace SomerenUI
             pnlOrder.Hide();
             pnlRevenue.Hide();
             pnlVat.Hide();
+            pnlActivityParticipants.Hide();
         }
         private void DoingMyBestNotToRepeat()
         {
@@ -770,7 +779,21 @@ namespace SomerenUI
             listViewActivities.Items.Clear();
             listViewActivities.Columns.Clear();
         }
-
+        private void ClearListViewActivityManager()
+        {
+            listViewActivities4Participants.Items.Clear();
+            listViewActivities4Participants.Columns.Clear();
+        }
+        private void ClearListViewParticipants()
+        {
+            listViewParticipants.Items.Clear();
+            listViewParticipants.Columns.Clear();
+        }
+        private void ClearListViewNonParticipants()
+        {
+            listViewNonParticipants.Items.Clear();
+            listViewNonParticipants.Columns.Clear();
+        }
         private void ClearListViewLectuer()
         {
             listViewLecturers.Items.Clear();
@@ -806,6 +829,21 @@ namespace SomerenUI
             listViewActivities.Columns.Add("Name", 300);
             listViewActivities.Columns.Add("Date", 250);
             listViewActivities.Columns.Add("Time", 200);
+        }
+        private void AddListViewColumnsActivityManager()
+        {
+            listViewActivities4Participants.Columns.Add("Name", 300);
+
+        }
+        private void AddListViewColumnsParticipants()
+        {
+            listViewParticipants.Columns.Add("Name", 300);
+
+        }
+        private void AddListViewColumnsNonParticipants()
+        {
+            listViewNonParticipants.Columns.Add("Name", 300);
+
         }
         private void AddListViewColumnsRoom()
         {
@@ -958,6 +996,163 @@ namespace SomerenUI
             label21.Text = "€" + vat9Percent.ToString("0.00");
             label22.Text = "€" + vat21Percent.ToString("0.00");
             label23.Text = "€" + vatTotal.ToString("0.00");
+        }
+
+
+
+
+
+
+
+        // Activity Manager
+        private void button12_Click_1(object sender, EventArgs e)
+        {
+            ShowActivityParticipantsPnl();
+
+        }
+
+        private void ShowActivityParticipantsPnl()
+        {
+            // Hide the dashboard label
+            lblDashboard.Hide();
+            hideAll();
+
+            ClearListViewParticipants();
+            ClearListViewNonParticipants();
+
+
+            try
+            {
+                // Show the panel
+                pnlActivityParticipants.Visible = true;
+
+                // Get activities from the service
+                List<Activity> activitiesToManage = GetActivities();
+
+                // Display activities in the ListView
+                DisplayActivities(activitiesToManage);
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Something went wrong while loading the Vat: " + e.Message);
+            }
+
+        }
+
+        private void DisplayActivities(List<Activity> activities)
+        {
+            ClearListViewActivityManager();
+
+            listViewActivities4Participants.View = View.Details;
+
+            AddListViewColumnsActivityManager();
+
+            foreach (Activity activity in activities)
+            {
+                ListViewItem item = new ListViewItem(activity.Name);
+                item.Tag = activity;
+
+                listViewActivities4Participants.Items.Add(item);
+            }
+        }
+        private void listViewActivities4Participants_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Activity selectedActivity = (Activity)listViewActivities4Participants.SelectedItems[0].Tag;
+            ParticipantService participantService = new ParticipantService();
+
+            List<Participant> participants = participantService.FilterParticipantsByActivity(selectedActivity.id);
+
+
+            List<Student> students = new List<Student>();
+            students = GetStudents();
+            List<string> participantNames = new List<string>();
+            participantNames = participantService.GetStudentsByParticipantId(participants, students);
+
+            List<string> nonParticipantNames = new List<string>();
+            nonParticipantNames = participantService.FilterParticipantsByParticipantNames(participants, students);
+
+            DisplayParticipants(participantNames);
+            DisplayNonParticipants(nonParticipantNames);
+        }
+        private void DisplayParticipants(List<string> participantNames)
+        {
+
+            ClearListViewParticipants();
+
+            listViewParticipants.View = View.Details;
+
+            AddListViewColumnsParticipants();
+
+
+            foreach (string name in participantNames)
+            {
+                ListViewItem item = new ListViewItem(name);
+                item.Tag = name;
+
+                listViewParticipants.Items.Add(item);
+            }
+        }
+        private void DisplayNonParticipants(List<string> nonParticipantNames)
+        {
+            ClearListViewNonParticipants();
+
+            listViewNonParticipants.View = View.Details;
+
+            AddListViewColumnsNonParticipants();
+
+
+            foreach (string name in nonParticipantNames)
+            {
+                ListViewItem item = new ListViewItem(name);
+                item.Tag = name;
+
+                listViewNonParticipants.Items.Add(item);
+            }
+        }
+
+        private void button11_Click_1(object sender, EventArgs e)
+        {
+            string selectedName = (string)listViewNonParticipants.SelectedItems[0].Tag;
+            Activity selectedActivity = (Activity)listViewActivities4Participants.SelectedItems[0].Tag;
+            ParticipantService participantService = new ParticipantService();
+            List<Student> students = new List<Student>();
+            students = GetStudents();
+            try
+            {
+                participantService.CreateNewParticipant(selectedName, selectedActivity, students);
+                MessageBox.Show("Participant added successfully!");
+                ShowActivityParticipantsPnl();
+
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Something went wrong: " + ex.Message);
+
+            }
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            string selectedName = (string)listViewParticipants.SelectedItems[0].Tag;
+            Activity selectedActivity = (Activity)listViewActivities4Participants.SelectedItems[0].Tag;
+            ParticipantService participantService = new ParticipantService();
+            List<Student> students = new List<Student>();
+            students = GetStudents();
+            try
+            {
+                participantService.RemoveParticipant(selectedName, selectedActivity, students);
+                MessageBox.Show("Participant added successfully!");
+                ShowActivityParticipantsPnl();
+
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Something went wrong: " + ex.Message);
+
+            }
         }
     }
 
