@@ -222,6 +222,7 @@ namespace SomerenUI
             // 
             pnlDashboard.Controls.Add(pnlRoom);
             pnlDashboard.Controls.Add(lblDashboard);
+            pnlDashboard.Controls.Add(pnlOrder);
             pnlDashboard.Controls.Add(pnlActivityParticipants);
             pnlDashboard.Controls.Add(pnlActivity);
             pnlDashboard.Controls.Add(pnlStudents);
@@ -229,7 +230,6 @@ namespace SomerenUI
             pnlDashboard.Controls.Add(pnlVat);
             pnlDashboard.Controls.Add(pnlRevenue);
             pnlDashboard.Controls.Add(pnlDrink);
-            pnlDashboard.Controls.Add(pnlOrder);
             pnlDashboard.Location = new System.Drawing.Point(0, 0);
             pnlDashboard.Margin = new Padding(8, 9, 8, 9);
             pnlDashboard.Name = "pnlDashboard";
@@ -436,8 +436,10 @@ namespace SomerenUI
             // 
             // listViewActivities
             // 
+            listViewActivities.FullRowSelect = true;
             listViewActivities.Location = new System.Drawing.Point(56, 205);
             listViewActivities.Margin = new Padding(8, 9, 8, 9);
+            listViewActivities.MultiSelect = false;
             listViewActivities.Name = "listViewActivities";
             listViewActivities.Size = new System.Drawing.Size(1854, 833);
             listViewActivities.TabIndex = 1;
@@ -514,8 +516,10 @@ namespace SomerenUI
             // 
             // listViewStudents
             // 
+            listViewStudents.FullRowSelect = true;
             listViewStudents.Location = new System.Drawing.Point(56, 205);
             listViewStudents.Margin = new Padding(8, 9, 8, 9);
+            listViewStudents.MultiSelect = false;
             listViewStudents.Name = "listViewStudents";
             listViewStudents.Size = new System.Drawing.Size(1854, 833);
             listViewStudents.TabIndex = 1;
@@ -574,8 +578,10 @@ namespace SomerenUI
             // 
             // listViewLecturers
             // 
+            listViewLecturers.FullRowSelect = true;
             listViewLecturers.Location = new System.Drawing.Point(56, 205);
             listViewLecturers.Margin = new Padding(8, 9, 8, 9);
+            listViewLecturers.MultiSelect = false;
             listViewLecturers.Name = "listViewLecturers";
             listViewLecturers.Size = new System.Drawing.Size(1854, 833);
             listViewLecturers.TabIndex = 1;
@@ -952,8 +958,10 @@ namespace SomerenUI
             // 
             // listViewForRevenue
             // 
+            listViewForRevenue.FullRowSelect = true;
             listViewForRevenue.Location = new System.Drawing.Point(433, 547);
             listViewForRevenue.Margin = new Padding(8, 9, 8, 9);
+            listViewForRevenue.MultiSelect = false;
             listViewForRevenue.Name = "listViewForRevenue";
             listViewForRevenue.Size = new System.Drawing.Size(1517, 605);
             listViewForRevenue.TabIndex = 1;
