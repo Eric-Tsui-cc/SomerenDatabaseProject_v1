@@ -362,6 +362,7 @@ namespace SomerenUI
             // 
             listViewActivities4Participants.Location = new System.Drawing.Point(1529, 205);
             listViewActivities4Participants.Margin = new Padding(8, 9, 8, 9);
+            listViewActivities4Participants.MultiSelect = false;
             listViewActivities4Participants.Name = "listViewActivities4Participants";
             listViewActivities4Participants.Size = new System.Drawing.Size(595, 833);
             listViewActivities4Participants.TabIndex = 3;
@@ -372,6 +373,7 @@ namespace SomerenUI
             // 
             listViewNonParticipants.Location = new System.Drawing.Point(789, 205);
             listViewNonParticipants.Margin = new Padding(8, 9, 8, 9);
+            listViewNonParticipants.MultiSelect = false;
             listViewNonParticipants.Name = "listViewNonParticipants";
             listViewNonParticipants.Size = new System.Drawing.Size(595, 833);
             listViewNonParticipants.TabIndex = 2;
@@ -381,6 +383,7 @@ namespace SomerenUI
             // 
             listViewParticipants.Location = new System.Drawing.Point(56, 205);
             listViewParticipants.Margin = new Padding(8, 9, 8, 9);
+            listViewParticipants.MultiSelect = false;
             listViewParticipants.Name = "listViewParticipants";
             listViewParticipants.Size = new System.Drawing.Size(595, 833);
             listViewParticipants.TabIndex = 1;

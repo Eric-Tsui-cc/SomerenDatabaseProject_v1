@@ -1144,18 +1144,22 @@ namespace SomerenUI
             ParticipantService participantService = new ParticipantService();
             List<Student> students = new List<Student>();
             students = GetStudents();
-            try
+            DialogResult result = MessageBox.Show("Are you sure you wish to remove this participant?", "Confirmation", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
             {
-                participantService.RemoveParticipant(selectedName, selectedActivity, students);
-                MessageBox.Show("Participant removed successfully!");
-                ShowActivityParticipantsPnl();
+                try
+                {
+                    participantService.RemoveParticipant(selectedName, selectedActivity, students);
+                    MessageBox.Show("Participant removed successfully!");
+                    ShowActivityParticipantsPnl();
 
-            }
+                }
 
-            catch (Exception ex)
-            {
-                MessageBox.Show("Something went wrong: " + ex.Message);
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Something went wrong: " + ex.Message);
 
+                }
             }
         }
     }
